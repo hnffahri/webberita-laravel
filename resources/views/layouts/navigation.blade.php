@@ -19,8 +19,11 @@
         </x-nav-link> --}}
         <div class="dropdown nav-link">
           <a class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{-- {{ Auth::user()->name }} --}}
-            <img src="{{ asset('images/user.jpg') }}" alt="#" class="bulat" width="30">
+            @if (empty(Auth::user()->avatar))
+            <img src="{{ asset('images/user.png') }}" alt="#" class="bulat" width="30">
+            @else
+            <img src="{{ asset('images/'.Auth::user()->avatar) }}" alt="#" class="bulat rounded-circle" width="30">
+            @endif
           </a>
           <ul class="dropdown-menu dropdown-menu-end shadow-sm">
             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>

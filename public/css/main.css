@@ -88,7 +88,6 @@ nav .nav-link.active{
 .bulat{
     aspect-ratio: 1/1;
     object-fit: cover;
-    border-radius: 100px;
 }
 
 .logo{

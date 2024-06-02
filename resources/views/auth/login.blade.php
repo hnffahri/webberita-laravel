@@ -3,7 +3,7 @@
   <h5 class="text-dark">Login</h5>
   <p>Selamat datang kembali, masukkan kredensial Anda untuk melanjutkan.</p>
 
-  <x-link-dark-button href="{{ route('register') }}" class="w-100">
+  <x-link-dark-button href="{{ route('auth.google') }}" class="w-100">
     <img src="{{ asset('images/logo_google.svg') }}" alt="Logo" width="30"> {{ __('Login Dengan Google') }}
   </x-link-dark-button>
   <div class="divider-text my-4">
@@ -20,14 +20,14 @@
     <!-- Email Address -->
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <x-input id="email" name="email" type="email" autocomplete="email" />
+        <x-input id="email" name="email" type="email" class="" autocomplete="email" />
     </div>
   
 
     <!-- Password -->
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <x-input id="password" name="password" type="password" autocomplete="current-password" />
+        <x-input id="password" name="password" type="password" class="" autocomplete="current-password" />
     </div>
   
     <!-- Remember Me -->

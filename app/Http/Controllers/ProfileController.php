@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -27,6 +29,20 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
+
+        
+        if($request->hasFile('avatar')){
+            $avatar_file = $request->file('avatar');
+            $avatar_ekstensi = $avatar_file->extension();
+            $avatar_nama = date('ymdhis') . "." . $avatar_ekstensi;
+            $avatar_file->move(public_path('images/'), $avatar_nama);
+
+            $id = Auth::user()->id;
+            $oldavatar = User::where('id', $id)->first();
+            File::delete(public_path('images') .'/'. $oldavatar->avatar);
+            
+            $request->user()->avatar = $avatar_nama;
+        }
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;

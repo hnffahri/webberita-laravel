@@ -5,7 +5,7 @@
     <h5 class="text-dark">Register</h5>
     <p>Silakan masuk jika Anda sudah membuat akun.</p>
     
-    <x-link-dark-button href="{{ route('register') }}" class="w-100">
+    <x-link-dark-button href="{{ route('auth.google') }}" class="w-100">
       <img src="{{ asset('images/logo_google.svg') }}" alt="Logo" width="30"> {{ __('Daftar Dengan Google') }}
     </x-link-dark-button>
     <div class="divider-text my-4">
@@ -17,25 +17,25 @@
     <!-- Name -->
     <div class="mb-3">
       <x-input-label for="name" :value="__('Nama')" />
-      <x-input id="name" name="name" type="text" autocomplete="username" />
+      <x-input id="name" name="name" type="text" class="" autocomplete="username" />
     </div>
 
     <!-- Email Address -->
     <div class="mb-3">
       <x-input-label for="email" :value="__('Email')" />
-      <x-input id="email" name="email" type="email" autocomplete="email" />
+      <x-input id="email" name="email" type="email" class="" autocomplete="email" />
     </div>
 
     <!-- Password -->
     <div class="mb-3">
       <x-input-label for="password" :value="__('Password')" />
-      <x-input id="password" name="password" type="password" autocomplete="new-password" />
+      <x-input id="password" name="password" type="password" class="" autocomplete="new-password" />
     </div>
 
     <!-- Confirm Password -->
     <div class="mb-3">
       <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-      <x-input id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" />
+      <x-input id="password_confirmation" name="password_confirmation" type="password" class="" autocomplete="new-password" />
     </div>
 
     <x-primary-button class="w-100">{{ __('Register') }}</x-primary-button>

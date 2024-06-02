@@ -13,18 +13,28 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="">
+    <form method="post" action="{{ route('profile.update') }}" class="" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
+        <div class="mb-3 d-flex align-items-center">
+            <img src="{{ asset('images/'.$user->avatar) }}" alt="{{ $user->name }}" class="bulat rounded-2" width="65">
+            <div class="ms-2 w-100">
+                <x-input-label for="avatar" :value="__('Avatar')" />
+                <x-input id="avatar" class="" name="avatar" type="file" />
+                @if ($user->avatar)
+            </div>
+            @endif
+        </div>
+
         <div class="mb-3">
             <x-input-label for="name" :value="__('Name')" />
-            <x-input id="name" name="name" type="text" autocomplete="name" value="{{ old('name', $user->name) }}" />
+            <x-input id="name" class="" name="name" type="text" autocomplete="name" value="{{ old('name', $user->name) }}" />
         </div>
 
         <div class="mb-3">
             <x-input-label for="email" :value="__('Email')" />
-            <x-input id="email" name="email" type="email" autocomplete="email" value="{{ old('email', $user->email) }}" />
+            <x-input id="email" class="" name="email" type="email" autocomplete="email" value="{{ old('email', $user->email) }}" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>

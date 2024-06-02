@@ -8,26 +8,19 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <input id="email" class="form-control mt-1 @error('email') is-invalid @enderror" type="email" name="email" value="{{ $request->email }}" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-input id="email" name="email" type="email" autocomplete="email" class="" value="{{ $request->email }}" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
-            <input id="password" class="form-control mt-1 @error('password') is-invalid @enderror" type="password" name="password" autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-input-password id="password" name="password" type="password" autocomplete="new-password"/>
         </div>
 
         <!-- Confirm Password -->
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <input id="password_confirmation" class="form-control mt-1 @error('password_confirmation') is-invalid @enderror"
-                                type="password"
-                                name="password_confirmation" autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            <x-input-password id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password"/>
         </div>
 
         <div class="flex items-center justify-end mt-4">

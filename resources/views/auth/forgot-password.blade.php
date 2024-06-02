@@ -12,7 +12,7 @@
         <!-- Email Address -->
         <div class="mb-3">
             <x-input-label for="email" :value="__('Email')" />
-            <x-input id="email" name="email" type="email" autocomplete="email" />
+            <x-input id="email" name="email" type="email" autocomplete="email" class="" />
         </div>
         <x-primary-button class="w-100">{{ __('Email Password Reset Link') }}</x-primary-button>
         <div class="divider-text my-4">
