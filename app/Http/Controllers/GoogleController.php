@@ -22,9 +22,23 @@ public function handleGoogleCallback()
 
     if (!$user) {
         // Jika belum ada akun dengan email ini, buat akun baru
+        
+        // Buat username dari name
+        $nameParts = explode(' ', $googleUser->getName());
+        $baseUsername = strtolower($nameParts[0]); // Menggunakan bagian pertama dari nama
+        $username = $baseUsername;
+
+        // Cek apakah username sudah ada dan buat yang unik
+        $counter = 1;
+        while (User::where('username', $username)->exists()) {
+            $username = $baseUsername . $counter;
+            $counter++;
+        }
+
         $user = User::create([
             'name' => $googleUser->getName(),
             'email' => $googleUser->getEmail(),
+            'username' => $username,
             'password' => Hash::make('password'), // Buat password acak, tidak akan digunakan
         ]);
     }
@@ -32,7 +46,7 @@ public function handleGoogleCallback()
     // Masukkan pengguna ke dalam sesi
     Auth::login($user);
 
-    return redirect()->route('dashboard');
+    return redirect()->route('dashboardmember');
 
 
     

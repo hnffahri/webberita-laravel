@@ -37,9 +37,23 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        
+        // Buat username dari name
+        $nameParts = explode(' ', $request->name);
+        $baseUsername = strtolower($nameParts[0]); // Menggunakan bagian pertama dari nama
+        $username = $baseUsername;
+
+        // Cek apakah username sudah ada dan buat yang unik
+        $counter = 1;
+        while (User::where('username', $username)->exists()) {
+            $username = $baseUsername . $counter;
+            $counter++;
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'username' => $username,
             'password' => Hash::make($request->password),
         ]);
 
@@ -47,6 +61,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        // return redirect(RouteServiceProvider::HOME);
+        return redirect('/dashboard');
     }
 }
