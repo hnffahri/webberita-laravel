@@ -10,9 +10,7 @@ use App\Http\Controllers\panel\GoogleAnalitycsController;
 use App\Http\Controllers\panel\KategoriController;
 use App\Http\Controllers\panel\KebijakanPrivasiController;
 use App\Http\Controllers\panel\KontenController;
-use App\Http\Controllers\panel\MasukController;
 use App\Http\Controllers\panel\PasswordController;
-use App\Http\Controllers\panel\PengaturanController;
 use App\Http\Controllers\panel\PesanController;
 use App\Http\Controllers\panel\SeoController;
 use App\Http\Controllers\panel\SosmedController;
@@ -66,7 +64,7 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::resource('/panel/seo', SeoController::class)->names('seo')->only(['index', 'update']);
     Route::resource('/panel/google-analitycs', GoogleAnalitycsController::class)->names('google-analitycs')->only(['index', 'update']);
     Route::resource('/panel/facebook-pixel', FacebookPixelController::class)->names('facebook-pixel')->only(['index', 'update']);
-    Route::resource('/panel/profile', PengaturanController::class)->names('profile')->only(['index', 'update']);
+    // Route::resource('/panel/profile', PengaturanController::class)->names('profile')->only(['index', 'update']);
     Route::resource('/panel/syarat-ketentuan', SyaratKetentuanController::class)->names('syarat-ketentuan')->only(['index', 'update']);
     Route::resource('/panel/kebijakan-privasi', KebijakanPrivasiController::class)->names('kebijakan-privasi')->only(['index', 'update']);
     Route::resource('/panel/sosial-media', SosmedController::class)->names('sosial-media')->only(['index', 'update']);
