@@ -27,7 +27,7 @@
           @if (empty($data->avatar))
           <img src="{{ asset('images/user.png') }}" alt="avatar" id="imgavatar" width="40" class="rounded-3 border me-3 kotak"><h5 class="text-dark m-0 fw-semibold"><i class="far fa-edit me-2"></i>Ganti Avatar</h5>
           @else
-          <img src="{{ asset('images/user/'.$data->avatar) }}" alt="avatar" id="imgavatar" width="40" class="rounded-3 border me-3 kotak"><h5 class="text-dark m-0 fw-semibold"><i class="far fa-edit me-2"></i>Ganti Avatar</h5>
+          <img src="{{ asset('images/admin/'.$data->avatar) }}" alt="avatar" id="imgavatar" width="40" class="rounded-3 border me-3 kotak"><h5 class="text-dark m-0 fw-semibold"><i class="far fa-edit me-2"></i>Ganti Avatar</h5>
           @endif
         </label>
         <input type="file" class="form-control" id="avatar" name="avatar" hidden>

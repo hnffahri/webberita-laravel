@@ -27,21 +27,4 @@ class PasswordRequest extends FormRequest
             'password_konfirmasi' => ['required', 'string', 'min:6', 'same:password_baru'],
         ];
     }
-    
-    public function messages(): array
-    {
-        return [
-            'password.required' => 'Password lama harus diisi',
-            'password.string' => 'Password lama harus berupa string',
-            'password.min' => 'Password lama harus memiliki minimal :min karakter',
-            'password_baru.required' => 'Password baru harus diisi',
-            'password_baru.string' => 'Password baru harus berupa string',
-            'password_baru.min' => 'Password baru harus memiliki minimal :min karakter',
-            'password_baru.different' => 'Password baru harus berbeda dengan password lama',
-            'password_konfirmasi.required' => 'Konfirmasi password harus diisi',
-            'password_konfirmasi.string' => 'Konfirmasi password harus berupa string',
-            'password_konfirmasi.min' => 'Konfirmasi password harus memiliki minimal :min karakter',
-            'password_konfirmasi.same' => 'Konfirmasi password salah',
-        ];
-    }
 }

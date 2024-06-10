@@ -19,12 +19,22 @@
             <!-- Email Address -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <x-input id="email" name="email" type="email" class="" autocomplete="email" />
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" autocomplete="email">
+                @error('email')
+                <div class="invalid-feedback d-block">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <!-- Password -->
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <x-input id="password" name="password" type="password" class="" autocomplete="current-password" />
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
+                @error('password')
+                <div class="invalid-feedback d-block">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
           
             <!-- Remember Me -->

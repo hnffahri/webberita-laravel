@@ -10,41 +10,56 @@
   </div>
 </div>
 
-@include('panel/komponen/alert')
+{{-- @include('panel/komponen/alert') --}}
 <div class="swal" data-swal="{{ session('success') }}"></div>
 
 <div class="card flex-fill">
   <div class="card-body">
-    <form method="POST" action="/panel/password/{{ Auth::user()->id }}">
+    <form method="POST" action="/panel/password/{{ Auth::guard('admin')->user()->id }}">
       @method('PUT')
       @csrf
       <div class="row">
         <div class="col-md-4 mb-3">
           <label for="password_lama">Password Lama</label>
           <div class="input-group">
-            <input id="password_lama" type="password" class="form-control" name="password" autocomplete="new-password">
+            <input id="password_lama" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
             <span class="input-group-text">
               <i class="fal fa-eye"></i>
             </span>
           </div>
+          @error('password')
+          <div class="invalid-feedback d-block">
+              {{ $message }}
+          </div>
+          @enderror
         </div>
         <div class="col-md-4 mb-3">
           <label for="password_baru">Password Baru</label>
           <div class="input-group">
-            <input id="password_baru" type="password" class="form-control" name="password_baru" autocomplete="new-password">
+            <input id="password_baru" type="password" class="form-control @error('password_baru') is-invalid @enderror" name="password_baru" autocomplete="new-password">
             <span class="input-group-text">
               <i class="fal fa-eye"></i>
             </span>
           </div>
+          @error('password_baru')
+          <div class="invalid-feedback d-block">
+              {{ $message }}
+          </div>
+          @enderror
         </div>
         <div class="col-md-4 mb-3">
           <label for="konfirmasi_password">Konfirmasi Password</label>
           <div class="input-group">
-            <input id="konfirmasi_password" type="password" class="form-control" name="password_konfirmasi" autocomplete="new-password">
+            <input id="konfirmasi_password" type="password" class="form-control @error('password_konfirmasi') is-invalid @enderror" name="password_konfirmasi" autocomplete="new-password">
             <span class="input-group-text">
               <i class="fal fa-eye"></i>
             </span>
           </div>
+          @error('password_konfirmasi')
+          <div class="invalid-feedback d-block">
+              {{ $message }}
+          </div>
+          @enderror
         </div>
       </div>
       <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>

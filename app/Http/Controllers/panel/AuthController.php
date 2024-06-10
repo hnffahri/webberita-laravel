@@ -22,7 +22,7 @@ class AuthController extends Controller
             return redirect('/panel');
         }
 
-        return back()->withErrors(['email' => 'Invalid credentials.']);
+        return back()->withErrors(['email' => 'Kredensial ini tidak cocok dengan catatan kami.']);
     }
 
     public function logout()
