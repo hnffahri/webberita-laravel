@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('plugin', function (Blueprint $table) {
             $table->id();
             $table->text('facebook_pixel');
-            $table->text('google_analitycs');
+            $table->text('google_analytics');
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@ use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\KategoriController as FrontKategoriController;
 use App\Http\Controllers\panel\DashboardController;
 use App\Http\Controllers\panel\FacebookPixelController;
-use App\Http\Controllers\panel\GoogleAnalitycsController;
+use App\Http\Controllers\panel\GoogleAnalyticsController;
 use App\Http\Controllers\panel\KategoriController;
 use App\Http\Controllers\panel\KebijakanPrivasiController;
 use App\Http\Controllers\panel\KontenController;
@@ -62,7 +62,7 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::get('/panel/pesan', [PesanController::class, 'index'])->name('pesan');
     Route::resource('/panel/statistik', DashboardController::class)->names('statistik');
     Route::resource('/panel/seo', SeoController::class)->names('seo')->only(['index', 'update']);
-    Route::resource('/panel/google-analitycs', GoogleAnalitycsController::class)->names('google-analitycs')->only(['index', 'update']);
+    Route::resource('/panel/google-analytics', GoogleAnalyticsController::class)->names('google-analytics')->only(['index', 'update']);
     Route::resource('/panel/facebook-pixel', FacebookPixelController::class)->names('facebook-pixel')->only(['index', 'update']);
     // Route::resource('/panel/profile', PengaturanController::class)->names('profile')->only(['index', 'update']);
     Route::resource('/panel/syarat-ketentuan', SyaratKetentuanController::class)->names('syarat-ketentuan')->only(['index', 'update']);
@@ -89,6 +89,12 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 
 require __DIR__.'/auth.php';
 
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+// });
+Route::group(['prefix' => 'laravel-filemanager'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/cari', [CariController::class, 'index'])->name('cari');

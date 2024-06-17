@@ -22,14 +22,7 @@ class FbPixelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'facebook_pixel' => 'required',
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'facebook_pixel.required' => 'Facebook pixel wajib diisi',
+            'facebook_pixel' => 'required|string',
         ];
     }
 }

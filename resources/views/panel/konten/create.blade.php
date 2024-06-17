@@ -18,7 +18,6 @@
   </div>
 </div>
 
-@include('panel/komponen/alert')
 <div class="card flex-fill">
   <div class="card-body">
     <form method="POST" action="/panel/konten" enctype="multipart/form-data">
@@ -26,58 +25,100 @@
       <div class="row">
         <div class="col-md-3 col-6 mb-3">
           <label for="type">Type</label>
-          <select name="type" id="type" class="form-select" onchange="showDiv(this)">
+          <select name="type" id="type" class="@error('type') is-invalid @enderror form-select" onchange="showDiv(this)">
             <option value="" hidden>Pilih Type</option>
             <option value="1" @selected(old('type') == '1')>Artikel</option>
             <option value="2" @selected(old('type') == '2')>Vidio</option>
           </select>
+          @error('type')
+          <div class="invalid-feedback">
+            *{{ $message }}
+          </div>
+          @enderror
         </div>
         <div class="col-md-3 col-6 mb-3">
           <label for="status">Status</label>
-          <select name="status" id="status" class="form-select">
+          <select name="status" id="status" class="@error('status') is-invalid @enderror form-select">
             <option value="" hidden>Pilih Status</option>
-            <option value="1" @selected(old('status') == '1')>Akitf</option>
-            <option value="2" @selected(old('status') == '2')>Tidak Akitf</option>
+            <option value="1" @selected(old('status') == '1')>Aktif</option>
+            <option value="2" @selected(old('status') == '2')>Tidak Aktif</option>
           </select>
+          @error('status')
+          <div class="invalid-feedback">
+            *{{ $message }}
+          </div>
+          @enderror
         </div>
         <div class="col-md-6 mb-3">
           <label for="kategori">Kategori</label>
-          <select name="kategori_id" id="kategori" class="form-select">
+          <select name="kategori_id" id="kategori" class="@error('kategori_id') is-invalid @enderror form-select">
             <option value="" hidden>Pilih Kategori</option>
             @foreach ($kategori as $item)
             <option value="{{ $item->id }}" @selected(old('kategori_id') == $item->id)>{{ $item->nama }}</option>
             @endforeach
           </select>
+          @error('kategori_id')
+          <div class="invalid-feedback">
+            *{{ $message }}
+          </div>
+          @enderror
         </div>
       </div>
       <div class="mb-3">
         <label for="judul">Judul</label>
-        <input type="text" name="judul" id="judul" class="form-control" value="{{ old('judul') }}">
+        <input type="text" name="judul" id="judul" class="@error('judul') is-invalid @enderror form-control" value="{{ old('judul') }}">
+        @error('judul')
+        <div class="invalid-feedback">
+          *{{ $message }}
+        </div>
+        @enderror
       </div>
       <div class="mb-3">
         <label for="ringkas">Isi Ringkas</label>
-        <textarea name="ringkas" id="ringkas" class="form-control">{{ old('ringkas') }}</textarea>
+        <textarea name="ringkas" id="ringkas" class="@error('ringkas') is-invalid @enderror form-control">{{ old('ringkas') }}</textarea>
+        @error('ringkas')
+        <div class="invalid-feedback">
+          *{{ $message }}
+        </div>
+        @enderror
       </div>
       <div class="mb-3">
         <label for="isi">Isi Lengkap</label>
-        <textarea hidden name="isi">{{ old('isi') }}</textarea>
-        <div id="editor">
-          {!! old('isi') !!}
+        <textarea name="isi" id="editor" class="@error('isi') is-invalid @enderror">{{ old('isi') }}</textarea>
+        @error('isi')
+        <div class="invalid-feedback">
+          *{{ $message }}
         </div>
+        @enderror
       </div>
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="img">Foto Banner</label>
-          <input type="file" name="img" id="img" class="form-control">
+          <input type="file" name="img" id="img" class="@error('img') is-invalid @enderror form-control">
+          @error('img')
+          <div class="invalid-feedback">
+            *{{ $message }}
+          </div>
+          @enderror
         </div>
         <div class="col-md-6 mb-3">
           <label for="vidio">Vidio</label>
-          <input type="file" name="vidio" id="vidio" class="form-control">
+          <input type="file" name="vidio" id="vidio" class="@error('vidio') is-invalid @enderror form-control">
+          @error('vidio')
+          <div class="invalid-feedback">
+            *{{ $message }}
+          </div>
+          @enderror
         </div>
       </div>
       <div class="mb-3">
         <label for="keyword">Keyword</label>
-        <input name="keyword" id="keyword" class="form-control tagin" data-tagin-placeholder="Gunakan koma buat nambah keywords" value="{{ old('keyword') }}">
+        <input name="keyword" id="keyword" class="@error('keyword') is-invalid @enderror form-control tagin" data-tagin-placeholder="Gunakan koma buat nambah keywords" value="{{ old('keyword') }}">
+        @error('keyword')
+        <div class="invalid-feedback">
+          *{{ $message }}
+        </div>
+        @enderror
       </div>
       <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
     </form>
@@ -87,33 +128,15 @@
 @endsection
 
 @push('js')
-  <!-- Include the Quill library -->
-  <script src="{{ asset('js/quill.min.js') }}"></script>
-  <script src="{{ asset('js/tagin.min.js') }}"></script>
-
-  <!-- Initialize Quill editor -->
+  <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+  <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
   <script>
-    var quill = new Quill('#editor', {
-      theme: 'snow',
-      modules: {
-        toolbar: [
-          [{ header: [1, 2, 3, 4, 5, false] }],
-          ["bold"],
-          ["italic"],
-          ["link"],
-          ["blockquote"],
-          // ["image"],
-          // ["link", "blockquote", "image"],
-          [{ list: "ordered" }],
-          [{ list: "bullet" }],
-          [{ color: [] }],
-          [{ background: [] }],
-          // [{ color: [] }, { background: [] }],
-        ]
-      },
-    });
-    quill.on('text-change', function (delta, oldDelta, source) {
-      document.querySelector("textarea[name='isi']").value = quill.root.innerHTML;
+    // Initialize CKEditor
+    CKEDITOR.replace('editor', {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
     });
   </script>
 
@@ -132,6 +155,7 @@
     }
   </script>
   
+  <script src="{{ asset('js/tagin.min.js') }}"></script>
   <script>
     new Tagin(document.querySelector('.tagin'))
   </script>

@@ -10,7 +10,6 @@
   </div>
 </div>
 
-@include('panel/komponen/alert')
 <div class="swal" data-swal="{{ session('success') }}"></div>
 
 <div class="card flex-fill">
@@ -21,21 +20,36 @@
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <label for="judul">judul</label>
-            <input type="text" name="judul" id="judul" class="form-control" value="{{ $seo->judul }}">
+            <label for="judul">Judul Website</label>
+            <input type="text" name="judul" id="judul" class="@error('judul') is-invalid @enderror form-control" value="{{ old('judul', $seo->judul) }}">
+            @error('judul')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
         </div>
         <div class="col-12">
           <div class="mb-3">
             <label for="keyword">keyword</label>
-            <input type="text" name="keyword" id="keyword" class="form-control" value="{{ $seo->keyword }}">
+            <input type="text" name="keyword" id="keyword" class="@error('keyword') is-invalid @enderror form-control" value="{{ old('keyword', $seo->keyword) }}">
+            @error('keyword')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
         </div>
       </div>
         <div class="col-12">
           <div class="mb-3">
             <label for="deskripsi">deskripsi</label>
-            <textarea name="deskripsi" id="deskripsi" class="form-control">{{ $seo->deskripsi }}</textarea>
+            <textarea name="deskripsi" id="deskripsi" class="@error('deskripsi') is-invalid @enderror form-control">{{ old('deskripsi', $seo->deskripsi) }}</textarea>
+            @error('deskripsi')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
         </div>
       <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>

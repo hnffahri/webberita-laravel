@@ -13,7 +13,6 @@
   </div>
 </div>
 
-@include('panel/komponen/alert')
 @include('panel/kategori/create')
 @include('panel/kategori/edit')
 <div class="swal" data-swal="{{ session('success') }}"></div>
@@ -106,15 +105,15 @@
         }
       })
     }
-    
-
-
-    // fungsi edit
-    // function editKategori(e){
-    //   $('#modal-edit').modal('show');
-    //   let id = e.getAttribute('data-id');
-    //   alert(id)
-    // }
 
   </script>
+
+  @if ($errors->any())
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var exampleModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+          exampleModal.show();
+      });
+  </script>
+  @endif
 @endpush

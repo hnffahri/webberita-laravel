@@ -25,11 +25,4 @@ class SyaratKetentuanRequest extends FormRequest
             'syarat_ketentuan' => 'required',
         ];
     }
-
-    public function messages(): array
-    {
-        return [
-            'syarat_ketentuan.required' => 'Syarat ketentuan wajib diisi',
-        ];
-    }
 }

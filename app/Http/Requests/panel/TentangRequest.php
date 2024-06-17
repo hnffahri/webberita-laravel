@@ -26,14 +26,4 @@ class TentangRequest extends FormRequest
             'tentang_kami' => 'required',
         ];
     }
-
-    public function messages(): array
-    {
-        return [
-            'logo.mimes' => 'Logo hanya boleh berekstensi jpg, jpeg, png dan gif',
-            'logo.image' => 'Logo hanya boleh upload gambar',
-            'logo.file' => 'Logo hanya boleh upload file',
-            'tentang_kami.required' => 'Tentang kami wajib diisi',
-        ];
-    }
 }

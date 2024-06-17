@@ -27,13 +27,4 @@ class SeoRequest extends FormRequest
             'keyword' => 'required',
         ];
     }
-
-    public function messages(): array
-    {
-        return [
-            'judul.required' => 'Judul kategori wajib diisi',
-            'deskripsi.required' => 'Deskripsi kategori wajib diisi',
-            'keyword.required' => 'Keyword kategori wajib diisi',
-        ];
-    }
 }

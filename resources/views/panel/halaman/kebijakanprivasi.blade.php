@@ -10,7 +10,6 @@
   </div>
 </div>
 
-@include('panel/komponen/alert')
 <div class="swal" data-swal="{{ session('success') }}"></div>
 
 <div class="card flex-fill">
@@ -20,7 +19,12 @@
       @csrf
       <div class="mb-3">
         <label for="kebijakan_privasi">Deskripsi</label>
-        <textarea name="kebijakan_privasi" id="kebijakan_privasi" class="form-control">{{ $data->kebijakan_privasi }}</textarea>
+        <textarea name="kebijakan_privasi" id="editor" class="@error('kebijakan_privasi') is-invalid @enderror">{{ old('kebijakan_privasi', $data->kebijakan_privasi) }}</textarea>
+        @error('kebijakan_privasi')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
       </div>
       <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
     </form>
@@ -30,6 +34,18 @@
 @endsection
 
 @push('js')
+  <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+  <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+  <script>
+    // Initialize CKEditor
+    CKEDITOR.replace('editor', {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+    });
+  </script>
+
   {{-- alert --}}
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

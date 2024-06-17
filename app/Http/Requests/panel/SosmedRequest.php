@@ -22,20 +22,10 @@ class SosmedRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'facebook' => 'required',
-            'twitter' => 'required',
-            'tiktok' => 'required',
-            'instagram' => 'required',
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'facebook.required' => 'Facebook kategori wajib diisi',
-            'twitter.required' => 'Twitter kategori wajib diisi',
-            'tiktok.required' => 'Tiktok kategori wajib diisi',
-            'instagram.required' => 'Instagram kategori wajib diisi',
+            'facebook' => 'required|string|max:255|url',
+            'instagram' => 'required|string|max:255|url',
+            'twitter' => 'required|string|max:255|url',
+            'tiktok' => 'required|string|max:255|url',
         ];
     }
 }

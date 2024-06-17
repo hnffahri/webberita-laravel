@@ -43,8 +43,8 @@
           <i class="align-middle" data-feather="hash"></i> <span class="align-middle">Pengaturan SEO</span>
         </a>
       </li>
-      <li class="sidebar-item {{ Route::is('google-analitycs*') ? ' active' : '' }}">
-        <a class="sidebar-link" href="{{ url('panel/google-analitycs') }}">
+      <li class="sidebar-item {{ Route::is('google-analytics*') ? ' active' : '' }}">
+        <a class="sidebar-link" href="{{ url('panel/google-analytics') }}">
           <i class="align-middle" data-feather="bar-chart"></i> <span class="align-middle">Google Analytics</span>
         </a>
       </li>

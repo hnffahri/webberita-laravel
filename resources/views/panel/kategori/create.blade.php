@@ -12,13 +12,23 @@
               <div class="col-9">
                 <div class="mb-3">
                   <label for="nama">Nama Kategori</label>
-                  <input type="text" name="nama" id="nama" class="form-control" value="{{ old('judul') }}">
+                  <input type="text" name="nama" id="nama" class="@error('nama') is-invalid @enderror form-control" value="{{ old('nama') }}">
+                  @error('nama')
+                  <div class="invalid-feedback">
+                    *{{ $message }}
+                  </div>
+                  @enderror
                 </div>
               </div>
               <div class="col-3">
                 <div class="mb-3">
                   <label for="warna">Warna</label>
-                  <input type="color" name="warna" id="warna" class="form-control form-control-color" value="{{ old('warna') }}">
+                  <input type="color" name="warna" id="warna" class="@error('warna') is-invalid @enderror form-control form-control-color" value="{{ old('warna') }}">
+                  @error('warna')
+                  <div class="invalid-feedback">
+                    *{{ $message }}
+                  </div>
+                  @enderror
                 </div>
               </div>
             </div>

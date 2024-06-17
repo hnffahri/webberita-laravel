@@ -25,11 +25,4 @@ class KebijakanPrivasiRequest extends FormRequest
             'kebijakan_privasi' => 'required',
         ];
     }
-
-    public function messages(): array
-    {
-        return [
-            'kebijakan_privasi.required' => 'Kebijakan privasi wajib diisi',
-        ];
-    }
 }
