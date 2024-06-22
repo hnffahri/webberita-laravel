@@ -23,7 +23,7 @@
               <div class="col-3">
                 <div class="mb-3">
                   <label for="warna">Warna</label>
-                  <input type="color" name="warna" id="warna" class="@error('warna') is-invalid @enderror form-control form-control-color" value="{{ old('warna') }}">
+                  <input type="color" name="warna" id="warna" class="@error('warna') is-invalid @enderror form-control" value="{{ old('warna') }}">
                   @error('warna')
                   <div class="invalid-feedback">
                     *{{ $message }}
@@ -32,7 +32,10 @@
                 </div>
               </div>
             </div>
-            <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
+            <div class="text-end">
+              <button class="btn btn-light me-2" type="button" data-bs-dismiss="modal"><i class="fal fa-times me-2"></i>Cancel</button>
+              <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
+            </div>
           </form>
         </div>
       </div>

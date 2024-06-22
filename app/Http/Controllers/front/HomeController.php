@@ -17,7 +17,11 @@ class HomeController extends Controller
 
         $terbaru = Konten::with('Kategori')->whereStatus(1)->latest()->first();
 
-        $terbaru2 = Konten::with('Kategori')->whereStatus(1)->where('id', '!=', $terbaru->id)->latest()->get()->take(2);
+        if ($terbaru) {
+            $terbaru2 = Konten::with('Kategori')->whereStatus(1)->where('id', '!=', $terbaru->id)->latest()->take(2)->get();
+        } else {
+            $terbaru2 = Konten::with('Kategori')->whereStatus(1)->latest()->take(2)->get();
+        }
 
         $trending = Konten::with('Kategori')
         ->where('status', 1)

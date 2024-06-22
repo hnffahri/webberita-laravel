@@ -5,9 +5,11 @@ namespace App\Http\Controllers\panel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\panel\EditKontenRequest;
 use App\Http\Requests\panel\KontenRequest;
+use App\Models\Admin;
 use App\Models\Konten;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -61,7 +63,9 @@ class KontenController extends Controller
     public function index()
     {
         return view("panel/konten/index", [
-            'konten' => Konten::with('Kategori')->latest()->get()
+            'konten' => Konten::with('Kategori')->latest()->get(),
+            'kategori' => Kategori::latest()->get(),
+            'admin' => Admin::latest()->get()
         ]);
     }
 
@@ -71,7 +75,8 @@ class KontenController extends Controller
     public function create()
     {
         return view("panel/konten/create", [
-            'kategori' => Kategori::latest()->get()
+            'kategori' => Kategori::latest()->get(),
+            'admin' => Admin::latest()->get()
         ]);
     }
 
@@ -95,14 +100,14 @@ class KontenController extends Controller
             $img_ekstensi = $img_file->extension();
             $img_nama = date('ymdhis') . "." . $img_ekstensi;
             $width = 800;
-            $img_file->move(public_path('images/konten'), $img_nama);
-            // ResizeImage($width, public_path('images/konten/'), $img_nama, $img_file);
+            ResizeImage($width, public_path('images/konten/'), $img_nama, $img_file);
             $data['img'] = $img_nama;
         }
         
         // $data['user_id'] = auth()->user()->id;
         $data['slug'] = Str::slug($data['judul']);
         $data['views'] = 0;
+        $data['admin_id'] = Auth::guard('admin')->user()->id;
 
         Konten::create($data);
         return redirect('panel/konten')->with('success', 'Data konten berhasil ditambahkan');
@@ -164,6 +169,7 @@ class KontenController extends Controller
         }
 
         $data['slug'] = Str::slug($data['judul']);
+        $data['admin_id'] = Auth::guard('admin')->user()->id;
 
         Konten::where('id', $id)->update($data);
         return redirect('panel/konten')->with('success', 'Data konten berhasil diubah');
@@ -174,6 +180,77 @@ class KontenController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Find the content by ID
+        $konten = Konten::find($id);
+
+        // Check if the content exists
+        if (!$konten) {
+            return response()->json([
+                'message' => 'Data Konten tidak ditemukan'
+            ]);
+        }
+
+        // Paths to the image and video files
+        $imgPath = public_path('images/konten/' . $konten->img);
+        $videoPath = public_path('vidio/konten/' . $konten->vidio);
+
+        // Delete the image file if it exists
+        if (File::exists($imgPath)) {
+            File::delete($imgPath);
+        }
+
+        // Delete the video file if it exists
+        if (File::exists($videoPath)) {
+            File::delete($videoPath);
+        }
+
+        // Delete the content from the database
+        $konten->delete();
+
+        return response()->json([
+            'message' => 'Data Konten berhasil dihapus'
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        // Ambil data kategori dan admin untuk digunakan di form
+        $kategori = Kategori::all();
+        $admin = Admin::all();
+
+        // Query dasar untuk model Konten
+        $query = Konten::query();
+
+        // Tambahkan kondisi berdasarkan input pencarian
+        if ($request->filled('judul')) {
+            $query->where('judul', 'like', '%' . $request->judul . '%');
+        }
+
+        if ($request->filled('type')) {
+            $query->where('type', $request->type);
+        }
+
+        if ($request->filled('kategori_id')) {
+            $query->where('kategori_id', $request->kategori_id);
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->filled('admin_id')) {
+            $query->where('admin_id', $request->admin_id);
+        }
+
+        if ($request->filled('periode')) {
+            $periode = $request->periode . '%'; // Mengambil format YYYY-MM untuk perbandingan dengan created_at
+            $query->where('created_at', 'like', $periode);
+        }
+
+        // Dapatkan hasil pencarian
+        $konten = $query->get();
+
+        // Kembalikan view dengan hasil pencarian dan data tambahan untuk form
+        return view('panel.konten.search', compact('konten', 'kategori', 'admin'));
     }
 }

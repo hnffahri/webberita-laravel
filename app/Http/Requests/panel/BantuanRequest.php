@@ -3,9 +3,8 @@
 namespace App\Http\Requests\panel;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class EditKontenRequest extends FormRequest
+class BantuanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,22 +21,13 @@ class EditKontenRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('konten');
-        $rules = [
-            'type' => 'required',
+        return [
             'status' => 'required',
-            'kategori_id' => 'required',
-            'judul' => [
-                'required',
-                Rule::unique('konten')->ignore($id),
-            ],
+            'judul' => 'required|unique:bantuan',
             'ringkas' => 'required',
             'isi' => 'required',
             'keyword' => 'required',
-            'img' => 'image|file|mimes:jpeg,jpg,png',
-            'vidio' => 'file|mimetypes:video/mp4',
+            'img' => 'nullable|image|file|mimes:jpeg,jpg,png',
         ];
-
-        return $rules;
     }
 }

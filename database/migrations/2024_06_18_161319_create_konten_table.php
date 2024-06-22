@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('konten', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('admin_id')->constrained('admin')->onDelete('cascade');
+            $table->foreignId('kategori_id')->constrained('kategori')->onDelete('cascade');
             $table->string('judul');
             $table->string('slug');
             $table->longText('ringkas');
@@ -23,7 +25,6 @@ return new class extends Migration
             $table->string('status');
             $table->integer('views');
             $table->integer('type');
-            $table->foreignId('kategori_id')->references('id')->on('kategori')->index()->constrained();
             $table->timestamps();
         });
     }

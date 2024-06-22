@@ -16,21 +16,21 @@
 
 <div class="swal" data-swal="{{ session('success') }}"></div>
 
-<div class="collapse" id="collapseExample">
+<div class="collapse show" id="collapseExample">
   <div class="card">
     <div class="card-body">
       <form action="{{ route('konten.search') }}" method="GET">
         <div class="row align-items-end">
           <div class="col-md-6 mb-3">
             <label for="judul">Judul</label>
-            <input type="text" name="judul" id="judul" class="form-control" placeholder="Cari judul...">
+            <input type="text" name="judul" id="judul" class="form-control" placeholder="Cari judul..." value="{{ request('judul') }}">
           </div>
           <div class="col-lg-3 col-md-6 mb-3">
             <label for="type">Type</label>
             <select name="type" id="type" class="form-select">
               <option value="">Semua Type</option>
-              <option value="1" @selected(old('type') == '1')>Artikel</option>
-              <option value="2" @selected(old('type') == '2')>Vidio</option>
+              <option value="1" @selected(request('type') == '1')>Artikel</option>
+              <option value="2" @selected(request('type') == '2')>Vidio</option>
             </select>
           </div>
           <div class="col-lg-3 col-md-6 mb-3">
@@ -38,7 +38,7 @@
             <select name="kategori_id" id="kategori" class=" form-select">
               <option value="">Semua Kategori</option>
               @foreach ($kategori as $item)
-              <option value="{{ $item->id }}" @selected(old('kategori_id') == $item->id)>{{ $item->nama }}</option>
+              <option value="{{ $item->id }}" @selected(request('kategori_id') == $item->id)>{{ $item->nama }}</option>
               @endforeach
             </select>
           </div>
@@ -46,8 +46,8 @@
             <label for="status">Status</label>
             <select name="status" id="status" class="form-select">
               <option value="">Semua Status</option>
-              <option value="1" @selected(old('status') == '1')>Aktif</option>
-              <option value="2" @selected(old('status') == '2')>Tidak Aktif</option>
+              <option value="1" @selected(request('status') == '1')>Aktif</option>
+              <option value="2" @selected(request('status') == '2')>Tidak Aktif</option>
             </select>
           </div>
           <div class="col-lg-3 col-md-6 mb-3">
@@ -55,13 +55,13 @@
             <select name="admin_id" id="admin" class=" form-select">
               <option value="">Semua Penulis</option>
               @foreach ($admin as $item)
-              <option value="{{ $item->id }}" @selected(old('admin_id') == $item->id)>{{ $item->name }}</option>
+              <option value="{{ $item->id }}" @selected(request('admin_id') == $item->id)>{{ $item->name }}</option>
               @endforeach
             </select>
           </div>
           <div class="col-lg-3 col-md-6 mb-3">
             <label for="periode">Periode</label>
-            <input type="month" name="periode" id="periode" class="form-control">
+            <input type="month" name="periode" id="periode" class="form-control" value="{{ request('periode') }}">
           </div>
           <div class="col-lg-3 col-md-6 mb-3">
             <button class="btn btn-light me-2" type="reset">Reset</button>
@@ -74,7 +74,9 @@
 </div>
 
 <div class="row">
-  @forelse ($konten as $item)
+  @if(isset($konten))
+  <h5>Hasil Pencarian :</h5>
+  @forelse($konten as $item)
   <div class="col-lg-4">
     <div class="card">
       <img src="{{ asset('images/konten/'.$item->img) }}" alt="{{ $item->judul }}" class="w-100 banner card-img-top">
@@ -119,6 +121,7 @@
     </div>
   </div>
   @endforelse
+  @endif
 </div>
   
 @push('js')

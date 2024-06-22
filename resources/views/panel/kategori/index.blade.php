@@ -1,6 +1,6 @@
 @extends('panel/layout/template')
 
-@section('title', 'kategori · Panel')
+@section('title', 'kategori')
 
 @section('content')
 
@@ -14,7 +14,6 @@
 </div>
 
 @include('panel/kategori/create')
-@include('panel/kategori/edit')
 <div class="swal" data-swal="{{ session('success') }}"></div>
 
 <div class="card flex-fill">
@@ -36,7 +35,7 @@
           <td><span class="badge bg-success" style="background-color: {{ $item->warna }} !important">{{ $item->warna }}</span></td>
           <td>
             <div class="btn-group">
-              <a class="btn btn-light" href="#">Edit</a>
+              <a class="btn btn-light" href="{{ url('panel/kategori/'.$item->id.'/edit') }}">Edit</a>
               <a class="btn btn-light" href="#" onclick="deleteKategori(this)" data-id="{{ $item->id }}">Hapus</a>
             </div>
           </td>
@@ -76,7 +75,7 @@
 
       Swal.fire({
         title: "Hapus",
-        text: "Yakin hapus kategori ini?!",
+        text: "Yakin hapus kategori ini?!, dengan menghapus kategori ini maka otomatis menghapus data blog yang berkaitan",
         icon: "question",
         showCancelButton: true,
         confirmButtonText: "Hapus",
@@ -94,7 +93,9 @@
               Swal.fire({
                 title: "Berhasil",
                 text: response.message,
-                icon: "success"
+                icon: "success",
+                timer: 2500,
+                showConfirmButton: false,
               }).then((result) => {
                 window.location.href = '/panel/kategori';
               })

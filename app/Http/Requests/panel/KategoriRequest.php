@@ -26,14 +26,4 @@ class KategoriRequest extends FormRequest
             'warna' => 'required|unique:kategori',
         ];
     }
-
-    public function messages(): array
-    {
-        return [
-            'nama.required' => 'Nama kategori wajib diisi',
-            'nama.unique' => 'Nama kategori sudah digunakan',
-            'warna.required' => 'Warna kategori wajib diisi',
-            'warna.unique' => 'Warna kategori sudah digunakan'
-        ];
-    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\panel;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\panel\EditKategoriRequest;
 use App\Http\Requests\panel\KategoriRequest;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
@@ -32,12 +33,25 @@ class KategoriController extends Controller
         return redirect('panel/kategori')->with('success', 'Data kategori berhasil ditambahkan');
     }
 
+
+    public function edit(string $id)
+    {
+        return view("panel/kategori/edit", [
+            'kategori' => Kategori::find($id),
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+
+    public function update(EditKategoriRequest $request, string $id)
     {
-        //
+        $data = $request->validated();
+        $data['slug'] = Str::slug($data['nama']);
+
+        Kategori::where('id', $id)->update($data);
+        return redirect('panel/kategori')->with('success', 'Data kategori berhasil diubah');
     }
 
     /**

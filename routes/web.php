@@ -4,6 +4,7 @@ use App\Http\Controllers\front\CariController;
 use App\Http\Controllers\front\DashboardController as FrontDashboardController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\KategoriController as FrontKategoriController;
+use App\Http\Controllers\panel\BantuanController;
 use App\Http\Controllers\panel\DashboardController;
 use App\Http\Controllers\panel\FacebookPixelController;
 use App\Http\Controllers\panel\GoogleAnalyticsController;
@@ -16,7 +17,7 @@ use App\Http\Controllers\panel\SeoController;
 use App\Http\Controllers\panel\SosmedController;
 use App\Http\Controllers\panel\SyaratKetentuanController;
 use App\Http\Controllers\panel\TentangController;
-use App\Http\Controllers\panel\UserController;
+use App\Http\Controllers\panel\MemberController;
 use App\Http\Controllers\panel\ProfileController as PanelProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,8 +58,9 @@ Route::prefix('panel')->group(function () {
 Route::middleware(['admin.auth'])->group(function () {
     Route::get('/panel', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/panel/konten', KontenController::class)->names('konten');
-    Route::resource('/panel/kategori', KategoriController::class)->names('kategori')->only(['index', 'store', 'destroy']);
-    Route::resource('/panel/user', UserController::class)->names('user');
+    Route::get('/konten/search', [KontenController::class, 'search'])->name('konten.search');
+    Route::resource('/panel/kategori', KategoriController::class)->names('kategori');
+    Route::resource('/panel/member', MemberController::class)->names('member');
     Route::get('/panel/pesan', [PesanController::class, 'index'])->name('pesan');
     Route::resource('/panel/statistik', DashboardController::class)->names('statistik');
     Route::resource('/panel/seo', SeoController::class)->names('seo')->only(['index', 'update']);
@@ -71,6 +73,7 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::resource('/panel/tentang', TentangController::class)->names('tentang')->only(['index', 'update']);
     Route::resource('/panel/profile', PanelProfileController::class)->names('profile')->only(['index', 'update']);
     Route::resource('/panel/password', PasswordController::class)->names('password')->only(['index', 'update']);
+    Route::resource('/panel/bantuan', BantuanController::class)->names('bantuan');
 });
 
 // Route::get('/panel/login', [MasukController::class, 'index'])->name('loginpanel');

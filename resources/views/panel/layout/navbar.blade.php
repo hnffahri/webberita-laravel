@@ -2,19 +2,28 @@
   <a class="sidebar-toggle js-sidebar-toggle">
     <i class="hamburger align-self-center"></i>
   </a>
+  <a class="btn btn-primary" target="_blank" href="{{ url('../') }}">Lihat Website</a>
 
   <div class="navbar-collapse collapse">
     <ul class="navbar-nav navbar-align">
       <li class="nav-item dropdown">
-        {{-- <a class="nav-link" href="{{ url('panel/profile') }}">
-          @if (empty(Auth::user()->avatar))
-          <img src="{{ asset('images/user.png') }}" alt="#" class="kotak img-fluid rounded-circle me-1" width="30">
+        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+          @if (empty(Auth::guard('admin')->user()->avatar))
+          <img src="{{ asset('images/user.png') }}" alt="#" class="kotak img-fluid rounded-circle" width="35">
           @else
-          <img src="{{ asset('images/user/'.Auth::user()->avatar) }}" class="kotak img-fluid rounded-circle me-1" width="30" alt="#" />
+          <img src="{{ asset('images/user/'.Auth::guard('admin')->user()->avatar) }}" class="kotak img-fluid rounded-circle" width="35" alt="#" />
           @endif
-          <span class="text-dark fw-semibold">{{ Auth::user()->name }}</span>
-        </a> --}}
-        <a class="nav-link btn btn-primary" target="_blank" href="{{ url('../') }}">Lihat Website</a>
+          <span class="text-dark d-none d-sm-inline-block ms-1">{{ Auth::guard('admin')->user()->name }}</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end">
+          <a class="dropdown-item" href="{{ url('panel/profile') }}"><i class="fal fa-user me-2"></i>Profile</a>
+          <a class="dropdown-item" href="{{ url('panel/password') }}"><i class="fal fa-lock me-2"></i>Password</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fal fa-sign-out me-2"></i>Log out</a>
+          <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
+            @csrf
+          </form>
+        </div>
       </li>
     </ul>
   </div>

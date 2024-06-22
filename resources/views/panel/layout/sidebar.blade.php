@@ -29,6 +29,11 @@
           <i class="align-middle" data-feather="message-square"></i> <span class="align-middle">Pesan</span>
         </a>
       </li>
+      <li class="sidebar-item {{ Route::is('bantuan*') ? ' active' : '' }}">
+        <a class="sidebar-link" href="{{ url('panel/bantuan') }}">
+          <i class="align-middle" data-feather="layout"></i> <span class="align-middle">Bantuan (Faq)</span>
+        </a>
+      </li>
 
       <li class="sidebar-header">
         SEO dan Analytics
@@ -57,16 +62,6 @@
       <li class="sidebar-header">
         Pengaturan
       </li>
-      <li class="sidebar-item {{ Route::is('profile*') ? ' active' : '' }}">
-        <a class="sidebar-link" href="{{ url('panel/profile') }}">
-          <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-        </a>
-      </li>
-      <li class="sidebar-item {{ Route::is('password*') ? ' active' : '' }}">
-        <a class="sidebar-link" href="{{ url('panel/password') }}">
-          <i class="align-middle" data-feather="lock"></i> <span class="align-middle">Password</span>
-        </a>
-      </li>
       <li class="sidebar-item {{ Route::is('syarat-ketentuan*') ? ' active' : '' }}">
         <a class="sidebar-link" href="{{ url('panel/syarat-ketentuan') }}">
           <i class="align-middle" data-feather="file"></i> <span class="align-middle">Syarat Ketentuan</span>
@@ -92,8 +87,8 @@
           <i class="align-middle" data-feather="users"></i> <span class="align-middle">Member</span>
         </a>
       </li>
-      <li class="sidebar-item {{ Route::is('user*') ? ' active' : '' }}">
-        <a class="sidebar-link" href="{{ url('panel/user') }}">
+      <li class="sidebar-item {{ Route::is('admin*') ? ' active' : '' }}">
+        <a class="sidebar-link" href="{{ url('panel/admin') }}">
           <i class="align-middle" data-feather="users"></i> <span class="align-middle">User Admin</span>
         </a>
       </li>

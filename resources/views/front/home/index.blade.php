@@ -120,7 +120,7 @@
           <h1 class="text-dark font m-0">Trending</h1>
         </div>
         <div class="col-5 text-end">
-          <a href="{{ url('/trending') }}" class="btn btn-dark">Lainnya <i class="far fa-chevron-right"></i></a>
+          <a href="{{ url('/trending') }}" class="btn btn-primary">Lainnya <i class="far fa-chevron-right"></i></a>
         </div>
       </div>
       <div class="row gx-0 border-top border-start">

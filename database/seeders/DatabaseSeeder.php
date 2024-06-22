@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(TentangSeeder::class);
         $this->call(PluginSeeder::class);
         $this->call(SeoSeeder::class);
+        $this->call(KategoriSeeder::class);
+        $this->call(BantuanSeeder::class);
+        $this->call(KontenSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 

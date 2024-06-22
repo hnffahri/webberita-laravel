@@ -1,30 +1,47 @@
-  <!-- Modal -->
-  <div class="modal fade" id="modal-edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+@extends('panel/layout/template')
+
+@section('title', 'Edit Kategori')
+
+@section('content')
+
+
+<div class="row mb-3 align-items-center">
+  <div class="col-7">
+    <h1 class="h3 mb-0"><strong>Edit</strong> kategori</h1>
+  </div>
+  <div class="col-5 text-end">
+    <a href="{{ url('panel/kategori') }}" class="btn btn-primary"><i class="fal fa-chevron-left me-2"></i>Kembali</a>
+  </div>
+</div>
+
+<div class="card flex-fill">
+  <div class="card-body">
+    <form method="POST" action="/panel/kategori/{{ $kategori->id }}" enctype="multipart/form-data">
+      @method('PUT')
+      @csrf
+      <div class="row">
+        <div class="col-md-3 col-6 mb-3">
+          <label for="nama">Nama Kategori</label>
+          <input type="text" name="nama" id="nama" class="@error('nama') is-invalid @enderror form-control" value="{{ old('nama', $kategori->nama) }}">
+          @error('nama')
+          <div class="invalid-feedback">
+            *{{ $message }}
+          </div>
+          @enderror
         </div>
-        <div class="modal-body">
-          <form method="POST" action="/panel/kategori">
-            @csrf
-            <div class="row">
-              <div class="col-9">
-                <div class="mb-3">
-                  <label for="nama">Nama Kategori</label>
-                  <input type="text" name="nama" id="title" class="form-control">
-                </div>
-              </div>
-              {{-- <div class="col-3">
-                <div class="mb-3">
-                  <label for="warna">Warna</label>
-                  <input type="color" name="warna" id="warna" class="form-control form-control-color" value="{{ old('warna') }}">
-                </div>
-              </div> --}}
-            </div>
-            <button class="btn btn-primary" id="update"><i class="fal fa-save me-2"></i>Simpan</button>
-          </form>
+        <div class="col-md-3 col-6 mb-3">
+          <label for="warna">Warna</label>
+          <input type="color" name="warna" id="warna" class="@error('warna') is-invalid @enderror form-control form-control-color" value="{{ old('warna', $kategori->warna) }}">
+          @error('warna')
+          <div class="invalid-feedback">
+            *{{ $message }}
+          </div>
+          @enderror
         </div>
       </div>
-    </div>
+      <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
+    </form>
   </div>
+</div>
+
+@endsection
