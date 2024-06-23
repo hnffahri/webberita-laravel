@@ -20,13 +20,13 @@
     </div>
   </div>
   @empty
-  <div class="col-md-12 text-center">
-    Tidak ada pesan
+  <div class="col-md-12 text-center mt-5">
+    <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
+    <div class="mt-4">Tidak ada pesan</div>
   </div>
   @endforelse
 </div>
-<div class="d-flex justify-content-center">
-  {{ $data->onEachSide(0)->links() }}
-</div>
+
+{{ $data->onEachSide(0)->links() }}
 
 @endsection

@@ -58,7 +58,7 @@ class BantuanController extends Controller
      */
     public function index()
     {
-        $bantuan = Bantuan::all();
+        $bantuan = Bantuan::latest()->paginate(1);
         return view('panel.bantuan.index', compact('bantuan'));
     }
 

@@ -64,7 +64,7 @@
             <input type="month" name="periode" id="periode" class="form-control" value="{{ request('periode') }}">
           </div>
           <div class="col-lg-3 col-md-6 mb-3">
-            <button class="btn btn-light me-2" type="reset">Reset</button>
+            <a class="btn btn-light me-2" href="{{ url('panel/konten') }}">Reset</a>
             <button class="btn btn-primary" type="submit">Cari</button>
           </div>
         </div>
@@ -121,6 +121,9 @@
     </div>
   </div>
   @endforelse
+  <div class="col-12">
+    {{ $konten->withQueryString()->links() }}
+  </div>
   @endif
 </div>
   

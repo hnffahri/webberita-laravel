@@ -63,7 +63,7 @@ class KontenController extends Controller
     public function index()
     {
         return view("panel/konten/index", [
-            'konten' => Konten::with('Kategori')->latest()->get(),
+            'konten' => Konten::with('Kategori')->latest()->paginate(1),
             'kategori' => Kategori::latest()->get(),
             'admin' => Admin::latest()->get()
         ]);
@@ -248,7 +248,7 @@ class KontenController extends Controller
         }
 
         // Dapatkan hasil pencarian
-        $konten = $query->get();
+        $konten = $query->paginate(1)->appends($request->except('page'));
 
         // Kembalikan view dengan hasil pencarian dan data tambahan untuk form
         return view('panel.konten.search', compact('konten', 'kategori', 'admin'));

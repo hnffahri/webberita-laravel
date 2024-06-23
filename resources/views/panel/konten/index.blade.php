@@ -120,6 +120,8 @@
   </div>
   @endforelse
 </div>
+
+{{ $konten->onEachSide(0)->links() }}
   
 @push('js')
 {{-- alert --}}
