@@ -76,9 +76,21 @@
   </div>
 </div>
 
+
+<div class="card flex-fill w-100">
+  <div class="card-header">
+    <h5 class="card-title mb-0">User Registration</h5>
+  </div>
+  <div class="card-body py-3">
+    <div class="chart chart-sm">
+      <canvas id="chartjs-dashboard-line"></canvas>
+    </div>
+  </div>
+</div>
+
 <h1 class="h3 mb-3"><strong>Konten</strong> Trending</h1>
 <div class="row">
-  @forelse ($konten as $item)
+  @forelse ($kontentrending as $item)
   <div class="col-lg-4">
     <div class="card">
       <img src="{{ asset('images/konten/'.$item->img) }}" alt="{{ $item->judul }}" class="w-100 banner card-img-top">
@@ -150,3 +162,67 @@
 </div>
 
 @endsection
+
+@push('js')
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
+    var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+    gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
+    gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+
+    var monthlyUserData = @json(array_values($monthlyUserData));
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    // Line chart
+    new Chart(document.getElementById("chartjs-dashboard-line"), {
+      type: "line",
+      data: {
+        labels: months,
+        datasets: [{
+          label: "User Registration",
+          fill: true,
+          backgroundColor: gradient,
+          borderColor: window.theme.primary,
+          data: monthlyUserData
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        legend: {
+          display: false
+        },
+        tooltips: {
+          intersect: false
+        },
+        hover: {
+          intersect: true
+        },
+        plugins: {
+          filler: {
+            propagate: false
+          }
+        },
+        scales: {
+          xAxes: [{
+            reverse: true,
+            gridLines: {
+              color: "rgba(0,0,0,0.0)"
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              stepSize: 1
+            },
+            display: true,
+            borderDash: [3, 3],
+            gridLines: {
+              color: "rgba(0,0,0,0.0)"
+            }
+          }]
+        }
+      }
+    });
+  });
+  </script>
+@endpush
