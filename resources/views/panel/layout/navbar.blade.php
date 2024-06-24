@@ -11,7 +11,7 @@
           @if (empty(Auth::guard('admin')->user()->avatar))
           <img src="{{ asset('images/user.png') }}" alt="#" class="kotak img-fluid rounded-circle" width="35">
           @else
-          <img src="{{ asset('images/user/'.Auth::guard('admin')->user()->avatar) }}" class="kotak img-fluid rounded-circle" width="35" alt="#" />
+          <img src="{{ asset('images/admin/'.Auth::guard('admin')->user()->avatar) }}" class="kotak img-fluid rounded-circle" width="35" alt="#" />
           @endif
           <span class="text-dark d-none d-sm-inline-block ms-1">{{ Auth::guard('admin')->user()->name }}</span>
         </a>

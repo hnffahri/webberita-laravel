@@ -165,6 +165,12 @@
             <a href="{{ url('/'.$kategori->slug) }}" class="btn btn-primary" style="background-color: {{ $kategori->warna }} !important; border-color: {{ $kategori->warna }} !important">Lainnya <i class="far fa-chevron-right"></i></a>
           </div>
         </div>
+        @empty($kategori->KontenM)
+        <div class="text-center">
+          <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
+          <div class="mt-4">Tidak ada konten</div>
+        </div>
+        @endempty
         <div class="swiper-wrapper">
           @foreach ($kategori->KontenM as $konten)
           <div class="swiper-slide">

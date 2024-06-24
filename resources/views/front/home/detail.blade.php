@@ -10,11 +10,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
+          <div class="post-meta mb-2">
+            <span class="post-category me-3" style="background-color: {{ $konten->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $konten->kategori->nama }}</span><a href="{{ url('penulis/'.$konten->Admin->username) }}" class="small"><i class="fal fa-user me-1"></i>{{ $konten->Admin->name }}</a>
+          </div>
           <h1 class="text-dark">{{ $konten->judul }}</h1>
           <div class="post-meta">
-            <span class="post-category me-2" style="background-color: {{ $konten->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $konten->kategori->nama }}</span>
             <small><i class="fal fa-calendar-alt me-2"></i>{{ \Carbon\Carbon::parse($konten->created_at)->translatedFormat('d F Y') }} <i class="fal fa-clock me-2 ms-2"></i>{{ \Carbon\Carbon::parse($konten->created_at)->format('H:i') }} WIB</small>
-
           </div>
           <div class="my-4">
             @if ($konten->type == 2)

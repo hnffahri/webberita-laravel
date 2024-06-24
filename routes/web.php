@@ -4,6 +4,7 @@ use App\Http\Controllers\front\CariController;
 use App\Http\Controllers\front\DashboardController as FrontDashboardController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\KategoriController as FrontKategoriController;
+use App\Http\Controllers\front\PenulisController;
 use App\Http\Controllers\panel\BantuanController;
 use App\Http\Controllers\panel\DashboardController;
 use App\Http\Controllers\panel\FacebookPixelController;
@@ -105,6 +106,7 @@ Route::group(['prefix' => 'laravel-filemanager'], function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/cari', [CariController::class, 'index'])->name('cari');
+Route::get('/penulis/{username}', [PenulisController::class, 'index'])->name('penulis');
 Route::get('/{slug}', [FrontKategoriController::class, 'index'])->name('listkategori');
 Route::middleware(['web'])->group(function () {
     Route::get('/{slugKategori}/{slugKonten}', [FrontKategoriController::class, 'detail'])->name('konten-detail');
