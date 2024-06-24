@@ -23,9 +23,9 @@ class ProfileRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'biografi' => ['nullable', 'string'],
-            'provinsi' => ['required', 'string', 'max:10'],
-            'kota' => ['required', 'string', 'max:10'],
+            'biografi' => ['required', 'string'],
+            'provinsi' => ['required', 'string', 'max:100'],
+            'kota' => ['required', 'string', 'max:100'],
             'alamat' => ['required', 'string', 'max:500'],
             'avatar' => 'image|file|mimes:jpeg,jpg,png',
         ];

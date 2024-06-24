@@ -8,11 +8,12 @@
 
 <div class="row">
   @forelse ($data as $item)
-  <div class="col-md-6 mb-3">
+  <div class="col-md-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="text-dark">Judul Pesan : {{ $item->judul_pesan }}</h5>
-        <p>Pesan : {{ $item->pesan }}</p>
+        <div class="fw-bold text-dark">Judul Pesan :</div>
+        <h5 class="text-dark">{{ $item->judul_pesan }}</h5>
+        <p><span class="fw-bold text-dark">Pesan</span> : {{ $item->pesan }}</p>
         <div><i class="fal fa-user me-2"></i>{{ $item->nama }}</div>
         <div><i class="fal fa-envelope me-2"></i>{{ $item->email }}</div>
         <i class="fal fa-calendar-alt me-2"></i>{{ $item->created_at }}

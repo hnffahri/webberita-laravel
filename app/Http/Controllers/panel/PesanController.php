@@ -10,7 +10,7 @@ class PesanController extends Controller
     public function index()
     {
         return view('panel/pesan/index',[
-            'data' => Pesan::latest()->paginate(2)
+            'data' => Pesan::latest()->paginate(6)
         ]);
     }
 }

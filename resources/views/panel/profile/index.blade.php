@@ -60,8 +60,7 @@
         <div class="mb-3 col-md-6">
           <label for="provinsi">Provinsi</label>
           <select name="provinsi" id="provinsi" class="form-select @error('provinsi') is-invalid @enderror">
-            {{-- <option value="" hidden>Pilih Provinsi</option> --}}
-            <option value="1">Jawa Barat</option>
+            <option value="" hidden>Pilih Provinsi</option>
           </select>
           @error('provinsi')
           <div class="invalid-feedback">
@@ -72,8 +71,7 @@
         <div class="mb-3 col-md-6">
           <label for="kota">Kota</label>
           <select name="kota" id="kota" class="form-select @error('kota') is-invalid @enderror">
-            {{-- <option value="" hidden>Pilih Kota</option> --}}
-            <option value="1">Bandung</option>
+            <option value="" hidden>Pilih Kota</option>
           </select>
           @error('kota')
           <div class="invalid-feedback">
@@ -125,5 +123,56 @@
       imgavatar.src = URL.createObjectURL(file)
     }
   };
+  </script>
+
+  <script>
+    $(document).ready(function() {
+        // Load provinces on page load
+        $.ajax({
+            url: '/provinces',
+            type: 'GET',
+            success: function(data) {
+                var provinceSelect = $('#provinsi');
+                var selectedProvince = "{{ old('provinsi', $data->provinsi) }}"; // Mendapatkan nilai lama atau nilai dari database
+                provinceSelect.empty();
+                provinceSelect.append('<option value="" hidden>Pilih Provinsi</option>');
+                data.forEach(function(province) {
+                    var selected = province.code == selectedProvince ? 'selected' : '';
+                    provinceSelect.append('<option value="' + province.code + '" ' + selected + '>' + province.name + '</option>');
+                });
+                if (selectedProvince) {
+                    loadCities(selectedProvince); // Load cities if province is selected
+                }
+            }
+        });
+
+        // Load cities when province changes
+        $('#provinsi').change(function() {
+            var provinceId = $(this).val();
+            loadCities(provinceId);
+        });
+
+        function loadCities(provinceId) {
+            if (provinceId) {
+                $.ajax({
+                    url: '/cities/' + provinceId,
+                    type: 'GET',
+                    success: function(data) {
+                        var citySelect = $('#kota');
+                        var selectedCity = "{{ old('kota', $data->kota) }}"; // Mendapatkan nilai lama atau nilai dari database
+                        citySelect.empty();
+                        citySelect.append('<option value="" hidden>Pilih Kota</option>');
+                        data.forEach(function(city) {
+                            var selected = city.code == selectedCity ? 'selected' : '';
+                            citySelect.append('<option value="' + city.code + '" ' + selected + '>' + city.name + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#kota').empty();
+                $('#kota').append('<option value="" hidden>Pilih Kota</option>');
+            }
+        }
+    });
   </script>
 @endpush

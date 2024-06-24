@@ -12,7 +12,7 @@ class Admin extends Authenticatable
     protected $table = 'admin';
 
     protected $fillable = [
-        'name', 'username', 'email', 'password',
+        'name', 'username', 'email', 'password', 'role', 'provinsi', 'kota', 'biografi', 'alamat',
     ];
 
     protected $hidden = [
@@ -20,7 +20,7 @@ class Admin extends Authenticatable
     ];
 
     // relasi eloquen
-    public function KontenRelasi()
+    public function konten()
     {
         return $this->hasMany(Konten::class);
     }

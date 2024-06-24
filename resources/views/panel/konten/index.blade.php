@@ -23,7 +23,7 @@
         <div class="row align-items-end">
           <div class="col-md-6 mb-3">
             <label for="judul">Judul</label>
-            <input type="text" name="judul" id="judul" class="form-control" placeholder="Cari judul...">
+            <input type="text" name="judul" id="judul" class="form-control" placeholder="Kata kunci...">
           </div>
           <div class="col-lg-3 col-md-6 mb-3">
             <label for="type">Type</label>
@@ -75,7 +75,7 @@
 
 <div class="row">
   @forelse ($konten as $item)
-  <div class="col-lg-4">
+  <div class="col-lg-4 col-md-6">
     <div class="card">
       <img src="{{ asset('images/konten/'.$item->img) }}" alt="{{ $item->judul }}" class="w-100 banner card-img-top">
       <div class="card-body">

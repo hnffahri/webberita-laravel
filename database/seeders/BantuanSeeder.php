@@ -5,36 +5,28 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Faker\Factory as Faker;
 
 class BantuanSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('bantuan')->insert([
-            [
-                'judul' => 'Panduan Penggunaan Aplikasi',
-                'slug' => Str::slug('Panduan Penggunaan Aplikasi'),
-                'ringkas' => 'Berikut adalah panduan penggunaan aplikasi kami.',
-                'isi' => 'Ini adalah panduan lengkap untuk memahami dan menggunakan aplikasi kami.',
+        $faker = Faker::create();
+
+        for ($i = 0; $i < 16; $i++) {
+            $judul = $faker->sentence;
+            DB::table('bantuan')->insert([
+                'judul' => $judul,
+                'slug' => Str::slug($judul),
+                'ringkas' => $faker->paragraph,
+                'isi' => $faker->text,
                 'img' => null,
-                'keyword' => 'panduan, aplikasi, penggunaan',
+                'keyword' => implode(', ', $faker->words(3)),
                 'status' => '1',
-                'views' => 0,
+                'views' => $faker->numberBetween(0, 100),
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-            [
-                'judul' => 'Cara Menghubungi Layanan Pelanggan',
-                'slug' => Str::slug('Cara Menghubungi Layanan Pelanggan'),
-                'ringkas' => 'Inilah cara mudah menghubungi layanan pelanggan kami.',
-                'isi' => 'Kami menyediakan beberapa cara untuk menghubungi layanan pelanggan kami.',
-                'img' => null,
-                'keyword' => 'layanan pelanggan, kontak, bantuan',
-                'status' => '1',
-                'views' => 0,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ]);
+            ]);
+        }
     }
 }

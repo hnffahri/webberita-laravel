@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\panel;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\panel\EditUserRequest;
-use App\Http\Requests\panel\UserRequest;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\panel\AdminRequest;
+use App\Http\Requests\panel\EditAdminRequest;
+use App\Models\Admin;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,9 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view("panel/user/index",[
-            'data' => User::latest()->paginate(2)
-        ]);
+        $data = Admin::withCount('konten')->get();
+        
+        return view('panel.admin.index', compact('data'));
     }
 
     /**
@@ -27,19 +26,33 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view("panel/user/create");
+        return view("panel/admin/create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserRequest $request)
+    public function store(AdminRequest $request)
     {
         $data = $request->validated();
-        $data['role'] = 2;
+        
+        // Buat username dari name
+        $nameParts = explode(' ', $data['name']);
+        $baseUsername = strtolower($nameParts[0]); // Menggunakan bagian pertama dari nama
+        $username = $baseUsername;
 
-        User::create($data);
-        return redirect('panel/user')->with('success', 'Akun user berhasil ditambahkan');
+        // Cek apakah username sudah ada dan buat yang unik
+        $counter = 1;
+        while (Admin::where('username', $username)->exists()) {
+            $username = $baseUsername . $counter;
+            $counter++;
+        }
+
+        $data['role'] = 2;
+        $data['username'] = $username;
+
+        Admin::create($data);
+        return redirect('panel/admin')->with('success', 'Akun admin berhasil ditambahkan');
     }
 
     /**
@@ -47,8 +60,8 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        return view("panel/user/show",[
-            'user' => User::find($id)
+        return view("panel/admin/show",[
+            'admin' => Admin::find($id)
         ]);
     }
 
@@ -57,30 +70,30 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
-        return view("panel/user/edit",[
-            'user' => User::find($id)
+        return view("panel/admin/edit",[
+            'admin' => Admin::find($id)
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(EditUserRequest $request, string $id)
+    public function update(EditAdminRequest $request, string $id)
     {
         $data = $request->validated();
         
         if ($request['form_type'] == 'form_password') {
-            $user = User::findOrFail($id);
+            $admin = Admin::findOrFail($id);
             // Verifikasi password lama
-            if (!Hash::check($request->password, $user->password)) {
+            if (!Hash::check($request->password, $admin->password)) {
                 return redirect()->back()->withErrors(['password' => 'Password lama tidak cocok']);
             }
-            User::where('id', $id)->update([
+            Admin::where('id', $id)->update([
                 'password' => Hash::make($data['password_baru'])
             ]);
             return redirect()->back()->with('success', 'Password berhasil diubah');
         }else{
-            User::where('id', $id)->update($data);
+            Admin::where('id', $id)->update($data);
             return redirect()->back()->with('success', 'Data profile berhasil diubah');
         }
 
@@ -91,13 +104,29 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        // $data = Artikel::where($id);
-        $data = User::where('id', $id)->first();
-        File::delete(public_path('images') .'/user/'. $data->avatar);
-        $data->delete();
+        // Find the content by ID
+        $admin = Admin::find($id);
+
+        // Check if the content exists
+        if (!$admin) {
+            return response()->json([
+                'message' => 'Data admin tidak ditemukan'
+            ]);
+        }
+
+        // Paths to the image and video files
+        $imgPath = public_path('images/admin/' . $admin->img);
+
+        // Delete the image file if it exists
+        if (File::exists($imgPath)) {
+            File::delete($imgPath);
+        }
+
+        // Delete the content from the database
+        $admin->delete();
 
         return response()->json([
-            'message' => 'Akun user berhasil dihapus'
+            'message' => 'Akun admin berhasil dihapus'
         ]);
     }
 }

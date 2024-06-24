@@ -66,7 +66,7 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ProfileRequest $request, string $id)
+    public function update(ProfileRequest $request)
     {
         $data = $request->validated();
         $id_user = Auth::guard('admin')->user()->id;

@@ -37,7 +37,7 @@ class DashboardController extends Controller
         }
 
         return view("panel/dashboard/index", [
-            'artikelCount' => Konten::count(),
+            'kontenCount' => Konten::count(),
             'kategoriCount' => Kategori::count(),
             'pesanCount' => Pesan::count(), // Asumsi ada model Pesan
             'memberCount' => User::count(), // Asumsi ada model Member
@@ -52,7 +52,7 @@ class DashboardController extends Controller
 
             'kategori' => Kategori::latest()->get(),
             'admin' => Admin::latest()->get(),
-            'pesan' => Pesan::whereBetween('created_at', [$startDate, $endDate])->take(4)->get(),
+            'pesan' => Pesan::whereBetween('created_at', [$startDate, $endDate])->get(),
             'monthlyUserData' => $monthlyUserData
         ]);
     }

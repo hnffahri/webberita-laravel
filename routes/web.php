@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\panel\AdminController;
 use App\Http\Controllers\panel\AuthController;
 
 /*
@@ -54,6 +56,9 @@ Route::prefix('panel')->group(function () {
     Route::post('logout', [AuthController::class, 'logout'])->name('admin.logout');
 });
 
+Route::get('/provinces', [LocationController::class, 'getProvinces']);
+Route::get('/cities/{province_id}', [LocationController::class, 'getCities']);
+
 
 Route::middleware(['admin.auth'])->group(function () {
     Route::get('/panel', [DashboardController::class, 'index'])->name('dashboard');
@@ -61,12 +66,11 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::get('/konten/search', [KontenController::class, 'search'])->name('konten.search');
     Route::resource('/panel/kategori', KategoriController::class)->names('kategori');
     Route::resource('/panel/member', MemberController::class)->names('member');
+    Route::resource('/panel/admin', AdminController::class)->names('admin');
     Route::get('/panel/pesan', [PesanController::class, 'index'])->name('pesan');
-    Route::resource('/panel/statistik', DashboardController::class)->names('statistik');
     Route::resource('/panel/seo', SeoController::class)->names('seo')->only(['index', 'update']);
     Route::resource('/panel/google-analytics', GoogleAnalyticsController::class)->names('google-analytics')->only(['index', 'update']);
     Route::resource('/panel/facebook-pixel', FacebookPixelController::class)->names('facebook-pixel')->only(['index', 'update']);
-    // Route::resource('/panel/profile', PengaturanController::class)->names('profile')->only(['index', 'update']);
     Route::resource('/panel/syarat-ketentuan', SyaratKetentuanController::class)->names('syarat-ketentuan')->only(['index', 'update']);
     Route::resource('/panel/kebijakan-privasi', KebijakanPrivasiController::class)->names('kebijakan-privasi')->only(['index', 'update']);
     Route::resource('/panel/sosial-media', SosmedController::class)->names('sosial-media')->only(['index', 'update']);

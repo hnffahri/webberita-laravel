@@ -38,11 +38,11 @@
       <li class="sidebar-header">
         SEO dan Analytics
       </li>
-      <li class="sidebar-item {{ Route::is('statistik*') ? ' active' : '' }}">
+      {{-- <li class="sidebar-item {{ Route::is('statistik*') ? ' active' : '' }}">
         <a class="sidebar-link" href="{{ url('panel/statistik') }}">
           <i class="align-middle" data-feather="pie-chart"></i> <span class="align-middle">Statistik Website</span>
         </a>
-      </li>
+      </li> --}}
       <li class="sidebar-item {{ Route::is('seo*') ? ' active' : '' }}">
         <a class="sidebar-link" href="{{ url('panel/seo') }}">
           <i class="align-middle" data-feather="hash"></i> <span class="align-middle">Pengaturan SEO</span>
