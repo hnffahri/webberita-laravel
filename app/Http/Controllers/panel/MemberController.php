@@ -14,7 +14,7 @@ class MemberController extends Controller
     public function index()
     {
         return view("panel/member/index",[
-            'data' => User::latest()->paginate(2)
+            'data' => User::latest()->paginate(10)
         ]);
     }
 

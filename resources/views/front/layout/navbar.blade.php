@@ -16,7 +16,7 @@
               <li><a class="dropdown-item text-danger" href="{{ url('/dashboard') }}"><i class="far fa-sign-out me-2"></i>Keluar</a></li>
             </ul>
           </div> --}}
-          <a href="{{ url('/login') }}" class="btn btn-light"><i class="far fa-user-circle me-2"></i>Dashboard</a>
+          <a href="{{ url('/dashboard') }}" class="btn btn-light"><i class="far fa-user-circle me-2"></i>Dashboard</a>
           @else
           <a href="{{ url('/login') }}" class="btn btn-light"><i class="fal fa-user-circle"></i> Masuk / Daftar</a>
           @endauth

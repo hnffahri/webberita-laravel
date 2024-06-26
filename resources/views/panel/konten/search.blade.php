@@ -81,23 +81,27 @@
     <div class="card">
       <img src="{{ asset('images/konten/'.$item->img) }}" alt="{{ $item->judul }}" class="w-100 banner card-img-top">
       <div class="card-body">
-        <p class="mb-1"><i class="fal fa-bookmark me-2"></i>{{ $item->kategori->nama }}</p>
+        <div class="mb-3 clearfix">
+          <div class="float-start"><i class="fal fa-bookmark me-2"></i>{{ $item->kategori->nama }}</div>
+          <div class="float-end">
+            @if ($item->type == 1)
+            <span class="badge bg-info">Artikel</span>
+            @else
+            <span class="badge bg-info">Vidio</span>
+            @endif
+          </div>
+        </div>
         <h4 class="text-dark">
           {{ $item->judul }}
         </h4>
         <p>
-          @if ($item->type == 1)
-          <span class="badge bg-info">Artikel</span>
-          @else
-          <span class="badge bg-info">Vidio</span>
-          @endif
-
           @if ($item->status == 1)
-          <span class="badge mx-2 bg-success">Aktif</span>
+          <span class="badge me-2 bg-success">Aktif</span>
           @else
-          <span class="badge mx-2 bg-warning">Tidak Aktif</span>
+          <span class="badge me-2 bg-warning">Tidak Aktif</span>
           @endif
           {{ $item->views }} Views
+          <span class="ms-2">{{ $item->likes->count() }} Like</span>
         </p>
         <p>
           <small><i class="fal fa-calendar-alt me-2"></i>{{$item->created_at}}</small>

@@ -23,4 +23,9 @@ class Konten extends Model
     {
         return $this->belongsTo(Kategori::class);
     }
+    
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }

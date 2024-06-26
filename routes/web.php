@@ -4,6 +4,7 @@ use App\Http\Controllers\front\CariController;
 use App\Http\Controllers\front\DashboardController as FrontDashboardController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\KategoriController as FrontKategoriController;
+use App\Http\Controllers\front\LikeController;
 use App\Http\Controllers\front\PenulisController;
 use App\Http\Controllers\panel\BantuanController;
 use App\Http\Controllers\panel\DashboardController;
@@ -111,3 +112,6 @@ Route::get('/{slug}', [FrontKategoriController::class, 'index'])->name('listkate
 Route::middleware(['web'])->group(function () {
     Route::get('/{slugKategori}/{slugKonten}', [FrontKategoriController::class, 'detail'])->name('konten-detail');
 });
+Route::post('/konten/{id}/like', [LikeController::class, 'likeKonten'])->middleware('throttle:10,1')->name('konten.like');
+Route::post('/konten/{id}/unlike', [LikeController::class, 'unlikeKonten'])->middleware('throttle:10,1')->name('konten.unlike');
+// Middleware throttle:10,1 akan membatasi 10 permintaan per menit untuk setiap IP.

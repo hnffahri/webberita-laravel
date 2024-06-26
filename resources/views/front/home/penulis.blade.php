@@ -9,6 +9,31 @@
   <div class="py-4 bg-light">
     <div class="container">
       <div class="row">
+        <div class="col-md-4 d-lg-none mb-4 mb-lg-0">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex">
+                @if (empty($penulis->avatar))
+                <img src="{{ asset('images/user.png') }}" alt="#" class="rounded-circle bulat" width="60">
+                @else
+                <img src="{{ asset('images/admin/'.$penulis->avatar) }}" alt="#" class="rounded-circle bulat" width="60">
+                @endif
+                <div class="ms-3">
+                  <h5 class="text-dark">{{ $penulis->name }}</h5>
+                  <small><i class="fal fa-file-alt me-2"></i>123 konten</small>
+                </div>
+              </div>
+              <hr>
+              <h6 class="text-dark">Bio :</h6>
+              <p>{{ $penulis->biografi }}</p>
+              <h6 class="text-dark">Sosial :</h6>
+              <a class="mt-2" href="#"><i class="icon fab fa-facebook-f me-2"></i></a>
+              <a class="mt-2" href="#"><i class="icon fab fa-twitter me-2"></i></a>
+              <a class="mt-2" href="#"><i class="icon fab fa-instagram me-2"></i></a>
+              <a class="mt-2" href="#"><i class="icon fab fa-youtube me-2"></i></a>
+            </div>
+          </div>
+        </div>
         <div class="col-md-8">
           <h5 class="text-dark m-0">Konten :</h5>
           <div class="row">
@@ -38,7 +63,7 @@
             {{ $konten->onEachSide(0)->links() }}
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 d-none d-lg-block">
           <div class="card">
             <div class="card-body">
               @if (empty($penulis->avatar))
@@ -52,10 +77,9 @@
               <h6 class="text-dark">Bio :</h6>
               <p>{{ $penulis->biografi }}</p>
               <h6 class="text-dark">Sosial :</h6>
-              <a class="d-block mt-2" href="#"><i class="icon fab fa-facebook-f me-2"></i>Facebook</a>
+              <a class="d-block mt-2" href="#"><i class="icon fab fa-facebook-f me-2"></i>Tiktok</a>
               <a class="d-block mt-2" href="#"><i class="icon fab fa-twitter me-2"></i>Twitter</a>
               <a class="d-block mt-2" href="#"><i class="icon fab fa-instagram me-2"></i>Instagram</a>
-              <a class="d-block mt-2" href="#"><i class="icon fab fa-youtube me-2"></i>Youtube</a>
             </div>
           </div>
         </div>

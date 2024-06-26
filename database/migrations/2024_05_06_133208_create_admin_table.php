@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('provinsi')->nullable();
             $table->string('kota')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('xtwitter')->nullable();
             $table->unsignedTinyInteger('role');
             $table->timestamps();
         });
