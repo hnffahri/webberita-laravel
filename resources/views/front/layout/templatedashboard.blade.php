@@ -37,7 +37,7 @@
         <div class="container">
           <div class="row">
             @include('front/layout/sidebar')
-            <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="col-lg-9">
               @yield('content')
             </div>
           </div>

@@ -28,4 +28,9 @@ class Konten extends Model
     {
         return $this->hasMany(Like::class);
     }
+
+    public function likedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'likes', 'konten_id', 'user_id');
+    }
 }

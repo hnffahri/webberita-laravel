@@ -8,88 +8,13 @@
 <div class="card card-body">
   <h5 class="text-dark">Selamat Datang di Dashboard Member</h5>
   Selamat datang di dashboard member. Nikmati kemudahan akses berita dan pilih topik yang anda sukai.
-  <hr>
-  <form action="">
-    <div class="row">
-      <div class="col-lg-4 col-6">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Entertainment
-          </label>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-          <label class="form-check-label" for="flexCheckChecked">
-            Bisnis
-          </label>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-          <label class="form-check-label" for="flexCheckChecked2">
-            Tekno & Sains
-          </label>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-          <label class="form-check-label" for="flexCheckChecked2">
-            Bola & Sports
-          </label>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-          <label class="form-check-label" for="flexCheckChecked2">
-            Otomotif
-          </label>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-          <label class="form-check-label" for="flexCheckChecked2">
-            Food & Travel
-          </label>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-          <label class="form-check-label" for="flexCheckChecked2">
-            Woman
-          </label>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-          <label class="form-check-label" for="flexCheckChecked2">
-            Buzz
-          </label>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-          <label class="form-check-label" for="flexCheckChecked2">
-            Bolanita
-          </label>
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-dark">Simpan Topik</button>
-  </form>
 </div>
 <div class="card mt-4">
   <div class="card-body border-bottom">
-    <h5 class="text-dark m-0">Mungkin Anda Sukai</h5>
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <h5 class="text-dark m-0">Rimayat Baca</h5>
+      <a href="#" class="btn btn-primary">Lihat Semua</a>
+    </div>
   </div>
   <div class="">
     <div class="card-body border-top">

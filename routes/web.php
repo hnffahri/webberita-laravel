@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\front\BantuanController as FrontBantuanController;
 use App\Http\Controllers\front\CariController;
+use App\Http\Controllers\front\CommentController;
 use App\Http\Controllers\front\DashboardController as FrontDashboardController;
+use App\Http\Controllers\front\HalamanController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\KategoriController as FrontKategoriController;
 use App\Http\Controllers\front\LikeController;
 use App\Http\Controllers\front\PenulisController;
+use App\Http\Controllers\front\TrendingController;
 use App\Http\Controllers\panel\BantuanController;
 use App\Http\Controllers\panel\DashboardController;
 use App\Http\Controllers\panel\FacebookPixelController;
@@ -105,13 +109,24 @@ Route::group(['prefix' => 'laravel-filemanager'], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
+Route::get('/tentang', [HalamanController::class, 'tentang'])->name('fronttentang');
+Route::get('/kontak', [TrendingController::class, 'index'])->name('kontak');
+Route::get('/kebijakan-privasi', [HalamanController::class, 'kebijakanprivasi'])->name('kebijakanprivasi');
+Route::get('/syarat-ketentuan', [HalamanController::class, 'syaratketentuan'])->name('syaratketentuan');
+Route::get('/bantuan', [FrontBantuanController::class, 'index'])->name('frontbantuan');
+Route::get('/bantuan/{slug}', [FrontBantuanController::class, 'detail'])->name('detailbantuan');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/cari', [CariController::class, 'index'])->name('cari');
+Route::get('/trending', [TrendingController::class, 'index'])->name('trending');
 Route::get('/penulis/{username}', [PenulisController::class, 'index'])->name('penulis');
 Route::get('/{slug}', [FrontKategoriController::class, 'index'])->name('listkategori');
 Route::middleware(['web'])->group(function () {
     Route::get('/{slugKategori}/{slugKonten}', [FrontKategoriController::class, 'detail'])->name('konten-detail');
 });
+
 Route::post('/konten/{id}/like', [LikeController::class, 'likeKonten'])->middleware('throttle:10,1')->name('konten.like');
 Route::post('/konten/{id}/unlike', [LikeController::class, 'unlikeKonten'])->middleware('throttle:10,1')->name('konten.unlike');
 // Middleware throttle:10,1 akan membatasi 10 permintaan per menit untuk setiap IP.
+
+// Route::post('/konten/{id}/comment', [CommentController::class, 'store'])->name('comment.store');

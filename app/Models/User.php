@@ -44,4 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function likedKonten()
+    {
+        return $this->belongsToMany(Konten::class, 'likes', 'user_id', 'konten_id');
+    }
 }
