@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('logo');
             $table->text('tentang_kami');
+            $table->string('alamat');
+            $table->string('telephone');
+            $table->string('email');
+            $table->string('gmap');
             $table->timestamps();
         });
     }

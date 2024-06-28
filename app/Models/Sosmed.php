@@ -9,5 +9,5 @@ class Sosmed extends Model
 {
     use HasFactory;
     protected $table = "sosmed";
-    protected $fillable = ['facebook', 'twitter', 'instagram', 'tiktok'];
+    protected $fillable = ['facebook', 'twitter', 'instagram', 'tiktok', 'youtube'];
 }

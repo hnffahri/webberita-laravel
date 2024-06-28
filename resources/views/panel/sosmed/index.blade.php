@@ -62,6 +62,17 @@
             @enderror
           </div>
         </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="youtube">Youtube</label>
+            <input type="text" name="youtube" id="youtube" class="form-control @error('youtube') is-invalid @enderror" value="{{ old('youtube', $sosmed->youtube) }}">
+            @error('youtube')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
+          </div>
+        </div>
       </div>
       <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
     </form>

@@ -46,7 +46,42 @@
           {{ $message }}
         </div>
         @enderror
-
+      </div>
+      <div class="mb-3">
+        <label for="alamat">Alamat</label>
+        <textarea name="alamat" id="alamat" class="form-control @error('alamat') is-invalid @enderror">{{ old('alamat', $data->alamat) }}</textarea>
+        @error('alamat')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <div class="mb-3">
+        <label for="telephone">Telephone</label>
+        <input type="text" name="telephone" id="telephone" class="form-control @error('telephone') is-invalid @enderror" value="{{ old('telephone', $data->telephone) }}">
+        @error('telephone')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input type="mail" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $data->email) }}">
+        @error('email')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <div class="mb-3">
+        <label for="gmap">Gmaps (Latitude dan longtitude)</label>
+        <input type="text" name="gmap" id="gmap" class="form-control @error('gmap') is-invalid @enderror" value="{{ old('gmap', $data->gmap) }}">
+        @error('gmap')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
       </div>
       <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
     </form>

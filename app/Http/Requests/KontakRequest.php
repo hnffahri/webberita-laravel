@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\panel;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TentangRequest extends FormRequest
+class KontakRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,19 @@ class TentangRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'logo' => 'image|file|mimes:jpeg,jpg,png|max:1048',
-            'tentang_kami' => 'required|string',
-            'alamat' => 'required|string|max:255',
-            'telephone' => 'required|string|max:20',
+            'nama' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'gmap' => 'required|string|max:255',
+            'judul_pesan' => 'required|string|max:255',
+            'pesan' => 'required|string',
+            'g-recaptcha-response' => 'required|captcha',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'g-recaptcha-response.required' => 'Verifikasi reCAPTCHA wajib',
+            'g-recaptcha-response.captcha' => 'Verifikasi reCAPTCHA tidak valid',
         ];
     }
 }

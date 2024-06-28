@@ -7,6 +7,7 @@ use App\Http\Controllers\front\DashboardController as FrontDashboardController;
 use App\Http\Controllers\front\HalamanController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\KategoriController as FrontKategoriController;
+use App\Http\Controllers\front\KontakController;
 use App\Http\Controllers\front\LikeController;
 use App\Http\Controllers\front\PenulisController;
 use App\Http\Controllers\front\TrendingController;
@@ -110,7 +111,8 @@ Route::group(['prefix' => 'laravel-filemanager'], function () {
 });
 
 Route::get('/tentang', [HalamanController::class, 'tentang'])->name('fronttentang');
-Route::get('/kontak', [TrendingController::class, 'index'])->name('kontak');
+Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
+Route::post('/kontak', [KontakController::class, 'store'])->name('kontak.store');
 Route::get('/kebijakan-privasi', [HalamanController::class, 'kebijakanprivasi'])->name('kebijakanprivasi');
 Route::get('/syarat-ketentuan', [HalamanController::class, 'syaratketentuan'])->name('syaratketentuan');
 Route::get('/bantuan', [FrontBantuanController::class, 'index'])->name('frontbantuan');

@@ -15,10 +15,11 @@ class SosmedSeeder extends Seeder
     public function run()
     {
         DB::table('sosmed')->insert([
-            'facebook' => 'https://facebook.com/webberita',
-            'instagram' => 'https://instagram.com/webberita',
-            'twitter' => 'https://twitter.com/webberita',
-            'tiktok' => 'https://tiktok.com/@webberita',
+            'facebook' => 'webberita',
+            'instagram' => 'webberita',
+            'twitter' => 'webberita',
+            'tiktok' => 'webberita',
+            'youtube' => 'webberita',
         ]);
     }
 }

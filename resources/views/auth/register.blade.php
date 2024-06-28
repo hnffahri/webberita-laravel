@@ -37,6 +37,16 @@
       <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
       <x-input id="password_confirmation" name="password_confirmation" type="password" class="" autocomplete="new-password" />
     </div>
+    
+    <div class="mb-3">
+      {!! NoCaptcha::renderJs() !!}
+      {!! NoCaptcha::display() !!}
+      @error('g-recaptcha-response')
+      <div class="invalid-feedback d-block">
+        *{{ $message }}
+      </div>
+      @enderror
+    </div>
 
     <x-primary-button class="w-100">{{ __('Register') }}</x-primary-button>
     <div class="divider-text my-4">
