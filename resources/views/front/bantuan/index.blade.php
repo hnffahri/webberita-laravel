@@ -15,11 +15,11 @@
         @foreach ($bantuan as $item)
         <div class="col-md-6 col-lg-4 mt-4">
           <a href="{{ url('bantuan/'.$item->slug) }}">
-            <div class="card card-body faq">
+            <div class="card card-body faq h-100">
               <div class="d-flex">
-                <div class="number">{{ ($bantuan->currentPage() - 1) * $bantuan->perPage() + $loop->iteration }}</div>
+                <div class="number text-dark bg-light">{{ ($bantuan->currentPage() - 1) * $bantuan->perPage() + $loop->iteration }}</div>
                 <div class="text">
-                  <h5 class="text-dark">
+                  <h5 class="text-dark mb-1">
                     {{ $item->judul }}
                   </h5>
                   <div class="post-meta">

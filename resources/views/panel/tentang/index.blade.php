@@ -39,13 +39,38 @@
       </div>
       <hr>
       <div class="mb-3">
+        <label for="judul">Judul</label>
+        <input type="text" name="judul" id="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul', $data->judul) }}">
+        @error('judul')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <div class="mb-3">
         <label for="tentang_kami">Tentang Kami</label>
-        <textarea name="tentang_kami" id="editor" class="@error('tentang_kami') is-invalid @enderror">{{ old('tentang_kami', $data->tentang_kami) }}</textarea>
+        <textarea name="tentang_kami" id="editor_tentang_kami" class="@error('tentang_kami') is-invalid @enderror">{{ old('tentang_kami', $data->tentang_kami) }}</textarea>
         @error('tentang_kami')
         <div class="invalid-feedback">
           {{ $message }}
         </div>
         @enderror
+      </div>
+      <input type="text" class="form-control" hidden id="oldimg" value="{{ old('img', $data->img) }}" name="oldimg">
+      <div class="mb-3">
+        <label for="img">Foto (Banner)</label>
+        <input type="file" class="form-control @error('img') is-invalid @enderror" id="imgimg" name="img">
+      </div>
+      @error('img')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+      @enderror
+      <div class="mb-3">
+        <label for="img">Preview</label>
+        <div>
+          <img src="{{ asset('images/'.$data->img) }}" id="img" alt="img" height="200" class="p-2 border banner">
+        </div>
       </div>
       <div class="mb-3">
         <label for="alamat">Alamat</label>
@@ -83,6 +108,57 @@
         </div>
         @enderror
       </div>
+      <hr>
+      <div class="mb-3">
+        <label for="visi">Visi</label>
+        <textarea name="visi" id="editor_visi" class="@error('visi') is-invalid @enderror">{{ old('visi', $data->visi) }}</textarea>
+        @error('visi')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <input type="text" class="form-control" hidden id="oldimgvisi" value="{{ old('imgvisi', $data->imgvisi) }}" name="oldimgvisi">
+      <div class="mb-3">
+        <label for="imgvisi">Foto (Visi)</label>
+        <input type="file" class="form-control @error('imgvisi') is-invalid @enderror" id="imgimgvisi" name="imgvisi">
+      </div>
+      @error('imgvisi')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+      @enderror
+      <div class="mb-3">
+        <label for="imgvisi">Preview</label>
+        <div>
+          <img src="{{ asset('images/'.$data->imgvisi) }}" id="imgvisi" alt="imgvisi" height="200" class="p-2 border kotak">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="misi">Misi</label>
+        <textarea name="misi" id="editor_misi" class="@error('misi') is-invalid @enderror">{{ old('misi', $data->misi) }}</textarea>
+        @error('misi')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <input type="text" class="form-control" hidden id="oldimgmisi" value="{{ old('imgmisi', $data->imgmisi) }}" name="oldimgmisi">
+      <div class="mb-3">
+        <label for="imgmisi">Foto (Misi)</label>
+        <input type="file" class="form-control @error('imgmisi') is-invalid @enderror" id="imgimgmisi" name="imgmisi">
+      </div>
+      @error('imgmisi')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+      @enderror
+      <div class="mb-3">
+        <label for="imgmisi">Preview</label>
+        <div>
+          <img src="{{ asset('images/'.$data->imgmisi) }}" id="imgmisi" alt="imgmisi" height="200" class="p-2 border kotak">
+        </div>
+      </div>
       <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
     </form>
   </div>
@@ -92,26 +168,65 @@
 
 @push('js')
   <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-  <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
-  <script>
-    // Initialize CKEditor
-    CKEDITOR.replace('editor', {
-      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+  <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script><script>
+    // Initialize CKEditor untuk tentang_kami
+    CKEDITOR.replace('editor_tentang_kami', {
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+    });
+
+    // Initialize CKEditor untuk visi
+    CKEDITOR.replace('editor_visi', {
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+    });
+
+    // Initialize CKEditor untuk misi
+    CKEDITOR.replace('editor_misi', {
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
     });
   </script>
 
   {{-- Preview logo --}}
   <script>
-  var logo = document.getElementById("logo");
-  logo.onchange = function(evt) {
-    const [file] = logo.files
-    if (file) {
-      imglogo.src = URL.createObjectURL(file)
-    }
-  };
+    var logo = document.getElementById("logo");
+    logo.onchange = function(evt) {
+      const [file] = logo.files
+      if (file) {
+        imglogo.src = URL.createObjectURL(file)
+      }
+    };
+    
+    var imgvisi = document.getElementById("imgvisi");
+    imgvisi.onchange = function(evt) {
+      const [file] = imgvisi.files
+      if (file) {
+        imgimgvisi.src = URL.createObjectURL(file)
+      }
+    };
+    
+    var imgmisi = document.getElementById("imgmisi");
+    imgmisi.onchange = function(evt) {
+      const [file] = imgmisi.files
+      if (file) {
+        imgimgmisi.src = URL.createObjectURL(file)
+      }
+    };
+    
+    var img = document.getElementById("img");
+    img.onchange = function(evt) {
+      const [file] = img.files
+      if (file) {
+        imgimg.src = URL.createObjectURL(file)
+      }
+    };
   </script>
 
   {{-- alert --}}

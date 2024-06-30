@@ -13,7 +13,7 @@
           <h1 class="text-dark font m-0 d-inline-block">Syarat Ketentuan</h1>
         </div>
       </div>
-      {{ $data->syarat_ketentuan }}
+      {!! $data->syarat_ketentuan !!}
     </div>
   </div>
 </main>

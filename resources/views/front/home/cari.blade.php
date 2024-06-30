@@ -16,7 +16,7 @@
                 <div class="d-flex align-items-center">
                   <i class="fal fa-search"></i>
                   <input type="search" name="query" id="query" class="form-control" placeholder="Ketik disini..." value="{{ request('query') }}">
-                  <button type="submit" class="btn btn-dark">Cari</button>
+                  <button type="submit" class="btn btn-primary">Cari</button>
                 </div>
               </form>
             </div>
@@ -26,7 +26,10 @@
             @if(isset($cari) && $cari->isEmpty())
               <p class="mt-3">Kata Kunci <strong class="text-dark">{{ request('query') }}</strong> tidak ditemukan</p>
             @elseif(empty(request('query')))
-              <p class="mt-3">Silakan masukkan kata kunci untuk mencari konten.</p>
+            <div class="text-center mt-4">
+              <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
+              <div class="mt-4">Silakan masukkan kata kunci untuk mencari konten</div>
+            </div>
             @elseif(isset($cari))
             @foreach($cari as $item)
               <div class="card card-body mt-3">
@@ -51,7 +54,10 @@
             </div>
             @endif
           @else
-          <p class="mt-3">Silakan masukkan kata kunci untuk mencari konten.</p>
+          <div class="text-center mt-4">
+            <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
+            <div class="mt-4">Silakan masukkan kata kunci untuk mencari konten</div>
+          </div>
           @endif
         </div>
         <div class="col-lg-4 mt-4 mt-lg-0">

@@ -28,6 +28,10 @@ class ProfileRequest extends FormRequest
             'kota' => ['required', 'string', 'max:100'],
             'alamat' => ['required', 'string', 'max:500'],
             'avatar' => 'image|file|mimes:jpeg,jpg,png',
+            'facebook' => 'required|string|max:255',
+            'instagram' => 'required|string|max:255',
+            'xtwitter' => 'required|string|max:255',
+            'youtube' => 'required|string|max:255',
         ];
     }
 }

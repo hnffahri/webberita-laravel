@@ -23,11 +23,17 @@ class TentangRequest extends FormRequest
     {
         return [
             'logo' => 'image|file|mimes:jpeg,jpg,png|max:1048',
+            'img' => 'image|file|mimes:jpeg,jpg,png|max:1048',
+            'imgvisi' => 'image|file|mimes:jpeg,jpg,png|max:1048',
+            'imgmisi' => 'image|file|mimes:jpeg,jpg,png|max:1048',
+            'judul' => 'required|string',
             'tentang_kami' => 'required|string',
             'alamat' => 'required|string|max:255',
             'telephone' => 'required|string|max:20',
             'email' => 'required|email|max:255',
             'gmap' => 'required|string|max:255',
+            'visi' => 'required|string',
+            'misi' => 'required|string',
         ];
     }
 }

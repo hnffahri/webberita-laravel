@@ -92,6 +92,11 @@
           <i class="align-middle" data-feather="users"></i> <span class="align-middle">User Admin</span>
         </a>
       </li>
+      <li class="sidebar-item {{ Route::is('tim*') ? ' active' : '' }}">
+        <a class="sidebar-link" href="{{ url('panel/tim') }}">
+          <i class="align-middle" data-feather="users"></i> <span class="align-middle">Tim</span>
+        </a>
+      </li>
       <li class="sidebar-item">
         <a class="sidebar-link" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
           <i class="align-middle" data-feather="log-out"></i> <span class="align-middle">Keluar</span>

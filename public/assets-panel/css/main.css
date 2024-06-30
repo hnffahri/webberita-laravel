@@ -200,3 +200,12 @@ label.label-avatar{
     width: 100% !important;
     height: auto !important;
 } */
+
+.icon{
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}

@@ -66,7 +66,7 @@
       </div>
     </div>
 
-    <div class="bg-dark mt-4">
+    <div class="bg-primary mt-4">
       <div class="container py-4">
         <div class="swiper SwiperVidio">
           <div class="row align-items-center mb-4">
@@ -129,7 +129,7 @@
           <a href="{{ url('/'.$item->kategori->slug.'/'.$item->slug) }}">
             <div class="card card-body h-100 trending">
               <div class="d-flex">
-                <div class="number">{{ $loop->iteration }}</div>
+                <div class="number text-dark bg-light">{{ $loop->iteration }}</div>
                 <div class="text">
                   <div class="post-meta">
                     @if ($item->type == 2)

@@ -13,7 +13,7 @@ a {
 }
 
 .text-primary {
-    color: #4E4FEB !important;
+    color: #052962 !important;
 }
 
 .text-black {
@@ -41,11 +41,15 @@ h6,
 }
 
 .bg-primary {
-    background-color: #4E4FEB !important;
-    color: white !important;
+    background-color: #052962 !important;
+    color: #ffffff !important;
 }
 
-.bg-dark a {
+.bg-light {
+    background-color: #faf9f7 !important;
+}
+
+.bg-dark a,.bg-primary a {
     color: white !important;
 }
 
@@ -59,7 +63,7 @@ h6,
 }
 
 header nav .navbar-nav .nav-link.active {
-    color: #4E4FEB !important;
+    color: #052962 !important;
 }
 
 @media(min-width: 992px) {
@@ -193,19 +197,19 @@ footer a {
 }
 
 .btn-primary {
-    background-color: #4E4FEB !important;
-    border-color: #4E4FEB !important;
-    color: white !important;
+    background-color: #052962 !important;
+    border-color: #052962 !important;
+    color: #ffffff !important;
 }
 
 .btn-primary:hover {
-    background-color: #4E4FEB !important;
-    border-color: #4E4FEB !important;
+    background-color: #052962 !important;
+    border-color: #052962 !important;
 }
 
 .btn-primary:focus {
-    background-color: #4E4FEB !important;
-    border-color: #4E4FEB !important;
+    background-color: #052962 !important;
+    border-color: #052962 !important;
 }
 
 .radius-10 {
@@ -265,22 +269,18 @@ footer a {
 
 
 
-/* width */
-.nav-kat::-webkit-scrollbar {
+/* .nav-kat::-webkit-scrollbar {
     height: 0px;
 }
 
-/* Track */
 .nav-kat::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
 
-/* Handle */
 .nav-kat::-webkit-scrollbar-thumb {
     background: #888;
 }
 
-/* Handle on hover */
 .nav-kat::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
@@ -288,25 +288,21 @@ footer a {
 
 
 
-/* width */
 .nav-kat2::-webkit-scrollbar {
     height: 5px;
 }
 
-/* Track */
 .nav-kat2::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
 
-/* Handle */
 .nav-kat2::-webkit-scrollbar-thumb {
     background: #888;
 }
 
-/* Handle on hover */
 .nav-kat2::-webkit-scrollbar-thumb:hover {
     background: #555;
-}
+} */
 
 
 
@@ -320,11 +316,11 @@ footer a {
     border-bottom: 2px solid #fff;
 }
 
-.nav-kat {
+/* .nav-kat {
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-}
+} */
 
 .nav-kat div {
     display: flex;
@@ -456,7 +452,7 @@ footer a {
     font-weight: 600;
     border-radius: 2px;
     color: #fff !important;
-    background-color: #4E4FEB !important;
+    background-color: #052962 !important;
     -webkit-transition: 0.2s opacity;
     transition: 0.2s opacity;
     text-align: center;
@@ -582,13 +578,13 @@ footer a {
     height: 600px !important;
 }
 
-.bg-dark .font {
+.bg-dark .font,.bg-primary .font {
   border-left: 5px solid #fff;
 }
 
 .font {
   padding-left: 12px;
-  border-left: 5px solid #9336B4;
+  border-left: 5px solid #052962;
   border-radius: 3px;
   display: inline-block;
 }
@@ -661,7 +657,7 @@ footer a {
 
 .text-bg-primary {
     color: #fff !important;
-    background-color: #e4a125 !important;
+    background-color: #052962 !important;
 }
 
 .bg-primary-50 {
@@ -700,43 +696,7 @@ header .btn-dark {
 }
 
 .kategori1 {
-    background-color: #4E4FEB;
-}
-
-.kategori2 {
-    background-color: #15484C;
-}
-
-.kategori3 {
-    background-color: #f0c21b;
-}
-
-.kategori4 {
-    background-color: #862B0D;
-}
-
-.kategori5 {
-    background-color: #FF6666;
-}
-
-.kategori6 {
-    background-color: #22A699;
-}
-
-.kategori7 {
-    background-color: #f3b962;
-}
-
-.kategori8 {
-    background-color: #9336B4;
-}
-
-.kategori9 {
-    background-color: #7A3E3E;
-}
-
-.kategori10 {
-    background-color: #C07F00;
+    background-color: #052962;
 }
 
 .headline .banner-list {
@@ -825,24 +785,32 @@ main .container-fluid {
 .trending .number{
 	font-size: 30px !important;
 	font-weight: bold;
-	width: 40px !important;
-    display: block;
+	width: 50px !important;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
 }
 
 .trending .text{
-    width: calc(100% - 40px);
+    width: calc(100% - 50px);
 }
 
 
 .faq .number{
 	font-size: 30px !important;
 	font-weight: bold;
-	width: 40px !important;
-    display: block;
+	width: 50px !important;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
 }
 
 .faq .text{
-    width: calc(100% - 40px);
+    width: calc(100% - 50px);
 }
 
 
@@ -1077,4 +1045,17 @@ main .container-fluid {
 
 .dropdown a:focus{
     background-color: #f0f0f0 !important;
+}
+
+.visimisi-images{
+    width: 80%;
+}
+
+@media (min-width:992px) {
+
+    .visimisi-images{
+        margin-top: -100px;
+        width: 100%;
+    }
+    
 }

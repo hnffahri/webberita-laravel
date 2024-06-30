@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BantuanSeeder::class);
         $this->call(KontenSeeder::class);
         $this->call(PesanSeeder::class);
+        $this->call(TimSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 

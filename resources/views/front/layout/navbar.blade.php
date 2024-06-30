@@ -5,7 +5,7 @@
         <div class="col-4 d-lg-block d-none">
           @auth
           <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="{{ asset('images/user.png') }}" alt="#" width="25" class="bulat rounded-circle me-2">{{ Auth::user()->name }}
             </button>
             <ul class="dropdown-menu">
@@ -19,9 +19,9 @@
               </form>
             </ul>
           </div>
-          {{-- <a href="{{ url('/dashboard') }}" class="btn btn-light"><i class="far fa-user-circle me-2"></i>Dashboard</a> --}}
+          {{-- <a href="{{ url('/dashboard') }}" class="btn btn-primary"><i class="far fa-user-circle me-2"></i>Dashboard</a> --}}
           @else
-          <a href="{{ url('/login') }}" class="btn btn-light"><i class="fal fa-user-circle"></i> Masuk / Daftar</a>
+          <a href="{{ url('/login') }}" class="btn btn-primary"><i class="fal fa-user-circle"></i> Masuk / Daftar</a>
           @endauth
         </div>
         <div class="col-lg-4 col-5 text-lg-center">

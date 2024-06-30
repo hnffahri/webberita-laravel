@@ -14,11 +14,17 @@ return new class extends Migration
         Schema::create('tentang', function (Blueprint $table) {
             $table->id();
             $table->string('logo');
+            $table->string('judul');
             $table->text('tentang_kami');
             $table->string('alamat');
             $table->string('telephone');
             $table->string('email');
             $table->string('gmap');
+            $table->string('img');
+            $table->text('visi');
+            $table->string('imgvisi');
+            $table->text('misi');
+            $table->string('imgmisi');
             $table->timestamps();
         });
     }

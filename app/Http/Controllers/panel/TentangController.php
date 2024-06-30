@@ -82,6 +82,48 @@ class TentangController extends Controller
             
             $data['logo'] = $logo_nama;
         }
+        
+        if($request->hasFile('img')){
+            $img_file = $request->file('img');
+            $img_ekstensi = $img_file->extension();
+            $img_nama = date('ymdhis') . "." . $img_ekstensi;
+            $img_file->move(public_path('images/'), $img_nama);
+            $width = 800;
+            ResizeImage($width, public_path('images/'), $img_nama, $img_file);
+            // sudah ter upload dir
+            
+            File::delete(public_path('images/') . $request->oldimg);
+            
+            $data['img'] = $img_nama;
+        }
+        
+        if($request->hasFile('imgvisi')){
+            $imgvisi_file = $request->file('imgvisi');
+            $imgvisi_ekstensi = $imgvisi_file->extension();
+            $imgvisi_nama = date('ymdhis') . "." . $imgvisi_ekstensi;
+            $imgvisi_file->move(public_path('images/'), $imgvisi_nama);
+            $width = 800;
+            ResizeImage($width, public_path('images/'), $imgvisi_nama, $imgvisi_file);
+            // sudah ter upload dir
+            
+            File::delete(public_path('images/') . $request->oldimgvisi);
+            
+            $data['imgvisi'] = $imgvisi_nama;
+        }
+        
+        if($request->hasFile('imgmisi')){
+            $imgmisi_file = $request->file('imgmisi');
+            $imgmisi_ekstensi = $imgmisi_file->extension();
+            $imgmisi_nama = date('ymdhis') . "." . $imgmisi_ekstensi;
+            $imgmisi_file->move(public_path('images/'), $imgmisi_nama);
+            $width = 400;
+            ResizeImage($width, public_path('images/'), $imgmisi_nama, $imgmisi_file);
+            // sudah ter upload dir
+            
+            File::delete(public_path('images/') . $request->oldimgmisi);
+            
+            $data['imgmisi'] = $imgmisi_nama;
+        }
 
         Tentang::where('id', $id)->update($data);
         return redirect('panel/tentang')->with('success', 'Tentang kami berhasil diubah');

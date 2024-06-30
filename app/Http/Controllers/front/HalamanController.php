@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Halaman;
 use App\Models\Tentang;
+use App\Models\Tim;
 use Illuminate\Http\Request;
 
 class HalamanController extends Controller
@@ -24,7 +25,8 @@ class HalamanController extends Controller
     public function tentang()
     {
         return view('front/home/tentang',[
-            'data' => Tentang::find(1)
+            'data' => Tentang::find(1),
+            'tim' => Tim::latest()->get()
         ]);
     }
 }

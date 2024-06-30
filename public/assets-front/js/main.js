@@ -48,3 +48,26 @@ var swiper = new Swiper(".SwiperTrending", {
         },
     },
 });
+
+var swiper = new Swiper(".myGSwiper", {
+    spaceBetween: 10,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 2.2,
+        },
+        640: {
+            slidesPerView: 2.8,
+        },
+        768: {
+            slidesPerView: 3.8,
+        },
+        1024: {
+            slidesPerView: 4.5,
+        },
+    },
+});

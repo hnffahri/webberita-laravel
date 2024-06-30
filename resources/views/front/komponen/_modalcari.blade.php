@@ -8,7 +8,7 @@
             <div class="d-flex align-items-center">
               <i class="fal fa-search"></i>
               <input type="search" name="query" id="query" class="form-control" placeholder="Ketik disini...">
-              <button type="submit" class="btn btn-dark">Cari</button>
+              <button type="submit" class="btn btn-primary">Cari</button>
             </div>
           </form>
           <p class="m-0">Trending :</p>

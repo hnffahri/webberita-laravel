@@ -88,6 +88,50 @@
           </div>
           @enderror
         </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="facebook">Facebook</label>
+            <input type="text" name="facebook" id="facebook" class="form-control @error('facebook') is-invalid @enderror" value="{{ old('facebook', $data->facebook ?? '') }}">
+            @error('facebook')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="xtwitter">Twitter</label>
+            <input type="text" name="xtwitter" id="xtwitter" class="form-control @error('xtwitter') is-invalid @enderror" value="{{ old('xtwitter', $data->xtwitter ?? '') }}">
+            @error('xtwitter')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="instagram">Instagram</label>
+            <input type="text" name="instagram" id="instagram" class="form-control @error('instagram') is-invalid @enderror" value="{{ old('instagram', $data->instagram ?? '') }}">
+            @error('instagram')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="youtube">Youtube</label>
+            <input type="text" name="youtube" id="youtube" class="form-control @error('youtube') is-invalid @enderror" value="{{ old('youtube', $data->youtube ?? '') }}">
+            @error('youtube')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
+          </div>
+        </div>
       </div>
       <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
     </form>

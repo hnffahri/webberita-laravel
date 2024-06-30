@@ -23,8 +23,9 @@ return new class extends Migration
             $table->string('kota')->nullable();
             $table->string('avatar')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('tiktok')->nullable();
+            $table->string('facebook')->nullable();
             $table->string('xtwitter')->nullable();
+            $table->string('youtube')->nullable();
             $table->unsignedTinyInteger('role');
             $table->timestamps();
         });

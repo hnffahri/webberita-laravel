@@ -13,7 +13,7 @@
           <h1 class="text-dark font m-0 d-inline-block">Kebijakan Privasi</h1>
         </div>
       </div>
-      {{ $data->kebijakan_privasi }}
+      {!! $data->kebijakan_privasi !!}
     </div>
   </div>
 </main>

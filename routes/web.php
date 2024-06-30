@@ -33,6 +33,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\panel\AdminController;
 use App\Http\Controllers\panel\AuthController;
+use App\Http\Controllers\panel\TimController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +86,7 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::resource('/panel/profile', PanelProfileController::class)->names('profile')->only(['index', 'update']);
     Route::resource('/panel/password', PasswordController::class)->names('password')->only(['index', 'update']);
     Route::resource('/panel/bantuan', BantuanController::class)->names('bantuan');
+    Route::resource('/panel/tim', TimController::class)->names('tim');
 });
 
 // Route::get('/panel/login', [MasukController::class, 'index'])->name('loginpanel');

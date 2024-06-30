@@ -34,7 +34,7 @@
       </div>
     </div>
   </div>
-  <div class="border-top py-4 text-center">
+  <div class="border-top py-3 bg-light text-center">
     <div class="container">Copyright © 2021 WebBerita</div>
   </div>
 </footer>
