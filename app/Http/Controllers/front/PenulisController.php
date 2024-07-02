@@ -13,7 +13,7 @@ class PenulisController extends Controller
     public function index(string $username){
         Carbon::setLocale('id');
         $oneMonthAgo = Carbon::now()->subMonth();
-        $penulis = Admin::whereUsername($username)->firstOrFail();
+        $penulis = Admin::whereUsername($username)->withCount('konten')->firstOrFail();
         $konten = Konten::where('admin_id', $penulis->id)->latest()->paginate(4);
 
         return view('front/home/penulis', compact('penulis', 'konten'));

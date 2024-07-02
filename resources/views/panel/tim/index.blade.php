@@ -29,10 +29,10 @@
           <i class="icon fal fa-credit-card me-2"></i>{{$item->posisi}}
         </p>
         <h6>Sosmed :</h6>
-        <a class="mt-2 text-muted" href="{{$item->facebook}}"><i class="icon fab fa-facebook-f me-2"></i></a>
-        <a class="mt-2 text-muted" href="{{$item->xtwitter}}"><i class="icon fab fa-twitter me-2"></i></a>
-        <a class="mt-2 text-muted" href="{{$item->instagram}}"><i class="icon fab fa-instagram me-2"></i></a>
-        <a class="mt-2 text-muted" href="{{$item->youtube}}"><i class="icon fab fa-youtube me-2"></i></a>
+        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->facebook)}}"><i class="icon fab fa-facebook-f me-2"></i></a>
+        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->xtwitter)}}"><i class="icon fab fa-twitter me-2"></i></a>
+        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->instagram)}}"><i class="icon fab fa-instagram me-2"></i></a>
+        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->youtube)}}"><i class="icon fab fa-youtube me-2"></i></a>
         <div class="card m-0 mt-3">
           <div class="btn-group">
             <a href="{{ url('panel/tim/'.$item->id.'/edit') }}" class="btn btn-light"><i class="fal fa-edit"></i></a>

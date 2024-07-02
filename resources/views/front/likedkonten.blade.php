@@ -12,7 +12,10 @@
   <div class="">
     @if($likedKonten->isEmpty())
     <div class="card-body border-top">
-      <p>Anda belum menyukai konten apapun.</p>
+      <div class="text-center py-4">
+        <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
+        <div class="mt-4">Kamu belum menyukai konten apapun</div>
+      </div>
     </div>
     @else
     @foreach($likedKonten as $konten)
@@ -34,8 +37,12 @@
     </div>
     @endforeach
     @endif
-
   </div>
+</div>
+
+
+<div class="paginate-custom mt-4">
+  {{ $likedKonten->onEachSide(0)->links() }}
 </div>
 
 @endsection

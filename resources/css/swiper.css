@@ -1,0 +1,95 @@
+@import './style/swiper-bundle.min.css';
+
+
+.swiper-button-next,
+.swiper-button-prev {
+    position: relative;
+    top: 0%;
+    height: 25px;
+    padding: 20px;
+    background-color: black;
+    border-radius: 0px;
+    margin-top: 0px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 14px;
+    color: white;
+}
+
+.swiper-button-prev,
+.swiper-container-rtl.swiper-button-next {
+    left: 0px;
+    right: auto;
+}
+
+.swiper-button-next,
+.swiper-container-rtl.swiper-button-prev {
+    left: 0px;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    opacity: 1;
+    background-color: #ffffff;
+}
+
+.swiper-button-next.swiper-button-disabled:after,
+.swiper-button-prev.swiper-button-disabled:after {
+    opacity: 1;
+    color: black;
+}
+
+
+/* asd */
+.bg-dark .swiper-button-next,
+.bg-dark .swiper-button-prev {
+    background-color: white;
+}
+
+.bg-dark .swiper-button-next:after,
+.bg-dark .swiper-button-prev:after {
+    color: black;
+}
+
+.bg-dark .swiper-button-next.swiper-button-disabled,
+.bg-dark .swiper-button-prev.swiper-button-disabled {
+    background-color: #000;
+}
+
+.bg-dark .swiper-button-next.swiper-button-disabled:after,
+.bg-dark .swiper-button-prev.swiper-button-disabled:after {
+    color: white;
+}
+
+/* end asd */
+
+
+
+.swiper-pagination {
+    /* position: relative;
+      margin-top: 10px; */
+    text-align: left;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 4px;
+    background-color: #c5c5c5;
+    border: 0;
+    opacity: 1;
+    margin-right: 10px;
+    border-radius: 0px
+}
+
+.swiper-pagination-bullet-active {
+    background: #15484C;
+    width: 18px
+}
+
+.s-button {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}

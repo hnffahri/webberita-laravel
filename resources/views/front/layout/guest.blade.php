@@ -20,6 +20,7 @@
     @include('front/layout/navbar')
     @include('front/komponen/_modalcari')
     @include('front/komponen/_offcanvascari')
+    
     <main class="py-5 bg-light">
       <div class="container">
         <div class="row justify-content-center">
@@ -35,47 +36,23 @@
     </main>
     
 
+    @include('front/layout/footer')
 
-    <footer class="py-4 bg-white">
-      <div class="container">
-        <div class="d-none d-none d-lg-block">
-          <div class="row">
-            <div class="col-lg-3">Copyright © 2021 ChillNews</div>
-            <div class="col-lg-6 text-center">
-              <a class="mx-2" href="bantuan.html">Bantuan</a>
-              <a class="mx-2" href="tentang.html">Tentang</a>
-              <a class="mx-2" href="privasi.html">Kebijakan Privasi</a>
-            </div>
-            <div class="col-lg-3 text-end">
-              <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="me-3"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="d-lg-none">
-          <div class="row">
-            <div class="col-lg-6 text-center">
-              <a class="mx-2" href="bantuan.html">Bantuan</a>
-              <a class="mx-2" href="tentang.html">Tentang</a>
-              <a class="mx-2" href="privasi.html">Kebijakan Privasi</a>
-            </div>
-            <div class="col-lg-3 text-center my-4">
-              <a href="#" class="mx-3"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="mx-3"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="mx-3"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="mx-3"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="col-lg-3 text-center">Copyright © 2021 SalingSapaTv</div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
+  
+    <script src="{{ asset('assets-front/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets-front/js/jquery-3.5.1.js') }}"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> --}}
+  
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{{ asset('assets-front/js/aos.js') }}"></script>
     <script>
       AOS.init();
     </script>
+    {{-- <script src="{{ asset('assets-front/js/swiper-bundle.min.js') }}"></script> --}}
+    <script src="{{ asset('assets-front/js/main.js') }}"></script>
     @stack('js')
   </body>
 </html>

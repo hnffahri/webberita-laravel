@@ -14,9 +14,9 @@
 
         <div class="mb-3 d-flex align-items-center">
             @if (empty($user->avatar))
-            <img src="{{ asset('images/user.png') }}" alt="{{ $user->name }}" class="bulat rounded-2" width="65">
+            <img src="{{ asset('images/user.png') }}" alt="{{ $user->name }}" class="bulat" width="65">
             @else
-            <img src="{{ asset('images/'.$user->avatar) }}" alt="{{ $user->name }}" class="bulat rounded-2" width="65">
+            <img src="{{ asset('images/'.$user->avatar) }}" alt="{{ $user->name }}" class="bulat" width="65">
             @endif
             <div class="ms-2 w-100">
                 <x-input-label for="avatar" :value="__('Avatar')" />

@@ -1,6 +1,9 @@
 @extends('front/layout/template')
 
 @section('title', $konten->judul)
+@section('keywords', $konten->keyword)
+@section('deskripsi', $konten->ringkas)
+@section('author', $konten->Admin->name)
 
 @section('content')
 
@@ -74,7 +77,7 @@
               <div class="card-body border-top trending">
                 <a href="{{ url('/'.$item->kategori->slug.'/'.$item->slug) }}">
                   <div class="d-flex">
-                    <div class="number">{{ $loop->iteration }}</div>
+                    <div class="number text-dark bg-light">{{ $loop->iteration }}</div>
                     <div class="text">
                       <div class="post-meta">
                         @if ($item->type == 2)
@@ -99,10 +102,11 @@
               <h5 class="text-dark">Follow Us</h5>
               <p>Follow us on Social Network</p>
               <div>
-                <a class="mt-2" href="#"><i class="icon fab fa-facebook-f me-2"></i></a>
-                <a class="mt-2" href="#"><i class="icon fab fa-twitter me-2"></i></a>
-                <a class="mt-2" href="#"><i class="icon fab fa-instagram me-2"></i></a>
-                <a class="mt-2" href="#"><i class="icon fab fa-youtube me-2"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->facebook) }}"><i class="icon fab fa-facebook-f"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->twitter) }}"><i class="icon fab fa-twitter"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->instagram) }}"><i class="icon fab fa-instagram"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->youtube) }}"><i class="icon fab fa-youtube"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->tiktok) }}"><i class="icon fab fa-pinterest"></i></a>
               </div>
             </div>
           </div>
@@ -111,6 +115,9 @@
     </div>
   </div>
 </main>
+@endsection
+
+
 @push('js')
     
 <script>
@@ -169,4 +176,3 @@ $(document).ready(function () {
 });
 </script>
 @endpush
-@endsection

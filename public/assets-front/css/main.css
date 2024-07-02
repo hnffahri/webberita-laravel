@@ -45,12 +45,21 @@ h6,
     color: #ffffff !important;
 }
 
+.bg-warning {
+    background-color: #ffe500 !important;
+    color: #3d3d3d !important;
+}
+
 .bg-light {
     background-color: #faf9f7 !important;
 }
 
 .bg-dark a,.bg-primary a {
     color: white !important;
+}
+
+.bg-warning a {
+    color: #3d3d3d !important;
 }
 
 .bulat {
@@ -194,6 +203,10 @@ footer a {
 .btn-dark {
     background-color: #181818 !important;
     color: white !important;
+}
+
+.btn-warning {
+    color: #ffffff !important;
 }
 
 .btn-primary {
@@ -690,10 +703,10 @@ footer a {
     font-size: 20px;
 }
 
-header .btn-dark {
+/* header .btn-dark {
     background-color: rgba(255, 255, 255, 0.2) !important;
     border: 0px !important;
-}
+} */
 
 .kategori1 {
     background-color: #052962;
@@ -822,7 +835,7 @@ main .container-fluid {
   padding: 20px;
   background-color: black;
   border-radius: 0px;
-  margin-top: 15px;
+  margin-top: 0px;
 }
 
 .swiper-button-next:after,.swiper-button-prev:after{
@@ -1058,4 +1071,8 @@ main .container-fluid {
         width: 100%;
     }
     
+}
+
+.alert{
+    border-radius: 0px !important;
 }

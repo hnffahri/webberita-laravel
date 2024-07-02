@@ -11,9 +11,9 @@
         <a class="d-block mt-2" href="{{ route('frontbantuan')}}">Bantuan (Faq)</a>
       </div>
       <div class="col-lg-5 text-center">
-        <a href="{{ url('/') }}"><img src="{{ asset('assets-front/assets/img/logo.png') }}" alt="#" height="30"></a>
-        <div class="mt-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde veniam dolor numquam? Eaque dolores tempore natus distinctio. Excepturi consequatur ex facere incidunt quaerat. Odio vero quam officia tempora, et dolores.
+        <a href="{{ url('/') }}"><img src="{{ asset('images/'.$tentang->logo) }}" alt="#" height="30"></a>
+        <div class="mt-3">
+          {{ $seo->deskripsi }}
         </div>
       </div>
       <div class="col-lg-3 text-center d-lg-none my-4">
@@ -26,11 +26,11 @@
       </div>
       <div class="col-lg-3 text-center">
         <h3 class="text-dark">Follow Us</h3>
-        <a class="d-block mt-2" href="asd">facebook</a>
-        <a class="d-block mt-2" href="asd">twitter</a>
-        <a class="d-block mt-2" href="asd">instagram</a>
-        <a class="d-block mt-2" href="asd">youtube</a>
-        <a class="d-block mt-2" href="asd">Tiktok</a>
+        <a class="d-block mt-2" target="_blank" href="{{ $sosmed->facebook }}">Facebook</a>
+        <a class="d-block mt-2" target="_blank" href="{{ $sosmed->twitter }}">Twitter</a>
+        <a class="d-block mt-2" target="_blank" href="{{ $sosmed->instagram }}">Instagram</a>
+        <a class="d-block mt-2" target="_blank" href="{{ $sosmed->youtube }}">Youtube</a>
+        <a class="d-block mt-2" target="_blank" href="{{ $sosmed->tiktok }}">Tiktok</a>
       </div>
     </div>
   </div>

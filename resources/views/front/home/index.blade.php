@@ -6,6 +6,7 @@
 
 
 <main>
+
   <div class="py-4 bg-light">
     <div class="container headline">
       {{-- <div class="text-center">
@@ -66,12 +67,12 @@
       </div>
     </div>
 
-    <div class="bg-primary mt-4">
+    <div class="bg-warning mt-4">
       <div class="container py-4">
         <div class="swiper SwiperVidio">
           <div class="row align-items-center mb-4">
             <div class="col-6">
-              <h1 class="text-white font m-0">Rekomendasi</h1>
+              <h1 class="text-dark font m-0">Rekomendasi</h1>
             </div>
             <div class="col-6">
               <div class="s-button">
@@ -93,9 +94,9 @@
                     <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
                     @endif
                     <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
-                    <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
+                    <span class=""><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
                   </div>
-                  <h4 class="m-0 judul">{{ $item->judul }}</h4>
+                  <h4 class="m-0 text-dark">{{ $item->judul }}</h4>
                   {{-- <div class="ringkas">{{ $item->ringkas }}</div> --}}
                 </div>
               </a>
@@ -156,7 +157,7 @@
     <div class="container mt-4">
       <hr class="mb-0">
       <hr class="mt-1">
-      <div class="swiper Swiper{{ $kategori->slug }}">
+      <div class="swiper SwiperVidio">
         <div class="row align-items-center mb-4">
           <div class="col-7">
             <h1 class="text-dark font m-0" style="border-color: {{ $kategori->warna }} !important">{{ $kategori->nama }}</h1>
@@ -165,12 +166,12 @@
             <a href="{{ url('/'.$kategori->slug) }}" class="btn btn-primary" style="background-color: {{ $kategori->warna }} !important; border-color: {{ $kategori->warna }} !important">Lainnya <i class="far fa-chevron-right"></i></a>
           </div>
         </div>
-        @empty($kategori->KontenM)
+        @if($kategori->KontenM->isEmpty())
         <div class="text-center">
           <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
           <div class="mt-4">Tidak ada konten</div>
         </div>
-        @endempty
+        @else
         <div class="swiper-wrapper">
           @foreach ($kategori->KontenM as $konten)
           <div class="swiper-slide">
@@ -192,17 +193,8 @@
             </a>
           </div>
           @endforeach
-          {{-- <div class="swiper-slide">
-            <a href="#">
-              <div class="card cardswipe-more">
-                <div class="card-body text-center">
-                  <h5 class="text-dark mb-0">Topik {{ $kategori->nama }} Lainnya <i class="far fa-arrow-right"></i></h5>
-                </div>
-              </div>
-            </a>
-          </div> --}}
         </div>
-        <div class="row align-items-center">
+        <div class="row align-items-center mt-3">
           <div class="col-8">
             <div class="swiper-pagination"></div>
           </div>
@@ -213,43 +205,19 @@
             </div>
           </div>
         </div>
+        @endif
       </div>
     </div>
     @endforeach
-
-    @push('js')
-      @foreach ($kategoriM as $kategori)
-        <script>
-          var swiper = new Swiper(".Swiper{{ $kategori->slug }}", {
-              slidesPerView: 1,
-              spaceBetween: 10,
-              navigation: {
-                  nextEl: '.swiper-button-next',
-                  prevEl: '.swiper-button-prev',
-              },
-              pagination: {
-                  el: ".swiper-pagination",
-                  clickable: true,
-              },
-              breakpoints: {
-                  0: {
-                      slidesPerView: 1.2,
-                  },
-                  640: {
-                      slidesPerView: 2,
-                  },
-                  768: {
-                      slidesPerView: 4,
-                  },
-                  1024: {
-                      slidesPerView: 3,
-                  },
-              },
-          });
-        </script>
-      @endforeach
-    @endpush
   </div>
 </main>
 
 @endsection
+
+@push('css')
+@vite('resources/css/swiper.css')
+@endpush
+
+@push('js')
+@vite('resources/js/swiper.js')
+@endpush

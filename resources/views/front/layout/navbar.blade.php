@@ -5,15 +5,14 @@
         <div class="col-4 d-lg-block d-none">
           @auth
           <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{{ asset('images/user.png') }}" alt="#" width="25" class="bulat rounded-circle me-2">{{ Auth::user()->name }}
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fal fa-user-circle me-2"></i>Hi, {{ Auth::user()->name }}
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ url('/dashboard') }}"><i class="far fa-tachometer-alt me-2"></i>Dashboard</a></li>
+              <li><a class="dropdown-item" href="{{ url('/dashboard') }}"><i class="fal fa-tachometer-alt me-2"></i>Dashboard</a></li>
               <li><a class="dropdown-item" href="{{ url('/liked-konten') }}"><i class="fal fa-thumbs-up me-2"></i>Konten yang disukai</a></li>
-              <li><a class="dropdown-item" href="{{ url('/riwayat') }}"><i class="fal fa-list-alt me-2"></i>Riwayat Baca</a></li>
               <li><a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="fal fa-cog me-2"></i>Pengaturan</a></li>
-              <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="far fa-sign-out me-2"></i>Keluar</a></li>
+              <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fal fa-sign-out me-2"></i>Keluar</a></li>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
               </form>
@@ -21,12 +20,12 @@
           </div>
           {{-- <a href="{{ url('/dashboard') }}" class="btn btn-primary"><i class="far fa-user-circle me-2"></i>Dashboard</a> --}}
           @else
-          <a href="{{ url('/login') }}" class="btn btn-primary"><i class="fal fa-user-circle"></i> Masuk / Daftar</a>
+          <a href="{{ url('/login') }}" class="btn btn-light"><i class="fal fa-user-circle"></i> Masuk / Daftar</a>
           @endauth
         </div>
         <div class="col-lg-4 col-5 text-lg-center">
           <div class="">
-            <a href="{{ url('/') }}"><img src="{{ asset('assets-front/assets/img/logo.png') }}" alt="#" height="30"></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('images/'.$tentang->logo) }}" alt="#" height="30"></a>
           </div>
         </div>
         <div class="col-lg-4 col-7 text-end">
@@ -58,15 +57,15 @@
           <div class="col-8">
             @auth
             <div class="dropdown">
-              <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{ asset('images/user.png') }}" alt="#" width="25" class="bulat rounded-circle me-2">{{ Auth::user()->name }}
+              <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fal fa-user-circle me-2"></i>Hi, {{ Auth::user()->name }}
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ url('/dashboard') }}"><i class="far fa-tachometer-alt me-2"></i>Dashboard</a></li>
                 <li><a class="dropdown-item" href="{{ url('/liked-konten') }}"><i class="fal fa-thumbs-up me-2"></i>Konten yang disukai</a></li>
                 <li><a class="dropdown-item" href="{{ url('/riwayat') }}"><i class="fal fa-list-alt me-2"></i>Riwayat Baca</a></li>
                 <li><a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="fal fa-cog me-2"></i>Pengaturan</a></li>
-                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="far fa-sign-out me-2"></i>Keluar</a></li>
+                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fal fa-sign-out me-2"></i>Keluar</a></li>
               </ul>
             </div>
             {{-- <a href="{{ url('/login') }}" class="btn btn-dark"><img src="{{ asset('images/user.png'. Auth::user()->avatar) }}" alt=""> {{ Auth::user()->name }}</a> --}}
@@ -75,7 +74,7 @@
             @endauth
           </div>
           <div class="col-4 text-end">
-            <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="btn btn-dark"><i class="fal fa-bars"></i></a>
+            <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="btn btn-light"><i class="fal fa-bars"></i></a>
           </div>
         </div>
       </div>
@@ -103,9 +102,11 @@
     <a href="{{ route('kebijakanprivasi')}}">Kebijakan Privasi</a>
     <a href="{{ route('frontbantuan')}}">Bantuan (Faq)</a>
     <hr>
-    <a href="detail.html"><i class="fab fa-facebook-f me-2"></i>Facebook</a>
-    <a href="detail.html"><i class="fab fa-instagram me-2"></i>Instagram</a>
-    <a href="detail.html"><i class="fab fa-twitter me-2"></i>Twitter</a>
-    <a href="detail.html"><i class="fab fa-youtube me-2"></i>Youtube</a>
+    <h6 class="text-dark mb-3">Follow :</h6>
+    <a target="_blank" href="{{ $sosmed->facebook }}"><i class="icon fab fa-facebook-f me-2"></i>Facebook</a>
+    <a target="_blank" href="{{ $sosmed->twitter }}"><i class="icon fab fa-twitter me-2"></i>Twitter</a>
+    <a target="_blank" href="{{ $sosmed->instagram }}"><i class="icon fab fa-instagram me-2"></i>Instagram</a>
+    <a target="_blank" href="{{ $sosmed->youtube }}"><i class="icon fab fa-youtube me-2"></i>Youtube</a>
+    <a target="_blank" href="{{ $sosmed->tiktok }}"><i class="icon fab fa-tiktok me-2"></i>Tiktok</a>
   </div>
 </div>

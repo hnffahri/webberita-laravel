@@ -7,8 +7,8 @@
           <form action="{{ route('cari') }}" method="GET" class="card search-canvas w-100 mb-3">
             <div class="d-flex align-items-center">
               <i class="fal fa-search"></i>
-              <input type="search" name="query" id="query" class="form-control" placeholder="Ketik disini...">
-              <button type="submit" class="btn btn-primary">Cari</button>
+              <input type="search" name="query" id="query" class="form-control" placeholder="Ketik kata kunci...">
+              <button type="submit" class="btn btn-dark">Cari</button>
             </div>
           </form>
           <p class="m-0">Trending :</p>

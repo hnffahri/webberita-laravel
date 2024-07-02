@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($data as $item)
+          @forelse ($data as $item)
           <tr>
             <td class="">
               <div class="d-flex align-items-center">
@@ -49,7 +49,14 @@
               </div>
             </td>
           </tr>
-          @endforeach
+          @empty
+          <tr >
+            <td colspan="4" class="text-center py-5">
+              <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
+              <div class="mt-4">Tidak ada member</div>
+            </td>
+          </tr>
+          @endforelse
         </tbody>
       </table>
     </div>

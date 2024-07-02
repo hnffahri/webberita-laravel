@@ -20,7 +20,7 @@
                 @endif
                 <div class="ms-3">
                   <h5 class="text-dark">{{ $penulis->name }}</h5>
-                  <small><i class="fal fa-file-alt me-2"></i>123 konten</small>
+                  <small><i class="fal fa-file-alt me-2"></i>{{ $penulis->konten_count }} konten</small>
                 </div>
               </div>
               <hr>
@@ -72,7 +72,7 @@
               <img src="{{ asset('images/admin/'.$penulis->avatar) }}" alt="#" class="rounded-circle bulat" width="100">
               @endif
               <h5 class="text-dark mt-3">{{ $penulis->name }}</h5>
-              <small><i class="fal fa-file-alt me-2"></i>123 konten</small>
+              <small><i class="fal fa-file-alt me-2"></i>{{ $penulis->konten_count }} konten</small>
               <hr>
               <h6 class="text-dark">Bio :</h6>
               <p>{{ $penulis->biografi }}</p>

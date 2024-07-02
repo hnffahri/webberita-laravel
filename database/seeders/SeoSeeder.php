@@ -14,7 +14,7 @@ class SeoSeeder extends Seeder
     {
         DB::table('seo')->insert([
             'judul' => 'Web Berita',
-            'deskripsi' => 'Kami adalah perusahaan yang bergerak di bidang teknologi, berkomitmen untuk menyediakan solusi inovatif untuk pelanggan kami. Visi kami adalah menjadi pemimpin pasar dalam industri ini',
+            'deskripsi' => 'Temukan berita terbaru, paling aktual, dan terpercaya hanya di Webberita, sumber informasi terdepan yang menyajikan berita dengan akurasi tinggi dan analisis mendalam.',
             'keyword' => 'news, hot news, viral, berita viral',
         ]);
     }
