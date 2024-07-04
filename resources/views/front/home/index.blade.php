@@ -82,7 +82,7 @@
             </div>
           </div>
           <div class="swiper-wrapper">
-            @foreach ($vidio as $item)
+            @foreach ($rekomendasi as $item)
             <div class="swiper-slide">
               <a href="{{ url('/'.$item->kategori->slug.'/'.$item->slug) }}">
                 <div class="listblog">
@@ -175,7 +175,7 @@
         <div class="swiper-wrapper">
           @foreach ($kategori->KontenM as $konten)
           <div class="swiper-slide">
-            <a href="{{ url('/'.$item->kategori->slug.'/'.$item->slug) }}">
+            <a href="{{ url('/'.$konten->kategori->slug.'/'.$konten->slug) }}">
               <div class="card">
                 <figure>
                   <img src="{{ asset('images/konten/'.$konten->img) }}" alt="{{ $konten->judul }}" class="banner w-100">
@@ -209,6 +209,7 @@
       </div>
     </div>
     @endforeach
+
   </div>
 </main>
 

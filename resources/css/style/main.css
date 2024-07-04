@@ -123,6 +123,11 @@ footer a {
     background-color: #052962 !important;
 }
 
+.search-canvas .form-control:focus{
+    box-shadow: none !important;
+    border-color: #8da7d1 !important;
+}
+
 .shadow-sm {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }

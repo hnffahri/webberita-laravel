@@ -13,7 +13,13 @@
           <h1 class="text-dark font m-0 d-inline-block">Kebijakan Privasi</h1>
         </div>
       </div>
-      {!! $data->kebijakan_privasi !!}
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card card-body">
+            {!! $data->kebijakan_privasi !!}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>

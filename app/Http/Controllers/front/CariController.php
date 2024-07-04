@@ -30,7 +30,7 @@ class CariController extends Controller
         $query = $request->input('query');
         $cari = Konten::with('kategori')->where('judul', 'LIKE', "%$query%")
                 // ->orWhere('ringkas', 'LIKE', "%$query%")
-                ->paginate(1);
+                ->paginate(5);
 
         return view('front/home/cari', compact('cari','query','trending'));
     }

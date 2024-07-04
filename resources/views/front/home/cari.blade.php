@@ -24,7 +24,10 @@
           <div class="mt-3">Hasil Pencarian :</div>
           @if(request()->has('query'))
             @if(isset($cari) && $cari->isEmpty())
-              <p class="mt-3">Kata Kunci <strong class="text-dark">{{ request('query') }}</strong> tidak ditemukan</p>
+            <div class="text-center mt-4">
+              <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
+              <div class="mt-4">Kata Kunci <strong class="text-dark">{{ request('query') }}</strong> tidak ditemukan</div>
+            </div>
             @elseif(empty(request('query')))
             <div class="text-center mt-4">
               <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
@@ -70,7 +73,7 @@
               <div class="card-body border-top trending">
                 <a href="{{ url('/'.$item->kategori->slug.'/'.$item->slug) }}">
                   <div class="d-flex">
-                    <div class="number">{{ $loop->iteration }}</div>
+                    <div class="number bg-light">{{ $loop->iteration }}</div>
                     <div class="text">
                       <div class="post-meta">
                         @if ($item->type == 2)

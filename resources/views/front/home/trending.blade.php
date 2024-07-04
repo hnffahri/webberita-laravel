@@ -17,7 +17,7 @@
           <a href="{{ url('/'.$item->kategori->slug.'/'.$item->slug) }}">
             <div class="card card-body h-100 trending">
               <div class="d-flex">
-                <div class="number">{{ ($trending->currentPage() - 1) * $trending->perPage() + $loop->iteration }}</div>
+                <div class="number bg-light">{{ ($trending->currentPage() - 1) * $trending->perPage() + $loop->iteration }}</div>
                 <div class="text">
                   <div class="post-meta">
                     @if ($item->type == 2)
