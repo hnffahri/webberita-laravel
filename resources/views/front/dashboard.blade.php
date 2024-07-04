@@ -15,7 +15,7 @@
   <div class="card-body">
     <div class="d-flex justify-content-between align-items-center w-100">
       <h5 class="text-dark m-0">Konten yang disukai</h5>
-      <a href="#" class="btn btn-primary">Lihat Semua</a>
+      <a href="{{ url('/liked-konten') }}" class="btn btn-primary">Lihat Semua</a>
     </div>
   </div>
   <div class="">
@@ -51,7 +51,3 @@
 </div>
 
 @endsection
-
-{{-- <x-app-layout>
-
-</x-app-layout> --}}

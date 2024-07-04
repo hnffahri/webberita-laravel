@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Kategori;
 use App\Models\Konten;
+use App\Models\Plugin;
 use App\Models\Seo;
 use App\Models\Sosmed;
 use App\Models\Tentang;
@@ -44,6 +45,11 @@ class SideServiceProvider extends ServiceProvider
         View::composer(['front/layout/footer','front/home/detail','front/layout/navbar'], function ($view) {
             $sosmed = Sosmed::find(1);
             $view->with('sosmed', $sosmed);
+        });
+        
+        View::composer(['front/layout/template'], function ($view) {
+            $plugin = Plugin::find(1);
+            $view->with('plugin', $plugin);
         });
 
         View::composer(['front/komponen/_modalcari','front/komponen/_offcanvascari'], function ($view) {

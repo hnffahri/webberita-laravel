@@ -21,7 +21,7 @@
           @if (empty($item->avatar))
           <img src="{{ asset('images/user.png') }}" alt="#" class="kotak rounded-circle me-2 border" width="90">
           @else
-          <img src="{{ asset('images/user/'.$item->avatar) }}" alt="#" class="kotak rounded-circle me-2 border" width="90">
+          <img src="{{ asset('images/member/'.$item->avatar) }}" alt="#" class="kotak rounded-circle me-2 border" width="90">
           @endif
         </div>
         <h5 class="text-dark fw-bold m-0">{{ $user->name }}</h5>

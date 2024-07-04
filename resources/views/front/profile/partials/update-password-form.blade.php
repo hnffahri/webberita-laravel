@@ -29,7 +29,7 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button><i class="fal fa-save me-2"></i>{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'password-updated')
                 <p

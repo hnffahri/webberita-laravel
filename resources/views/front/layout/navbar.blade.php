@@ -18,7 +18,7 @@
               </form>
             </ul>
           </div>
-          {{-- <a href="{{ url('/dashboard') }}" class="btn btn-primary"><i class="far fa-user-circle me-2"></i>Dashboard</a> --}}
+          {{-- <a href="{{ url('/dashboard') }}" class="btn btn-primary"><i class="fal fa-user-circle me-2"></i>Dashboard</a> --}}
           @else
           <a href="{{ url('/login') }}" class="btn btn-light"><i class="fal fa-user-circle"></i> Masuk / Daftar</a>
           @endauth
@@ -61,7 +61,7 @@
                 <i class="fal fa-user-circle me-2"></i>Hi, {{ Auth::user()->name }}
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ url('/dashboard') }}"><i class="far fa-tachometer-alt me-2"></i>Dashboard</a></li>
+                <li><a class="dropdown-item" href="{{ url('/dashboard') }}"><i class="fal fa-tachometer-alt me-2"></i>Dashboard</a></li>
                 <li><a class="dropdown-item" href="{{ url('/liked-konten') }}"><i class="fal fa-thumbs-up me-2"></i>Konten yang disukai</a></li>
                 <li><a class="dropdown-item" href="{{ url('/riwayat') }}"><i class="fal fa-list-alt me-2"></i>Riwayat Baca</a></li>
                 <li><a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="fal fa-cog me-2"></i>Pengaturan</a></li>

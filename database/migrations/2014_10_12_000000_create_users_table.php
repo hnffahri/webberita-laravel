@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('provinsi')->nullable();
             $table->string('kota')->nullable();
             $table->string('avatar')->nullable();
+            $table->unsignedTinyInteger('notif');
             $table->rememberToken();
             $table->timestamps();
         });

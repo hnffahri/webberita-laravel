@@ -47,7 +47,7 @@
               <div class="card-body border-top trending">
                 <a href="{{ url('/'.$item->kategori->slug.'/'.$item->slug) }}">
                   <div class="d-flex">
-                    <div class="number">{{ $loop->iteration }}</div>
+                    <div class="number bg-light">{{ $loop->iteration }}</div>
                     <div class="text">
                       <div class="post-meta">
                         @if ($item->type == 2)

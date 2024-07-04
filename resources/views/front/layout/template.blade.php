@@ -40,6 +40,11 @@
 
   @stack('js')
 
+  {{-- 
+  {{ $plugin->google_analytics }}
+  {{ $plugin->facebook_pixel }}
+  --}}
+
 </body>
 
 </html>

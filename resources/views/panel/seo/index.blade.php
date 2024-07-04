@@ -3,6 +3,9 @@
 @section('title', 'Pengaturan SEO')
 
 @section('content')
+@push('css')
+<link href="{{ asset('css/tagin.min.css') }}" rel="stylesheet">
+@endpush
 
 <div class="row mb-3">
   <div class="col-6">
@@ -31,11 +34,11 @@
         </div>
         <div class="col-12">
           <div class="mb-3">
-            <label for="keyword">keyword</label>
-            <input type="text" name="keyword" id="keyword" class="@error('keyword') is-invalid @enderror form-control" value="{{ old('keyword', $seo->keyword) }}">
+            <label for="keyword">Keyword</label>
+            <input name="keyword" id="keyword" class="@error('keyword') is-invalid @enderror form-control tagin" data-tagin-placeholder="Gunakan koma buat nambah keywords" value="{{ old('keyword', $seo->keyword) }}">
             @error('keyword')
             <div class="invalid-feedback">
-              {{ $message }}
+              *{{ $message }}
             </div>
             @enderror
           </div>
@@ -75,5 +78,10 @@
         timer: 2500
       });
     }
+  </script>
+  
+  <script src="{{ asset('js/tagin.min.js') }}"></script>
+  <script>
+    new Tagin(document.querySelector('.tagin'))
   </script>
 @endpush

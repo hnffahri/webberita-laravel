@@ -48,6 +48,11 @@
   <script src="{{ asset('assets-front/js/jquery-3.6.0.min.js') }}"></script>
   @stack('js')
 
+  {{-- 
+  {{ $plugin->google_analytics }}
+  {{ $plugin->facebook_pixel }}
+  --}}
+  
 </body>
 
 </html>

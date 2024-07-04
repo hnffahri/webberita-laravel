@@ -40,6 +40,7 @@ public function handleGoogleCallback()
             'email' => $googleUser->getEmail(),
             'username' => $username,
             'password' => Hash::make('password'), // Buat password acak, tidak akan digunakan
+            'notif' => 2,
         ]);
     }
 

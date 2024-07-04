@@ -35,11 +35,11 @@ class ProfileController extends Controller
             $avatar_file = $request->file('avatar');
             $avatar_ekstensi = $avatar_file->extension();
             $avatar_nama = date('ymdhis') . "." . $avatar_ekstensi;
-            $avatar_file->move(public_path('images/'), $avatar_nama);
+            $avatar_file->move(public_path('images/member/'), $avatar_nama);
 
             $id = Auth::user()->id;
             $oldavatar = User::where('id', $id)->first();
-            File::delete(public_path('images') .'/'. $oldavatar->avatar);
+            File::delete(public_path('images/member') .'/'. $oldavatar->avatar);
             
             $request->user()->avatar = $avatar_nama;
         }
@@ -47,6 +47,7 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+        $request->user()->notif = $request->has('notif') ? 2 : 1;
 
         $request->user()->save();
 

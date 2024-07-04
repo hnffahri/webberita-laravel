@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class KontenSeeder extends Seeder
 {
@@ -15,7 +16,6 @@ class KontenSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-
         $images = [
             'banner1.jpg',
             'banner2.jpg',
@@ -35,21 +35,28 @@ class KontenSeeder extends Seeder
             'banner16.jpg',
         ];
 
+        // Set start date and end date
+        $startDate = '2024-01-01 00:00:00';
+        $endDate = Carbon::now();
+
+        // Shuffle images array to use each image once
+        shuffle($images);
+
         for ($i = 0; $i < 16; $i++) {
             $judul = $faker->sentence;
-            $createdAt = $faker->dateTimeBetween('2024-01-01 00:00:00', '2024-12-31 23:59:59');
-            $updatedAt = $faker->dateTimeBetween($createdAt, '2024-12-31 23:59:59');
+            $createdAt = $faker->dateTimeBetween($startDate, $endDate);
+            $updatedAt = $faker->dateTimeBetween($createdAt, $endDate);
             DB::table('konten')->insert([
-                'admin_id' => $faker->numberBetween(1, 2),
+                'admin_id' => $faker->numberBetween(1, 3),
                 'kategori_id' => $faker->numberBetween(1, 4),
                 'judul' => $judul,
                 'slug' => Str::slug($judul),
                 'ringkas' => $faker->paragraph,
                 'isi' => $faker->paragraphs(3, true),
-                'img' => $faker->randomElement($images),
+                'img' => $images[$i], // Use each image only once
                 'vidio' => null,
                 'keyword' => implode(', ', $faker->words(5)),
-                'status' => $faker->randomElement(['1', '2']),
+                'status' => 1,
                 'views' => $faker->numberBetween(0, 1000),
                 'type' => 1,
                 'created_at' => $createdAt,

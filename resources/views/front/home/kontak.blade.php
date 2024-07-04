@@ -102,7 +102,7 @@
       text: swal,
       icon: "success",
       showConfirmButton: false,
-      timer: 2500
+      timer: 3000
     });
   }
 </script>

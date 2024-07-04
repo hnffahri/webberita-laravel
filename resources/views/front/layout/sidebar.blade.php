@@ -5,7 +5,7 @@
       @if (empty(Auth::user()->avatar))
       <img src="{{ asset('images/user.png') }}" alt="#" width="80" class="bulat rounded-circle">
       @else
-      <img src="{{ asset('images/'.Auth::user()->avatar) }}" alt="#" width="80" class="bulat rounded-circle">
+      <img src="{{ asset('images/member/'.Auth::user()->avatar) }}" alt="#" width="80" class="bulat rounded-circle">
       @endif
       <div class="mt-lg-4 ms-3 ms-lg-0">
         <h5 class="text-dark mb-1">{{ Auth::user()->name }}</h5>

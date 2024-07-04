@@ -20,6 +20,7 @@
           <tr>
             <th>Nama</th>
             <th>Email</th>
+            <th>Notif</th>
             <th>Tanggal</th>
             <th class="">Aksi</th>
           </tr>
@@ -32,13 +33,20 @@
                 @if (empty($item->avatar))
                 <img src="{{ asset('images/user.png') }}" alt="#" class="kotak rounded me-2 border" width="30">
                 @else
-                <img src="{{ asset('images/user/'.$item->avatar) }}" alt="#" class="kotak rounded me-2 border" width="30">
+                <img src="{{ asset('images/member/'.$item->avatar) }}" alt="#" class="kotak rounded me-2 border" width="30">
                 @endif
                 {{ $item->name }}
               </div>
             </td>
             <td>
               {{ $item->email }}
+            </td>
+            <td>
+              @if ($item->notif == 2)
+              <span class="badge me-2 bg-success">Aktif</span>
+              @else
+              <span class="badge me-2 bg-warning">Tidak Aktif</span>
+              @endif
             </td>
             <td>
               {{ $item->created_at }}

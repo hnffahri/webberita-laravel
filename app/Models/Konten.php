@@ -10,7 +10,7 @@ class Konten extends Model
 {
     use HasFactory;
     protected $table = "konten";
-    protected $fillable = ['judul','slug','ringkas','isi','img','vidio','status','views','type','kategori_id','keyword', 'created_at'];
+    protected $fillable = ['judul','slug','ringkas','isi','img','vidio','status','views','type','kategori_id','admin_id','keyword', 'created_at'];
 
     // relasi eloquen
     public function Admin(): BelongsTo

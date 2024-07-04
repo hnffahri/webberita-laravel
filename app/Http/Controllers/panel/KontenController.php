@@ -8,6 +8,8 @@ use App\Http\Requests\panel\KontenRequest;
 use App\Models\Admin;
 use App\Models\Konten;
 use App\Models\Kategori;
+use App\Models\User;
+use App\Notifications\NewContentNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -109,7 +111,15 @@ class KontenController extends Controller
         $data['views'] = 0;
         $data['admin_id'] = Auth::guard('admin')->user()->id;
 
-        Konten::create($data);
+        $konten = Konten::create($data);
+        
+        if ($data['status'] == 1) {
+            $users = User::where('notif', 2)->get();
+            foreach ($users as $user) {
+                $user->notify(new NewContentNotification($konten));
+            }
+        }
+
         return redirect('panel/konten')->with('success', 'Data konten berhasil ditambahkan');
     }
 

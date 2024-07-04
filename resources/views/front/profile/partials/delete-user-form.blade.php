@@ -11,7 +11,7 @@
 
     <!-- Button trigger modal -->
     <x-danger-button type="button" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
-        {{ __('Delete Account') }}
+        <i class="fal fa-trash-alt me-2"></i>{{ __('Delete Account') }}
     </x-danger-button>
     
     <!-- Modal -->
@@ -38,7 +38,7 @@
                             <x-input-password id="password" name="password" type="password" autocomplete="new-password" placeholder="{{ __('Password') }}" error-bag="userDeletion"/>
                         </div>
 
-                        <x-danger-button>{{ __('Delete Account') }}</x-danger-button>
+                        <x-danger-button><i class="fal fa-trash-alt me-2"></i>{{ __('Delete Account') }}</x-danger-button>
                     </form>
                 </div>
             </div>

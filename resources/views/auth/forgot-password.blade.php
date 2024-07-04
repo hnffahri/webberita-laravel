@@ -10,7 +10,7 @@
       <div class="col-lg-6">
         <div class="card">
           <div class="card-body">
-            <h4 class="text-dark">Lupa password</h4>
+            <h4 class="text-dark">Lupa Password</h4>
             <p>Lupa password Anda? Tidak masalah. Cukup beri tahu kami alamat email Anda dan kami akan mengirimkan tautan untuk mereset password yang memungkinkan Anda untuk memilih yang baru.</p>
 
             <x-auth-session-status class="mb-4" :status="session('status')" />
