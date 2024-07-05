@@ -110,7 +110,7 @@ footer a {
     color: #6c757d !important;
 }
 
-.form-control {
+.form-control,.form-select {
     border-radius: 0px !important;
 }
 

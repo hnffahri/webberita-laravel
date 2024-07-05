@@ -24,6 +24,10 @@ class User extends Authenticatable
         'password',
         'avatar',
         'notif',
+        'jenis_kelamin',
+        'tanggal_lahir',
+        'whatsapp',
+        'alamat',
     ];
 
     /**
