@@ -1,4 +1,23 @@
 <section>
+
+  @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+  <div class="bg-light p-3 mb-3">
+    <form id="send-verification" method="POST" action="{{ route('verification.send') }}" class="m-0 d-inline">
+        @csrf
+        <span>Alamat email Anda belum diverifikasi.</span>
+        <button class="btn btn-link p-0 btn-sm" type="submit">
+            {{ __('Klik di sini untuk mengirim ulang email verifikasi..') }}
+        </button>
+    </form>
+    @if (session('status') === 'verification-link-sent')
+        <p class="mt-2 mb-0 fw-semibold text-dark">
+          <i class="far fa-info-circle me-2"></i>Tautan verifikasi baru telah dikirimkan ke alamat email Anda.
+        </p>
+    @endif
+  </div>
+  @endif
+
+
     <header>
         <h5 class="text-dark">Profile Information</h5>
         <p class="">Update your account's profile information and email address.</p>
@@ -50,28 +69,9 @@
             @enderror
           </div>
           
-          <div class="col-md-12 mb-3">
+          <div class="col-md-6 mb-3">
             <x-input-label for="email" :value="__('Email')" />
             <x-input id="email" class="" name="email" type="email" autocomplete="email" value="{{ old('email', $user->email) }}" />
-
-            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-            <div>
-              <p class="small mt-2">
-                  Alamat email Anda belum diverifikasi.
-                  <form id="send-verification" method="POST" action="{{ route('verification.send') }}">
-                      @csrf
-                      <button class="btn btn-link p-0 btn-sm" type="submit">
-                          {{ __('Klik di sini untuk mengirim ulang email verifikasi..') }}
-                      </button>
-                  </form>
-              </p>
-              @if (session('status') === 'verification-link-sent')
-                  <p class="mt-2 font-medium text-sm text-success">
-                      {{ __('A new verification link has been sent to your email address.') }}
-                  </p>
-              @endif
-            </div>
-            @endif
           </div>
   
           <div class="col-md-6 mb-3">
