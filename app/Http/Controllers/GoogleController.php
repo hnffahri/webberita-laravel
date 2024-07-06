@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -41,6 +42,7 @@ public function handleGoogleCallback()
             'username' => $username,
             'password' => Hash::make('password'), // Buat password acak, tidak akan digunakan
             'notif' => 2,
+            'email_verified_at' => Carbon::now(),
         ]);
     }
 

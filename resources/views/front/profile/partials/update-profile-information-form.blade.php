@@ -50,26 +50,27 @@
             @enderror
           </div>
           
-          <div class="col-md-6 mb-3">
+          <div class="col-md-12 mb-3">
             <x-input-label for="email" :value="__('Email')" />
             <x-input id="email" class="" name="email" type="email" autocomplete="email" value="{{ old('email', $user->email) }}" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                <div>
-                    <p class="text-sm mt-2 text-gray-800">
-                        {{ __('Your email address is unverified.') }}
-
-                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            {{ __('Click here to re-send the verification email.') }}
-                        </button>
-                    </p>
-
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600">
-                            {{ __('A new verification link has been sent to your email address.') }}
-                        </p>
-                    @endif
-                </div>
+            <div>
+              <p class="small mt-2">
+                  Alamat email Anda belum diverifikasi.
+                  <form id="send-verification" method="POST" action="{{ route('verification.send') }}">
+                      @csrf
+                      <button class="btn btn-link p-0 btn-sm" type="submit">
+                          {{ __('Klik di sini untuk mengirim ulang email verifikasi..') }}
+                      </button>
+                  </form>
+              </p>
+              @if (session('status') === 'verification-link-sent')
+                  <p class="mt-2 font-medium text-sm text-success">
+                      {{ __('A new verification link has been sent to your email address.') }}
+                  </p>
+              @endif
+            </div>
             @endif
           </div>
   

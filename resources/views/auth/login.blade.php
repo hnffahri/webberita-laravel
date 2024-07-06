@@ -14,7 +14,7 @@
             <p>Selamat datang kembali, masukkan kredensial Anda untuk melanjutkan.</p>
           
             <a class="btn btn-dark w-100" href="{{ route('auth.google') }}">
-              <img src="{{ asset('images/logo_google.svg') }}" alt="Logo" width="30"> Login Dengan Google') }}
+              <img src="{{ asset('images/logo_google.svg') }}" alt="Logo" width="30"> Login Dengan Google
             </a>
             <div class="divider-text my-4">
               <div class="text">
