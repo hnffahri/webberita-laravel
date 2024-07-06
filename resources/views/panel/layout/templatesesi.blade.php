@@ -29,7 +29,7 @@
 	<div class="wrapper">
 
 		<div class="main">
-			<main class="content">
+			<main class="content d-flex align-items-center">
 				<div class="container-fluid p-0">
           @yield('content')
 				</div>

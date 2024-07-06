@@ -19,7 +19,7 @@
             <!-- Email Address -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" autocomplete="email">
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
                 @error('email')
                 <div class="invalid-feedback d-block">
                     {{ $message }}
@@ -28,17 +28,21 @@
             </div>
             <!-- Password -->
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
+              <label for="password" class="form-label">Password</label>
+              <div class="input-group">
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
+                <span class="input-group-text">
+                  <i class="fal fa-eye"></i>
+                </span>
+              </div>
                 @error('password')
                 <div class="invalid-feedback d-block">
                     {{ $message }}
                 </div>
                 @enderror
             </div>
-          
             <!-- Remember Me -->
-            <div class="mb-3">
+            {{-- <div class="mb-3">
               <div class="row">
                 <div class="col-6">
                   <div class="form-check">
@@ -47,8 +51,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <x-primary-button class="w-100">{{ __('Log in') }}</x-primary-button>
+            </div> --}}
+            <button class="btn btn-primary w-100">{{ __('Log in') }}</button>
           </form>
 
         </div>
@@ -57,23 +61,29 @@
   </div>
 </section>
 
-{{-- @push('js')
+@push('js')
 <script>
-  function togglePasswordVisibility() {
-      var passwordField = document.getElementById("password");
-      var toggleIcon = document.getElementById("toggle-icon");
+  const toggleVisibility = (inputId, eyeIcon) => {
+    const inputField = document.getElementById(inputId);
+    const iconElement = eyeIcon.querySelector('i');
 
-      if (passwordField.type === "password") {
-          passwordField.type = "text";
-          toggleIcon.classList.remove("fa-eye");
-          toggleIcon.classList.add("fa-eye-slash");
+    eyeIcon.addEventListener('click', () => {
+      if (inputField.type === 'password') {
+        inputField.type = 'text';
+        iconElement.classList.remove('fa-eye');
+        iconElement.classList.add('fa-eye-slash');
       } else {
-          passwordField.type = "password";
-          toggleIcon.classList.remove("fa-eye-slash");
-          toggleIcon.classList.add("fa-eye");
+        inputField.type = 'password';
+        iconElement.classList.remove('fa-eye-slash');
+        iconElement.classList.add('fa-eye');
       }
-  }
+    });
+  };
+
+  const passwordLamaEyeIcon = document.querySelector('#password + .input-group-text');
+
+  toggleVisibility('password', passwordLamaEyeIcon);
 </script>
-@endpush --}}
+@endpush
 
 @endsection
