@@ -31,7 +31,7 @@
                 <div class="input-group">
                   <input type="password" name="password" id="password" class="@error('password') is-invalid @enderror form-control" autocomplete="new-password">
                   <span class="input-group-text">
-                    <i class="fal fa-eye"></i>
+                    <i class="bi bi-eye"></i>
                   </span>
                 </div>
                 @error('password')
@@ -46,7 +46,7 @@
                 <div class="input-group">
                   <input type="password" name="password_confirmation" id="password_confirmation" class="@error('password_confirmation') is-invalid @enderror form-control" autocomplete="new-password">
                   <span class="input-group-text">
-                    <i class="fal fa-eye"></i>
+                    <i class="bi bi-eye"></i>
                   </span>
                 </div>
                 @error('password_confirmation')
@@ -77,12 +77,12 @@
     eyeIcon.addEventListener('click', () => {
       if (inputField.type === 'password') {
         inputField.type = 'text';
-        iconElement.classList.remove('fa-eye');
-        iconElement.classList.add('fa-eye-slash');
+        iconElement.classList.remove('bi-eye');
+        iconElement.classList.add('bi-eye-slash');
       } else {
         inputField.type = 'password';
-        iconElement.classList.remove('fa-eye-slash');
-        iconElement.classList.add('fa-eye');
+        iconElement.classList.remove('bi-eye-slash');
+        iconElement.classList.add('bi-eye');
       }
     });
   };

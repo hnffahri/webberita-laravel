@@ -61,7 +61,7 @@ class AdminController extends Controller
     public function show(string $id)
     {
         return view("panel/admin/show",[
-            'admin' => Admin::find($id)
+            'admin' => Admin::withCount('konten')->find($id)
         ]);
     }
 

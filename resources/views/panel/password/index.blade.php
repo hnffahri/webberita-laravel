@@ -19,7 +19,7 @@
       @method('PUT')
       @csrf
       <div class="row">
-        <div class="col-md-4 mb-3">
+        <div class="col-12 mb-3">
           <label for="password_lama">Password Lama</label>
           <div class="input-group">
             <input id="password_lama" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
@@ -33,7 +33,7 @@
           </div>
           @enderror
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-12 mb-3">
           <label for="password_baru">Password Baru</label>
           <div class="input-group">
             <input id="password_baru" type="password" class="form-control @error('password_baru') is-invalid @enderror" name="password_baru" autocomplete="new-password">
@@ -47,7 +47,7 @@
           </div>
           @enderror
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-12 mb-3">
           <label for="konfirmasi_password">Konfirmasi Password</label>
           <div class="input-group">
             <input id="konfirmasi_password" type="password" class="form-control @error('password_konfirmasi') is-invalid @enderror" name="password_konfirmasi" autocomplete="new-password">

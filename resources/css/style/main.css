@@ -977,3 +977,7 @@ label.label-avatar {
 label.label-avatar h6 {
     font-family: 'Montserrat', sans-serif !important;
 }
+
+.text-underline{
+    text-decoration: underline !important;
+}

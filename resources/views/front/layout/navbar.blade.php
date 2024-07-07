@@ -20,7 +20,7 @@
           </div>
           {{-- <a href="{{ url('/dashboard') }}" class="btn btn-primary"><i class="bi bi-user-circle me-2"></i>Dashboard</a> --}}
           @else
-          <a href="{{ url('/login') }}" class="btn btn-light"><i class="bi bi-user-circle"></i> Masuk / Daftar</a>
+          <a href="{{ url('/login') }}" class="btn btn-light"><i class="bi bi-person-circle me-2"></i>Masuk / Daftar</a>
           @endauth
         </div>
         <div class="col-lg-4 col-5 text-lg-center">
@@ -69,7 +69,7 @@
             </div>
             {{-- <a href="{{ url('/login') }}" class="btn btn-dark"><img src="{{ asset('images/user.png'. Auth::user()->avatar) }}" alt=""> {{ Auth::user()->name }}</a> --}}
             @else
-            <a href="{{ url('/login') }}" class="btn btn-light"><i class="bi bi-user-circle"></i> Masuk / Daftar</a>
+            <a href="{{ url('/login') }}" class="btn btn-light"><i class="bi bi-person-circle me-2"></i>Masuk / Daftar</a>
             @endauth
           </div>
           <div class="col-4 text-end">

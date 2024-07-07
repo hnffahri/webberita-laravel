@@ -21,7 +21,7 @@
             <th>Nama</th>
             <th>Email</th>
             <th>Notif</th>
-            <th>Aktivasi</th>
+            <th>Verifikasi</th>
             {{-- <th>Tanggal</th> --}}
             <th class="">Aksi</th>
           </tr>
@@ -56,11 +56,11 @@
             <td>
               @if ($item->email_verified_at == null)
               <span class="badge fw-normal text-bg-danger">
-                <i class="fal fa-times-circle"></i> Deaktivasi
+                <i class="fal fa-times-circle"></i> Belum
               </span>
               @else
               <span class="badge fw-normal text-bg-success text-white">
-                <i class="fal fa-check-circle"></i> Akfikasi
+                <i class="fal fa-check-circle"></i> Verifikasi
               </span>
               @endif
             </td>

@@ -4,15 +4,15 @@
             {{ __('Delete Account') }}
         </h5>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1">
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
         </p>
     </header>
 
     <!-- Button trigger modal -->
-    <x-danger-button type="button" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
         <i class="bi bi-trash me-2"></i>{{ __('Delete Account') }}
-    </x-danger-button>
+    </button>
     
     <!-- Modal -->
     <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
@@ -22,7 +22,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
+                    <form method="post" action="{{ route('profile.destroy') }}">
                         @csrf
                         @method('delete')
             
@@ -30,15 +30,21 @@
                             {{ __('Are you sure you want to delete your account?') }}
                         </h5>
             
-                        <p class="mt-1 text-sm text-gray-600">
+                        <p class="mt-1">
                             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
                         </p>
                         
+                        
                         <div class="mb-3">
-                            <x-input-password id="password" name="password" type="password" autocomplete="new-password" placeholder="{{ __('Password') }}" error-bag="userDeletion"/>
+                            <input id="password" type="password" class="form-control @error('password','userDeletion') is-invalid @enderror" name="password" placeholder="Password">
+                            @error('password','userDeletion')
+                            <div class="invalid-feedback d-block">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
-
-                        <x-danger-button><i class="bi bi-trash me-2"></i>{{ __('Delete Account') }}</x-danger-button>
+                        
+                        <button class="btn btn-danger"><i class="bi bi-trash me-2"></i>{{ __('Delete Account') }}</button>
                     </form>
                 </div>
             </div>

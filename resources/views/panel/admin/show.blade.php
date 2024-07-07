@@ -14,29 +14,32 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-3">
-    <div class="card text-center">
+  <div class="col-xl-3">
+    <div class="card">
       <div class="card-body">
-        <div class="mb-3">
-          @if (empty($item->avatar))
-          <img src="{{ asset('images/user.png') }}" alt="#" class="kotak rounded-circle me-2 border" width="90">
+        <div class="d-flex align-items-center">
+          @if (empty($admin->avatar))
+          <img src="{{ asset('images/user.png') }}" alt="#" class="rounded-circle kotak" width="60">
           @else
-          <img src="{{ asset('images/admin/'.$item->avatar) }}" alt="#" class="kotak rounded-circle me-2 border" width="90">
+          <img src="{{ asset('images/admin/'.$admin->avatar) }}" alt="#" class="rounded-circle kotak" width="60">
           @endif
+          <div class="ms-3">
+            <h5 class="text-dark fw-bold mb-1">{{ $admin->name }}</h5>
+            <div><i class="fal fa-archive me-2"></i>{{ $admin->konten_count }} konten</div>
+          </div>
         </div>
-        <h5 class="text-dark fw-bold m-0">{{ $admin->name }}</h5>
-        <span>{{ $admin->username }}</span>
-        <div class="mt-3">
-          <a href="#" class="btn btn-danger btn-sm"><i class="fal fa-trash-alt me-2"></i>Hapus Akun</a>
-        </div>
+        <hr>
+        <h5 class="fw-bold text-dark">Sosial :</h5>
+        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->facebook }}"><i class="icon fab fa-facebook-f"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->facebook }}</span></a>
+        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->xtwitter }}"><i class="icon fab fa-twitter"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->xtwitter }}</span></a>
+        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->instagram }}"><i class="icon fab fa-instagram"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->instagram }}</span></a>
+        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->youtube }}"><i class="icon fab fa-youtube"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->youtube }}</span></a>
       </div>
     </div>
   </div>
-  <div class="col-lg-9">
+  <div class="col-xl-9">
     <h5 class="text-dark fw-bold">Biography</h5>
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe fugiat qui, repudiandae suscipit quibusdam maiores eaque placeat consequatur beatae ut ex harum perferendis atque. Et iusto sapiente ullam molestias ea.
-    </p>
+    <p>{{ $admin->biografi }}</p>
     <table class="table my-0">
       <tbody>
         <tr>
@@ -62,12 +65,12 @@
         <tr>
           <th width="115">Provinsi</th>
           <th width="10">:</th>
-          <th>{{ $admin->provinsi }}</th>
+          <th>{{ $admin->province->name }}</th>
         </tr>
         <tr>
           <th width="115">Kota</th>
           <th width="10">:</th>
-          <th>{{ $admin->kota }}</th>
+          <th>{{ $admin->city->name }}</th>
         </tr>
         <tr>
           <th width="115">Dibuat</th>
