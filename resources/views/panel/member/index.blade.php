@@ -21,7 +21,8 @@
             <th>Nama</th>
             <th>Email</th>
             <th>Notif</th>
-            <th>Tanggal</th>
+            <th>Aktivasi</th>
+            {{-- <th>Tanggal</th> --}}
             <th class="">Aksi</th>
           </tr>
         </thead>
@@ -43,14 +44,29 @@
             </td>
             <td>
               @if ($item->notif == 2)
-              <span class="badge me-2 bg-success">Aktif</span>
+              <span class="badge fw-normal text-bg-success text-white">
+                <i class="fal fa-check-circle"></i> Aktif
+              </span>
               @else
-              <span class="badge me-2 bg-warning">Tidak Aktif</span>
+              <span class="badge fw-normal text-bg-danger">
+                <i class="fal fa-times-circle"></i> Tidak Aktif
+              </span>
               @endif
             </td>
             <td>
-              {{ $item->created_at }}
+              @if ($item->email_verified_at == null)
+              <span class="badge fw-normal text-bg-danger">
+                <i class="fal fa-times-circle"></i> Deaktivasi
+              </span>
+              @else
+              <span class="badge fw-normal text-bg-success text-white">
+                <i class="fal fa-check-circle"></i> Akfikasi
+              </span>
+              @endif
             </td>
+            {{-- <td>
+              {{ $item->created_at }}
+            </td> --}}
             <td class="">
               <div class="btn-group">
                 <a href="#" onclick="deletemember(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="fal fa-trash-alt"></i></a>

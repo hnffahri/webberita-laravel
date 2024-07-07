@@ -28,9 +28,14 @@
               
               <div class="mb-3">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="@error('password') is-invalid @enderror form-control" autocomplete="new-password">
+                <div class="input-group">
+                  <input type="password" name="password" id="password" class="@error('password') is-invalid @enderror form-control" autocomplete="new-password">
+                  <span class="input-group-text">
+                    <i class="fal fa-eye"></i>
+                  </span>
+                </div>
                 @error('password')
-                <div class="invalid-feedback">
+                <div class="invalid-feedback d-block">
                   *{{ $message }}
                 </div>
                 @enderror
@@ -38,9 +43,14 @@
               
               <div class="mb-3">
                 <label for="password_confirmation">Konfirmasi Password</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="@error('password_confirmation') is-invalid @enderror form-control" autocomplete="new-password">
+                <div class="input-group">
+                  <input type="password" name="password_confirmation" id="password_confirmation" class="@error('password_confirmation') is-invalid @enderror form-control" autocomplete="new-password">
+                  <span class="input-group-text">
+                    <i class="fal fa-eye"></i>
+                  </span>
+                </div>
                 @error('password_confirmation')
-                <div class="invalid-feedback">
+                <div class="invalid-feedback d-block">
                   *{{ $message }}
                 </div>
                 @enderror
@@ -57,3 +67,30 @@
   
 
 @endsection
+
+@push('js')
+<script>
+  const toggleVisibility = (inputId, eyeIcon) => {
+    const inputField = document.getElementById(inputId);
+    const iconElement = eyeIcon.querySelector('i');
+
+    eyeIcon.addEventListener('click', () => {
+      if (inputField.type === 'password') {
+        inputField.type = 'text';
+        iconElement.classList.remove('fa-eye');
+        iconElement.classList.add('fa-eye-slash');
+      } else {
+        inputField.type = 'password';
+        iconElement.classList.remove('fa-eye-slash');
+        iconElement.classList.add('fa-eye');
+      }
+    });
+  };
+
+  const passwordBaruEyeIcon = document.querySelector('#password + .input-group-text');
+  const konfirmasiPasswordEyeIcon = document.querySelector('#password_confirmation + .input-group-text');
+
+  toggleVisibility('password', passwordBaruEyeIcon);
+  toggleVisibility('password_confirmation', konfirmasiPasswordEyeIcon);
+</script>
+@endpush

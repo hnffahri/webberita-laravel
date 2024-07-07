@@ -116,7 +116,7 @@
 
         <div class="d-flex align-items-center gap-4">
             <x-primary-button><i class="fal fa-save me-2"></i>{{ __('Save') }}</x-primary-button>
-
+{{-- 
             @if (session('status') === 'profile-updated')
                 <p
                     x-data="{ show: true }"
@@ -125,7 +125,7 @@
                     x-init="setTimeout(() => show = false, 3000)"
                     class="small m-0"
                 >{{ __('Tersimpan.') }}</p>
-            @endif
+            @endif --}}
         </div>
     </form>
 </section>

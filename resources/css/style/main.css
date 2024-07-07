@@ -119,6 +119,11 @@ footer a {
     box-shadow: 0 0 0 .25rem rgba(5, 41, 98, .15) !important
 }
 
+.form-control.is-invalid:focus,.form-select.is-invalid:focus,.form-check-input.is-invalid:focus {
+    border-color: #e04444 !important;
+    box-shadow: 0 0 0 .25rem rgba(231, 31, 31, 0.15) !important
+}
+
 .form-check-input:checked {
     background-color: #052962 !important;
 }

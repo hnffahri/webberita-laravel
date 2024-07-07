@@ -8,38 +8,87 @@
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
-
     <form method="post" action="{{ route('password.update') }}" class="">
-        @csrf
-        @method('put')
-
-        <div class="mb-3">
-            <x-input-label for="current_password" :value="__('Current Password')" />
-            <x-input-password id="current_password" name="current_password" type="password" autocomplete="current-password" error-bag="updatePassword"/>
-        </div>
-
-        <div class="mb-3">
-            <x-input-label for="new_password" :value="__('New Password')" />
-            <x-input-password id="new_password" name="password" type="password" autocomplete="new-password" error-bag="updatePassword"/>
-        </div>
-
-        <div class="mb-3">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-input-password id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" error-bag="updatePassword"/>
-        </div>
-
-        <div class="d-flex align-items-center gap-4">
-            <x-primary-button><i class="fal fa-save me-2"></i>{{ __('Save') }}</x-primary-button>
-
-            @if (session('status') === 'password-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="small m-0"
-                >{{ __('Tersimpan.') }}</p>
-            @endif
-        </div>
-    </form>
+      @csrf
+      @method('put')
+  
+      <div class="mb-3">
+          <label for="password_lama">Password Lama</label>
+          <div class="input-group">
+              <input id="password_lama" type="password" class="form-control @error('current_password','updatePassword') is-invalid @enderror" name="current_password" @error('current_password','updatePassword') autofocus @enderror>
+              <span class="input-group-text">
+                  <i class="fal fa-eye"></i>
+              </span>
+          </div>
+          @error('current_password','updatePassword')
+          <div class="invalid-feedback d-block">
+              {{ $message }}
+          </div>
+          @enderror
+      </div>
+  
+      <div class="mb-3">
+          <label for="password_baru">Password Baru</label>
+          <div class="input-group">
+              <input id="password_baru" type="password" class="form-control @error('new_password','updatePassword') is-invalid @enderror" name="new_password" @error('new_password','updatePassword') autofocus @enderror>
+              <span class="input-group-text">
+                  <i class="fal fa-eye"></i>
+              </span>
+          </div>
+          @error('new_password','updatePassword')
+          <div class="invalid-feedback d-block">
+              {{ $message }}
+          </div>
+          @enderror
+      </div>
+  
+      <div class="mb-3">
+          <label for="konfirmasi_password">Konfirmasi Password</label>
+          <div class="input-group">
+              <input id="konfirmasi_password" type="password" class="form-control @error('new_password_confirmation','updatePassword') is-invalid @enderror" name="new_password_confirmation">
+              <span class="input-group-text">
+                  <i class="fal fa-eye"></i>
+              </span>
+          </div>
+          @error('new_password_confirmation','updatePassword')
+          <div class="invalid-feedback d-block">
+              {{ $message }}
+          </div>
+          @enderror
+      </div>
+  
+      <div class="d-flex align-items-center gap-4">
+          <button class="btn btn-primary"><i class="fal fa-save me-2"></i>{{ __('Save') }}</button>
+      </div>
+  </form>
+  
 </section>
+
+@push('js')
+<script>
+    const toggleVisibility = (inputId, eyeIcon) => {
+      const inputField = document.getElementById(inputId);
+      const iconElement = eyeIcon.querySelector('i');
+  
+      eyeIcon.addEventListener('click', () => {
+        if (inputField.type === 'password') {
+          inputField.type = 'text';
+          iconElement.classList.remove('fa-eye');
+          iconElement.classList.add('fa-eye-slash');
+        } else {
+          inputField.type = 'password';
+          iconElement.classList.remove('fa-eye-slash');
+          iconElement.classList.add('fa-eye');
+        }
+      });
+    };
+  
+    const passwordLamaEyeIcon = document.querySelector('#password_lama + .input-group-text');
+    const passwordBaruEyeIcon = document.querySelector('#password_baru + .input-group-text');
+    const konfirmasiPasswordEyeIcon = document.querySelector('#konfirmasi_password + .input-group-text');
+  
+    toggleVisibility('password_lama', passwordLamaEyeIcon);
+    toggleVisibility('password_baru', passwordBaruEyeIcon);
+    toggleVisibility('konfirmasi_password', konfirmasiPasswordEyeIcon);
+  </script>
+@endpush
