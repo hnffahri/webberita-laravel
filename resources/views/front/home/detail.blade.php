@@ -14,14 +14,14 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="post-meta mb-2 d-lg-none">
-            <span class="post-category me-3" style="background-color: {{ $konten->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $konten->kategori->nama }}</span><a href="{{ url('penulis/'.$konten->Admin->username) }}" class="small"><i class="fal fa-user me-1"></i>{{ $konten->Admin->name }}</a>
+            <span class="post-category me-3" style="background-color: {{ $konten->kategori->warna }} !important"><i class="bi bi-bookmark me-1"></i>{{ $konten->kategori->nama }}</span><a href="{{ url('penulis/'.$konten->Admin->username) }}" class="small"><i class="bi bi-person-circle me-1"></i>{{ $konten->Admin->name }}</a>
           </div>
           <h1 class="text-dark">{{ $konten->judul }}</h1>
           <div class="post-meta">
             <span class="d-none d-lg-inline me-3">
-              <span class="post-category me-3" style="background-color: {{ $konten->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $konten->kategori->nama }}</span><a href="{{ url('penulis/'.$konten->Admin->username) }}" class="small"><i class="fal fa-user me-1"></i>{{ $konten->Admin->name }}</a>
+              <span class="post-category me-3" style="background-color: {{ $konten->kategori->warna }} !important"><i class="bi bi-bookmark me-1"></i>{{ $konten->kategori->nama }}</span><a href="{{ url('penulis/'.$konten->Admin->username) }}" class="small"><i class="bi bi-person-circle me-1"></i>{{ $konten->Admin->name }}</a>
             </span>
-            <small><i class="fal fa-calendar-alt me-2"></i>{{ \Carbon\Carbon::parse($konten->created_at)->translatedFormat('d F Y') }} <i class="fal fa-clock me-2 ms-2"></i>{{ \Carbon\Carbon::parse($konten->created_at)->format('H:i') }} WIB</small>
+            <small><i class="bi bi-calendar-week me-2"></i>{{ \Carbon\Carbon::parse($konten->created_at)->translatedFormat('d F Y') }} <i class="bi bi-clock me-2 ms-2"></i>{{ \Carbon\Carbon::parse($konten->created_at)->format('H:i') }} WIB</small>
           </div>
           <div class="my-4">
             @if ($konten->type == 2)
@@ -38,30 +38,30 @@
           <div class="mt-4" id="like-section">
             @if(Auth::check())
             @if($konten->likes->contains('user_id', Auth::id()))
-                <button class="btn-sm btn btn-primary like-unlike-btn" id="unlike-btn" data-id="{{ $konten->id }}">
-                    <i class="fal fa-thumbs-up me-2"></i><span class="btn-text">Unlike</span>
+                <button class="btn btn-primary like-unlike-btn" id="unlike-btn" data-id="{{ $konten->id }}">
+                    <i class="bi bi-hand-thumbs-up me-2"></i><span class="btn-text">Unlike</span>
                     <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                 </button>
             @else
-                <button class="btn-sm btn btn-light like-unlike-btn" id="like-btn" data-id="{{ $konten->id }}">
-                    <i class="fal fa-thumbs-up me-2"></i><span class="btn-text">Like</span>
+                <button class="btn btn-light like-unlike-btn" id="like-btn" data-id="{{ $konten->id }}">
+                    <i class="bi bi-hand-thumbs-up me-2"></i><span class="btn-text">Like</span>
                     <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                 </button>
             @endif
             @else
-              <a href="{{ route('login') }}" class="btn-sm btn btn-light"><i class="fal fa-thumbs-up me-2"></i>Like</a>
+              <a href="{{ route('login') }}" class="btn btn-light"><i class="bi bi-hand-thumbs-up me-2"></i>Like</a>
             @endif
-            <span class="small ms-2" id="likes-count">{{ $konten->likes->count() }} likes</span>
+            <span class="ms-2" id="likes-count">{{ $konten->likes->count() }} likes</span>
           </div>
           <div class="card card-body mt-4">
             <div class="row align-items-center">
               <div class="col-12">
                 <div class="sosmed">
                   Share :
-                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="fab fa-instagram"></i></a>
-                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="fab fa-youtube"></i></a>
+                  <a href="#" class="ms-3 btn btn-dark"><i class="bi bi-facebook"></i></a>
+                  <a href="#" class="ms-3 btn btn-dark"><i class="bi bi-twitter"></i></a>
+                  <a href="#" class="ms-3 btn btn-dark"><i class="bi bi-instagram"></i></a>
+                  <a href="#" class="ms-3 btn btn-dark"><i class="bi bi-youtube"></i></a>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@
                     <div class="text">
                       <div class="post-meta">
                         @if ($item->type == 2)
-                        <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                        <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                         @endif
                       </div>
                       <h5 class="text-dark">
@@ -102,11 +102,11 @@
               <h5 class="text-dark">Follow Us</h5>
               <p>Follow us on Social Network</p>
               <div>
-                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->facebook) }}"><i class="icon fab fa-facebook-f"></i></a>
-                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->twitter) }}"><i class="icon fab fa-twitter"></i></a>
-                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->instagram) }}"><i class="icon fab fa-instagram"></i></a>
-                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->youtube) }}"><i class="icon fab fa-youtube"></i></a>
-                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->tiktok) }}"><i class="icon fab fa-pinterest"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->facebook) }}"><i class="icon bi bi-facebook"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->twitter) }}"><i class="icon bi bi-twitter"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->instagram) }}"><i class="icon bi bi-instagram"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->youtube) }}"><i class="icon bi bi-youtube"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->tiktok) }}"><i class="icon bi bi-pinterest"></i></a>
               </div>
             </div>
           </div>
@@ -140,11 +140,11 @@ $(document).ready(function () {
         let newButtonId = like ? 'unlike-btn' : 'like-btn';
 
         $('#like-section').html(`
-            <button class="btn-sm btn ` + buttonClass + ` like-unlike-btn" id="` + newButtonId + `" data-id="` + kontenId + `">
-                <i class="fal fa-thumbs-up me-2"></i><span class="btn-text">` + buttonText + `</span>
+            <button class="btn ` + buttonClass + ` like-unlike-btn" id="` + newButtonId + `" data-id="` + kontenId + `">
+                <i class="bi bi-hand-thumbs-up me-2"></i><span class="btn-text">` + buttonText + `</span>
                 <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
             </button>
-            <span class="small ms-2" id="likes-count">` + response.likes_count + ` likes</span>
+            <span class="ms-2" id="likes-count">` + response.likes_count + ` likes</span>
         `);
     };
 

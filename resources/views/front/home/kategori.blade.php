@@ -22,7 +22,7 @@
                   <div class="card-body">
                     <div class="mb-2">
                       @if ($item->type == 2)
-                      <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                      <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                       @endif
                       <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="text">
                       <div class="post-meta">
                         @if ($item->type == 2)
-                        <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                        <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                         @endif
                       </div>
                       <h5 class="text-dark">

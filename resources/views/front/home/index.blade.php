@@ -23,9 +23,9 @@
               <div class="post-body">
                 <div class="post-meta">
                   @if ($terbaru->type == 2)
-                  <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                  <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                   @endif
-                  <span class="post-category me-2" style="background-color: {{ $terbaru->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $terbaru->kategori->nama }}</span>
+                  <span class="post-category me-2" style="background-color: {{ $terbaru->kategori->warna }} !important"><i class="bi bi-bookmark me-1"></i>{{ $terbaru->kategori->nama }}</span>
                 </div>
                 <h2 class="text-white">
                   {{ $terbaru->judul }}
@@ -49,9 +49,9 @@
               <div class="post-body">
                 <div class="post-meta">
                   @if ($item->type == 2)
-                  <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                  <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                   @endif
-                  <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
+                  <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="bi bi-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
                 </div>
                 <h4 class="text-white m-0">
                   {{ $item->judul }}
@@ -91,9 +91,9 @@
                   </figure>
                   <div class="post-meta">
                     @if ($item->type == 2)
-                    <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                    <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                     @endif
-                    <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
+                    <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="bi bi-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
                     <span class=""><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
                   </div>
                   <h4 class="m-0 text-dark">{{ $item->judul }}</h4>
@@ -121,7 +121,7 @@
           <h1 class="text-dark font m-0">Trending</h1>
         </div>
         <div class="col-5 text-end">
-          <a href="{{ url('/trending') }}" class="btn btn-primary">Lainnya <i class="far fa-chevron-right"></i></a>
+          <a href="{{ url('/trending') }}" class="btn btn-primary">Lainnya <i class="bi bi-chevron-right"></i></a>
         </div>
       </div>
       <div class="row gx-0 border-top border-start">
@@ -134,9 +134,9 @@
                 <div class="text">
                   <div class="post-meta">
                     @if ($item->type == 2)
-                    <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                    <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                     @endif
-                    <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
+                    <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="bi bi-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
                   </div>
                   <h5 class="text-dark">
                     {{ $item->judul }}
@@ -163,7 +163,7 @@
             <h1 class="text-dark font m-0" style="border-color: {{ $kategori->warna }} !important">{{ $kategori->nama }}</h1>
           </div>
           <div class="col-5 text-end">
-            <a href="{{ url('/'.$kategori->slug) }}" class="btn btn-primary" style="background-color: {{ $kategori->warna }} !important; border-color: {{ $kategori->warna }} !important">Lainnya <i class="far fa-chevron-right"></i></a>
+            <a href="{{ url('/'.$kategori->slug) }}" class="btn btn-primary" style="background-color: {{ $kategori->warna }} !important; border-color: {{ $kategori->warna }} !important">Lainnya <i class="bi bi-chevron-right"></i></a>
           </div>
         </div>
         @if($kategori->KontenM->isEmpty())
@@ -183,7 +183,7 @@
                 <div class="card-body">
                   <div class="mb-2">
                     @if ($konten->type == 2)
-                    <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                    <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                     @endif
                     <span class="post-date"><small>{{ \Carbon\Carbon::parse($konten->created_at)->locale('id')->diffForHumans() }}</small></span>
                   </div>

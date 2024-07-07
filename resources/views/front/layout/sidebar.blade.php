@@ -14,11 +14,10 @@
     </div>
   </div>
   <div class="card card-body mt-4 d-none d-lg-block side-menu">
-    <a href="dashboard" class="{{ Route::is('dashboardmember') ? ' active' : '' }}"><i class="fal fa-tachometer-alt-fast me-2"></i>Dashboard</a>
-    <a href="liked-konten" class="{{ Route::is('likedKonten') ? ' active' : '' }}"><i class="fal fa-thumbs-up me-2"></i>Konten yang disukai</a>
-    {{-- <a href="riwayat" class=""><i class="fal fa-list-alt me-2"></i>Riwayat Baca</a> --}}
-    <a href="{{ route('profile.edit') }}" class="{{ Route::is('profile.edit') ? ' active' : '' }}"><i class="fal fa-cog me-2"></i>Pengaturan</a>
-    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="fal fa-sign-out me-2"></i>Keluar</a>
+    <a href="dashboard" class="{{ Route::is('dashboardmember') ? ' active' : '' }}"><i class="bi bi-speedometer me-2"></i>Dashboard</a>
+    <a href="liked-konten" class="{{ Route::is('likedKonten') ? ' active' : '' }}"><i class="bi bi-hand-thumbs-up me-2"></i>Konten yang disukai</a>
+    <a href="{{ route('profile.edit') }}" class="{{ Route::is('profile.edit') ? ' active' : '' }}"><i class="bi bi-gear me-2"></i>Pengaturan</a>
+    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="bi bi-box-arrow-left me-2"></i>Keluar</a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
       @csrf
     </form>

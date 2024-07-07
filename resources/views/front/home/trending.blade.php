@@ -1,6 +1,6 @@
 @extends('front/layout/template')
 
-@section('title', 'Home')
+@section('title', 'Trending')
 
 @section('content')
 
@@ -21,9 +21,9 @@
                 <div class="text">
                   <div class="post-meta">
                     @if ($item->type == 2)
-                    <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                    <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                     @endif
-                    <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
+                    <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="bi bi-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
                   </div>
                   <h5 class="text-dark">
                     {{ $item->judul }}

@@ -11,7 +11,7 @@
     </form>
     @if (session('status') === 'verification-link-sent')
         <p class="mt-2 mb-0 fw-semibold text-dark">
-          <i class="far fa-info-circle me-2"></i>Tautan verifikasi baru telah dikirimkan ke alamat email Anda.
+          <i class="bi bi-info-circle me-2"></i>Tautan verifikasi baru telah dikirimkan ke alamat email Anda.
         </p>
     @endif
   </div>
@@ -29,9 +29,9 @@
         <div class="mb-3">
           <label for="avatar" class="label-avatar d-flex align-items-center">
             @if (empty($user->avatar))
-            <img src="{{ asset('images/user.png') }}" alt="avatar" id="imgavatar" width="40" class="border me-3 bulat"><div class="text-dark m-0 fw-semibold"><i class="far fa-edit me-2"></i>Ganti Avatar</div>
+            <img src="{{ asset('images/user.png') }}" alt="avatar" id="imgavatar" width="40" class="border me-3 bulat"><div class="text-dark m-0 fw-semibold"><i class="bi bi-pencil-square me-2"></i>Ganti Avatar</div>
             @else
-            <img src="{{ asset('images/member/'.$user->avatar) }}" alt="avatar" id="imgavatar" width="40" class="border me-3 bulat"><div class="text-dark m-0 fw-semibold"><i class="far fa-edit me-2"></i>Ganti Avatar</div>
+            <img src="{{ asset('images/member/'.$user->avatar) }}" alt="avatar" id="imgavatar" width="40" class="border me-3 bulat"><div class="text-dark m-0 fw-semibold"><i class="bi bi-pencil-square me-2"></i>Ganti Avatar</div>
             @endif
           </label>
           <input type="file" class="form-control" id="avatar" name="avatar" hidden>
@@ -115,7 +115,7 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <x-primary-button><i class="fal fa-save me-2"></i>{{ __('Save') }}</x-primary-button>
+            <x-primary-button><i class="bi bi-save me-2"></i>{{ __('Save') }}</x-primary-button>
 {{-- 
             @if (session('status') === 'profile-updated')
                 <p

@@ -12,7 +12,7 @@
         <div class="col-lg-8">
           <h1 class="text-dark mb-3">{{ $bantuan->judul }}</h1>
           <div class="post-meta">
-            <small><i class="fal fa-calendar-alt me-2"></i>{{ \Carbon\Carbon::parse($bantuan->created_at)->translatedFormat('d F Y') }} <i class="fal fa-clock me-2 ms-2"></i>{{ \Carbon\Carbon::parse($bantuan->created_at)->format('H:i') }} WIB</small>
+            <small><i class="bi bi-calendar-week me-2"></i>{{ \Carbon\Carbon::parse($bantuan->created_at)->translatedFormat('d F Y') }} <i class="bi bi-clock me-2 ms-2"></i>{{ \Carbon\Carbon::parse($bantuan->created_at)->format('H:i') }} WIB</small>
           </div>
           <div class="my-4">
             @if (!empty($bantuan->img))
@@ -27,10 +27,10 @@
               <div class="col-12">
                 <div class="sosmed">
                   Share :
-                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="fab fa-instagram"></i></a>
-                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="fab fa-youtube"></i></a>
+                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="bi bi-facebook"></i></a>
+                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="bi bi-twitter"></i></a>
+                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="bi bi-instagram"></i></a>
+                  <a href="#" class="ms-3 btn-sm btn btn-dark"><i class="bi bi-youtube"></i></a>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@
               <div class="card-body border-top trending">
                 <a href="{{ url('bantuan/'.$item->slug) }}">
                   <div class="d-flex">
-                    <div class="number">{{ $loop->iteration }}</div>
+                    <div class="number bg-light">{{ $loop->iteration }}</div>
                     <div class="text">
                       <h5 class="text-dark">
                         {{ $item->judul }}
@@ -66,10 +66,10 @@
               <h5 class="text-dark">Follow Us</h5>
               <p>Follow us on Social Network</p>
               <div>
-                <a class="mt-2" href="#"><i class="icon fab fa-facebook-f me-2"></i></a>
-                <a class="mt-2" href="#"><i class="icon fab fa-twitter me-2"></i></a>
-                <a class="mt-2" href="#"><i class="icon fab fa-instagram me-2"></i></a>
-                <a class="mt-2" href="#"><i class="icon fab fa-youtube me-2"></i></a>
+                <a class="mt-2" href="#"><i class="icon bi bi-facebook me-2"></i></a>
+                <a class="mt-2" href="#"><i class="icon bi bi-twitter me-2"></i></a>
+                <a class="mt-2" href="#"><i class="icon bi bi-instagram me-2"></i></a>
+                <a class="mt-2" href="#"><i class="icon bi bi-youtube me-2"></i></a>
               </div>
             </div>
           </div>

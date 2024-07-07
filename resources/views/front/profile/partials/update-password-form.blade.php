@@ -17,7 +17,7 @@
           <div class="input-group">
               <input id="password_lama" type="password" class="form-control @error('current_password','updatePassword') is-invalid @enderror" name="current_password" @error('current_password','updatePassword') autofocus @enderror>
               <span class="input-group-text">
-                  <i class="fal fa-eye"></i>
+                  <i class="bi bi-eye"></i>
               </span>
           </div>
           @error('current_password','updatePassword')
@@ -32,7 +32,7 @@
           <div class="input-group">
               <input id="password_baru" type="password" class="form-control @error('new_password','updatePassword') is-invalid @enderror" name="new_password" @error('new_password','updatePassword') autofocus @enderror>
               <span class="input-group-text">
-                  <i class="fal fa-eye"></i>
+                  <i class="bi bi-eye"></i>
               </span>
           </div>
           @error('new_password','updatePassword')
@@ -47,7 +47,7 @@
           <div class="input-group">
               <input id="konfirmasi_password" type="password" class="form-control @error('new_password_confirmation','updatePassword') is-invalid @enderror" name="new_password_confirmation">
               <span class="input-group-text">
-                  <i class="fal fa-eye"></i>
+                  <i class="bi bi-eye"></i>
               </span>
           </div>
           @error('new_password_confirmation','updatePassword')
@@ -58,7 +58,7 @@
       </div>
   
       <div class="d-flex align-items-center gap-4">
-          <button class="btn btn-primary"><i class="fal fa-save me-2"></i>{{ __('Save') }}</button>
+          <button class="btn btn-primary"><i class="bi bi-save me-2"></i>{{ __('Save') }}</button>
       </div>
   </form>
   
@@ -73,12 +73,12 @@
       eyeIcon.addEventListener('click', () => {
         if (inputField.type === 'password') {
           inputField.type = 'text';
-          iconElement.classList.remove('fa-eye');
-          iconElement.classList.add('fa-eye-slash');
+          iconElement.classList.remove('bi-eye');
+          iconElement.classList.add('bi-eye-slash');
         } else {
           inputField.type = 'password';
-          iconElement.classList.remove('fa-eye-slash');
-          iconElement.classList.add('fa-eye');
+          iconElement.classList.remove('bi-eye-slash');
+          iconElement.classList.add('bi-eye');
         }
       });
     };

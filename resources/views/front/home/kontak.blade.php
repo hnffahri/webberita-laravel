@@ -13,9 +13,9 @@
         <div class="col-lg-6 mb-4 mb-lg-0">
           <h1 class="text-dark font d-inline-block">Kontak Kami</h1>
           <p>We provide production services for all types of advertising</p>
-          <div class="mt-2"><i class="icon bg-white fal fa-phone me-2"></i>{{ $data->telephone }}</div>
-          <div class="mt-2"><i class="icon bg-white fal fa-envelope me-2"></i>{{ $data->email }}</div>
-          <div class="mt-2"><i class="icon bg-white fal fa-map-marker-alt me-2"></i>{{ $data->alamat }}</div>
+          <div class="mt-2"><i class="icon bg-white bi bi-telephone me-2"></i>{{ $data->telephone }}</div>
+          <div class="mt-2"><i class="icon bg-white bi bi-envelope me-2"></i>{{ $data->email }}</div>
+          <div class="mt-2"><i class="icon bg-white bi bi-geo me-2"></i>{{ $data->alamat }}</div>
         </div>
         <div class="col-lg-6">
           <div class="swal" data-swal="{{ session('success') }}"></div>

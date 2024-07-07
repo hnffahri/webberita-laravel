@@ -20,17 +20,17 @@
                 @endif
                 <div class="ms-3">
                   <h5 class="text-dark">{{ $penulis->name }}</h5>
-                  <small><i class="fal fa-file-alt me-2"></i>{{ $penulis->konten_count }} konten</small>
+                  <small><i class="bi bi-archive me-2"></i>{{ $penulis->konten_count }} konten</small>
                 </div>
               </div>
               <hr>
               <h6 class="text-dark">Bio :</h6>
               <p>{{ $penulis->biografi }}</p>
               <h6 class="text-dark">Sosial :</h6>
-              <a class="mt-2" href="{{ $penulis->facebook }}"><i class="icon fab fa-facebook-f me-2"></i></a>
-              <a class="mt-2" href="{{ $penulis->xtwitter }}"><i class="icon fab fa-twitter me-2"></i></a>
-              <a class="mt-2" href="{{ $penulis->instagram }}"><i class="icon fab fa-instagram me-2"></i></a>
-              <a class="mt-2" href="{{ $penulis->youtube }}"><i class="icon fab fa-youtube me-2"></i></a>
+              <a class="mt-2" href="{{ $penulis->facebook }}"><i class="icon bi bi-facebook me-2"></i></a>
+              <a class="mt-2" href="{{ $penulis->xtwitter }}"><i class="icon bi bi-twitter me-2"></i></a>
+              <a class="mt-2" href="{{ $penulis->instagram }}"><i class="icon bi bi-instagram me-2"></i></a>
+              <a class="mt-2" href="{{ $penulis->youtube }}"><i class="icon bi bi-youtube me-2"></i></a>
             </div>
           </div>
         </div>
@@ -47,9 +47,9 @@
                   <div class="card-body">
                     <div class="mb-2 post-meta">
                       @if ($item->type == 2)
-                      <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                      <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                       @endif
-                      <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="fal fa-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
+                      <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="bi bi-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
                     </div>
                     <h5 class="text-dark mb-0">{{ $item->judul }}</h5>
                     <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
@@ -72,15 +72,15 @@
               <img src="{{ asset('images/admin/'.$penulis->avatar) }}" alt="#" class="rounded-circle bulat" width="100">
               @endif
               <h5 class="text-dark mt-3">{{ $penulis->name }}</h5>
-              <small><i class="fal fa-file-alt me-2"></i>{{ $penulis->konten_count }} konten</small>
+              <small><i class="bi bi-archive me-2"></i>{{ $penulis->konten_count }} konten</small>
               <hr>
               <h6 class="text-dark">Bio :</h6>
               <p>{{ $penulis->biografi }}</p>
               <h6 class="text-dark">Sosial :</h6>
-              <a class="mt-2 d-block" href="{{ $penulis->facebook }}"><i class="icon fab fa-facebook-f me-2"></i>{{ $penulis->facebook }}</a>
-              <a class="mt-2 d-block" href="{{ $penulis->xtwitter }}"><i class="icon fab fa-twitter me-2"></i>{{ $penulis->xtwitter }}</a>
-              <a class="mt-2 d-block" href="{{ $penulis->instagram }}"><i class="icon fab fa-instagram me-2"></i>{{ $penulis->instagram }}</a>
-              <a class="mt-2 d-block" href="{{ $penulis->youtube }}"><i class="icon fab fa-youtube me-2"></i>{{ $penulis->youtube }}</a>
+              <a class="mt-2 d-block" href="{{ $penulis->facebook }}"><i class="icon bi bi-facebook me-2"></i>{{ $penulis->facebook }}</a>
+              <a class="mt-2 d-block" href="{{ $penulis->xtwitter }}"><i class="icon bi bi-twitter me-2"></i>{{ $penulis->xtwitter }}</a>
+              <a class="mt-2 d-block" href="{{ $penulis->instagram }}"><i class="icon bi bi-instagram me-2"></i>{{ $penulis->instagram }}</a>
+              <a class="mt-2 d-block" href="{{ $penulis->youtube }}"><i class="icon bi bi-youtube me-2"></i>{{ $penulis->youtube }}</a>
             </div>
           </div>
         </div>

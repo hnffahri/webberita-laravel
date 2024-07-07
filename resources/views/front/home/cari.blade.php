@@ -14,7 +14,7 @@
             <div class="card-body">
               <form action="{{ route('cari') }}" method="GET" class="card search-canvas w-100">
                 <div class="d-flex align-items-center">
-                  <i class="fal fa-search"></i>
+                  <i class="bi bi-search"></i>
                   <input type="search" name="query" id="query" class="form-control" placeholder="Ketik disini..." value="{{ request('query') }}">
                   <button type="submit" class="btn btn-primary">Cari</button>
                 </div>
@@ -42,7 +42,7 @@
                       <h6 class="text-dark">{{ $item->judul }}</h6>
                       <div class="post-meta">
                         @if ($item->type == 2)
-                        <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                        <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                         @endif
                         <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
                       </div>
@@ -66,7 +66,7 @@
         <div class="col-lg-4 mt-4 mt-lg-0">
           <div class="card">
             <div class="card-body">
-              <h5 class="text-dark m-0">Trending</h5>
+              <h5 class="text-dark font m-0">Trending</h5>
             </div>
             <div class="">
               @foreach ($trending as $item)
@@ -77,7 +77,7 @@
                     <div class="text">
                       <div class="post-meta">
                         @if ($item->type == 2)
-                        <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+                        <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                         @endif
                       </div>
                       <h5 class="text-dark">

@@ -4,7 +4,7 @@
   <div class="offcanvas-header d-block border-bottom">
     <form action="{{ route('cari') }}" method="GET" class="card search-canvas w-100 mb-3">
       <div class="d-flex align-items-center">
-        <i class="fal fa-search"></i>
+        <i class="bi bi-search"></i>
         <input type="search" name="query" id="query" class="form-control" placeholder="Ketik kata kunci...">
         <button type="submit" class="btn btn-dark">Cari</button>
       </div>
@@ -22,7 +22,7 @@
             </h6>
             <div class="post-meta">
               @if ($item->type == 2)
-              <span class="post-vidio me-2"><i class="fal fa-play me-1"></i> Vidio</span>
+              <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
               @endif
               <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
             </div>

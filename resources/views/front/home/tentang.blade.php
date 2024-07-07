@@ -66,10 +66,10 @@
                 </h4>
                 <small>{{$item->posisi}}</small>
                 <div class="mt-3">
-                  <a class="mt-2" href="{{$item->facebook}}"><i class="icon fab fa-facebook-f me-2"></i></a>
-                  <a class="mt-2" href="{{$item->xtwitter}}"><i class="icon fab fa-twitter me-2"></i></a>
-                  <a class="mt-2" href="{{$item->instagram}}"><i class="icon fab fa-instagram me-2"></i></a>
-                  <a class="mt-2" href="{{$item->youtube}}"><i class="icon fab fa-youtube me-2"></i></a>
+                  <a class="mt-2" href="{{$item->facebook}}"><i class="icon bi bi-facebook me-2"></i></a>
+                  <a class="mt-2" href="{{$item->xtwitter}}"><i class="icon bi bi-twitter me-2"></i></a>
+                  <a class="mt-2" href="{{$item->instagram}}"><i class="icon bi bi-instagram me-2"></i></a>
+                  <a class="mt-2" href="{{$item->youtube}}"><i class="icon bi bi-youtube me-2"></i></a>
                 </div>
               </div>
             </div>
