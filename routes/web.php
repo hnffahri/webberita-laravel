@@ -73,9 +73,6 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::get('/panel', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/panel/konten', KontenController::class)->names('konten');
     Route::get('/konten/search', [KontenController::class, 'search'])->name('konten.search');
-    Route::resource('/panel/kategori', KategoriController::class)->names('kategori');
-    Route::resource('/panel/member', MemberController::class)->names('member');
-    Route::resource('/panel/admin', AdminController::class)->names('admin');
     Route::get('/panel/pesan', [PesanController::class, 'index'])->name('pesan');
     Route::resource('/panel/seo', SeoController::class)->names('seo')->only(['index', 'update']);
     Route::resource('/panel/google-analytics', GoogleAnalyticsController::class)->names('google-analytics')->only(['index', 'update']);
@@ -83,11 +80,16 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::resource('/panel/syarat-ketentuan', SyaratKetentuanController::class)->names('syarat-ketentuan')->only(['index', 'update']);
     Route::resource('/panel/kebijakan-privasi', KebijakanPrivasiController::class)->names('kebijakan-privasi')->only(['index', 'update']);
     Route::resource('/panel/sosial-media', SosmedController::class)->names('sosial-media')->only(['index', 'update']);
-    Route::resource('/panel/tentang', TentangController::class)->names('tentang')->only(['index', 'update']);
     Route::resource('/panel/profile', PanelProfileController::class)->names('profile')->only(['index', 'update']);
     Route::resource('/panel/password', PasswordController::class)->names('password')->only(['index', 'update']);
     Route::resource('/panel/bantuan', BantuanController::class)->names('bantuan');
-    Route::resource('/panel/tim', TimController::class)->names('tim');
+    Route::middleware('role:1')->group(function () {
+        Route::resource('/panel/kategori', KategoriController::class)->names('kategori');
+        Route::resource('/panel/tim', TimController::class)->names('tim');
+        Route::resource('/panel/tentang', TentangController::class)->names('tentang')->only(['index', 'update']);
+        Route::resource('/panel/member', MemberController::class)->names('member');
+        Route::resource('/panel/admin', AdminController::class)->names('admin');
+    });
 });
 
 // Route::get('/panel/login', [MasukController::class, 'index'])->name('loginpanel');

@@ -19,11 +19,13 @@
           <i class="align-middle" data-feather="file-text"></i> <span class="align-middle">Konten</span>
         </a>
       </li>
+      @if (Auth::guard('admin')->user()->role == 1)
       <li class="sidebar-item {{ Route::is('kategori*') ? ' active' : '' }}">
         <a class="sidebar-link" href="{{ url('panel/kategori') }}">
           <i class="align-middle" data-feather="list"></i> <span class="align-middle">Kategori</span>
         </a>
       </li>
+      @endif
       <li class="sidebar-item {{ Route::is('pesan*') ? ' active' : '' }}">
         <a class="sidebar-link" href="{{ url('panel/pesan') }}">
           <i class="align-middle" data-feather="message-square"></i> <span class="align-middle">Pesan</span>
@@ -38,11 +40,6 @@
       <li class="sidebar-header">
         SEO dan Analytics
       </li>
-      {{-- <li class="sidebar-item {{ Route::is('statistik*') ? ' active' : '' }}">
-        <a class="sidebar-link" href="{{ url('panel/statistik') }}">
-          <i class="align-middle" data-feather="pie-chart"></i> <span class="align-middle">Statistik Website</span>
-        </a>
-      </li> --}}
       <li class="sidebar-item {{ Route::is('seo*') ? ' active' : '' }}">
         <a class="sidebar-link" href="{{ url('panel/seo') }}">
           <i class="align-middle" data-feather="hash"></i> <span class="align-middle">Pengaturan SEO</span>
@@ -77,6 +74,7 @@
           <i class="align-middle" data-feather="link"></i> <span class="align-middle">Sosial Media</span>
         </a>
       </li>
+      @if (Auth::guard('admin')->user()->role == 1)
       <li class="sidebar-item {{ Route::is('tentang*') ? ' active' : '' }}">
         <a class="sidebar-link" href="{{ url('panel/tentang') }}">
           <i class="align-middle" data-feather="info"></i> <span class="align-middle">Tentang Kami</span>
@@ -97,6 +95,7 @@
           <i class="align-middle" data-feather="users"></i> <span class="align-middle">Tim</span>
         </a>
       </li>
+      @endif
       <li class="sidebar-item">
         <a class="sidebar-link" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
           <i class="align-middle" data-feather="log-out"></i> <span class="align-middle">Keluar</span>

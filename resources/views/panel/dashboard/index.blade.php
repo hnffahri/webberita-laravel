@@ -178,10 +178,26 @@
   </div>
   @endforelse
 </div>
+<div class="swal" data-swal="{{ session('error') }}"></div>
 
 @endsection
 
 @push('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  const swal = $('.swal').data('swal');
+  if(swal){
+    Swal.fire({
+      title: "Berhasil...",
+      text: swal,
+      icon: "error",
+      showConfirmButton: false,
+      timer: 2500
+    });
+  }
+</script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");

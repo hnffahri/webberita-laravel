@@ -17,28 +17,11 @@ class RoleMiddleware
      */
 
      // public function handle(Request $request, Closure $next): Response
-    public function handle(Request $request, Closure $next, ...$roles)
+    public function handle(Request $request, Closure $next, string $roles): Response
     {
-        if (!Auth::check()) {
-            if ($request->is('panel*')) {
-                return redirect('/panel/login');
-            } elseif ($request->is('member*')) {
-                return redirect('/login');
-            }
+        if (Auth::guard('admin')->user()->role != $roles) {
+            return redirect('panel/')->with('error', 'Anda tidak punya akses');
         }
-
-        $user = Auth::user();
-        
-        if (!in_array($user->role, $roles)) {
-            if ($user->role == '1' || $user->role == '2') {
-                return redirect('/panel/login');
-            } elseif ($user->role == '3') {
-                return redirect('/login');
-            } else {
-                return redirect('/'); // Redirect to home or unauthorized page
-            }
-        }
-
         return $next($request);
     }
 }
