@@ -5,7 +5,7 @@
         <div class="col-4 d-lg-block d-none">
           @auth
           <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person-circle me-2"></i>Hi, {{ Auth::user()->name }}
             </button>
             <ul class="dropdown-menu">
@@ -20,7 +20,7 @@
           </div>
           {{-- <a href="{{ url('/dashboard') }}" class="btn btn-primary"><i class="bi bi-user-circle me-2"></i>Dashboard</a> --}}
           @else
-          <a href="{{ url('/login') }}" class="btn btn-light"><i class="bi bi-person-circle me-2"></i>Masuk / Daftar</a>
+          <a href="{{ url('/login') }}" class="btn btn-outline-light"><i class="bi bi-person-circle me-2"></i>Masuk / Daftar</a>
           @endauth
         </div>
         <div class="col-lg-4 col-5 text-lg-center">
@@ -29,13 +29,13 @@
           </div>
         </div>
         <div class="col-lg-4 col-7 text-end">
-          <a href="{{ route('trending') }}" class="btn btn-light me-2">
+          <a href="{{ route('trending') }}" class="btn btn-outline-light me-2">
             <i class="bi bi-rocket me-2"></i>Trending
           </a>
-          <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" class="btn btn-light d-lg-none">
+          <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" class="btn btn-outline-light d-lg-none">
             <i class="bi bi-search"></i>
           </a>
-          <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-light d-lg-inline-block d-none">
+          <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-light d-lg-inline-block d-none">
             <i class="bi bi-search"></i>
           </a>
         </div>
@@ -57,7 +57,7 @@
           <div class="col-8">
             @auth
             <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person-circle me-2"></i>Hi, {{ Auth::user()->name }}
               </button>
               <ul class="dropdown-menu">
@@ -69,11 +69,11 @@
             </div>
             {{-- <a href="{{ url('/login') }}" class="btn btn-dark"><img src="{{ asset('images/user.png'. Auth::user()->avatar) }}" alt=""> {{ Auth::user()->name }}</a> --}}
             @else
-            <a href="{{ url('/login') }}" class="btn btn-light"><i class="bi bi-person-circle me-2"></i>Masuk / Daftar</a>
+            <a href="{{ url('/login') }}" class="btn btn-outline-light"><i class="bi bi-person-circle me-2"></i>Masuk / Daftar</a>
             @endauth
           </div>
           <div class="col-4 text-end">
-            <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="btn btn-light"><i class="bi bi-list"></i></a>
+            <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" class="btn btn-outline-light"><i class="bi bi-list"></i></a>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@
     <a href="{{ route('frontbantuan')}}">Bantuan (Faq)</a>
     <hr>
     <h6 class="text-dark mb-3">Follow :</h6>
-    <a target="_blank" href="{{ $sosmed->facebook }}"><i class="icon bi bi-facebook-f me-2"></i>Facebook</a>
+    <a target="_blank" href="{{ $sosmed->facebook }}"><i class="icon bi bi-facebook me-2"></i>Facebook</a>
     <a target="_blank" href="{{ $sosmed->twitter }}"><i class="icon bi bi-twitter me-2"></i>Twitter</a>
     <a target="_blank" href="{{ $sosmed->instagram }}"><i class="icon bi bi-instagram me-2"></i>Instagram</a>
     <a target="_blank" href="{{ $sosmed->youtube }}"><i class="icon bi bi-youtube me-2"></i>Youtube</a>

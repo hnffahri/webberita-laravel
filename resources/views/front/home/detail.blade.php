@@ -43,13 +43,13 @@
                     <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                 </button>
             @else
-                <button class="btn btn-light like-unlike-btn" id="like-btn" data-id="{{ $konten->id }}">
+                <button class="btn btn-outline-light like-unlike-btn" id="like-btn" data-id="{{ $konten->id }}">
                     <i class="bi bi-hand-thumbs-up me-2"></i><span class="btn-text">Like</span>
                     <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                 </button>
             @endif
             @else
-              <a href="{{ route('login') }}" class="btn btn-light"><i class="bi bi-hand-thumbs-up me-2"></i>Like</a>
+              <a href="{{ route('login') }}" class="btn btn-outline-light"><i class="bi bi-hand-thumbs-up me-2"></i>Like</a>
             @endif
             <span class="ms-2" id="likes-count">{{ $konten->likes->count() }} likes</span>
           </div>
@@ -135,7 +135,7 @@ $(document).ready(function () {
     };
 
     const updateLikeSection = (kontenId, response, like) => {
-        let buttonClass = like ? 'btn-primary' : 'btn-light';
+        let buttonClass = like ? 'btn-primary' : 'btn-outline-light';
         let buttonText = like ? 'Unlike' : 'Like';
         let newButtonId = like ? 'unlike-btn' : 'like-btn';
 

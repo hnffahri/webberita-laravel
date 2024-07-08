@@ -33,7 +33,7 @@
                     Belum punya akun?
                   </div>
                 </div>
-                <a class="btn btn-light w-100" href="{{ route('register') }}">{{ __('Daftar') }}</a>
+                <a class="btn btn-outline-light w-100" href="{{ route('register') }}">{{ __('Daftar') }}</a>
             </form>
           </div>
         </div>

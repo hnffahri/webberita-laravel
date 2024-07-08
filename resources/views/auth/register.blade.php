@@ -94,7 +94,7 @@
                 </div>
               </div>
               <div class="text-center">
-                <a class="btn btn-light w-100" href="{{ route('login') }}">
+                <a class="btn btn-outline-light w-100" href="{{ route('login') }}">
                   Log In
                 </a>
               </div>
