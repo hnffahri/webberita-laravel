@@ -26,8 +26,7 @@
         </div>
         @enderror
       </div>
-
-      <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
+      <button class="btn btn-primary" type="submit"><i class="bi bi-save me-1"></i>Simpan</button>
     </form>
   </div>
 </div>

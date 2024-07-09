@@ -10,7 +10,7 @@
     <h1 class="h3 mb-0"><strong>Edit</strong> kategori</h1>
   </div>
   <div class="col-5 text-end">
-    <a href="{{ url('panel/kategori') }}" class="btn btn-primary"><i class="fal fa-chevron-left me-2"></i>Kembali</a>
+    <a href="{{ url('panel/kategori') }}" class="btn btn-primary"><i class="bi bi-chevron-left me-1"></i>Kembali</a>
   </div>
 </div>
 
@@ -39,7 +39,7 @@
           @enderror
         </div>
       </div>
-      <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
+      <button class="btn btn-primary" type="submit"><i class="bi bi-save me-1"></i>Simpan</button>
     </form>
   </div>
 </div>

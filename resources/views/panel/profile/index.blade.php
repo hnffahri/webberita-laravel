@@ -25,9 +25,9 @@
       <div class="mb-4">
         <label for="avatar" class="label-avatar d-flex align-items-center">
           @if (empty($data->avatar))
-          <img src="{{ asset('images/user.png') }}" alt="avatar" id="imgavatar" width="40" class="rounded-3 border me-3 kotak"><h5 class="text-dark m-0 fw-semibold"><i class="far fa-edit me-2"></i>Ganti Avatar</h5>
+          <img src="{{ asset('images/user.png') }}" alt="avatar" id="imgavatar" width="40" class="rounded-3 border me-3 kotak"><h5 class="text-dark m-0 fw-semibold"><i class="bi bi-pencil-square me-2"></i>Ganti Avatar</h5>
           @else
-          <img src="{{ asset('images/admin/'.$data->avatar) }}" alt="avatar" id="imgavatar" width="40" class="rounded-3 border me-3 kotak"><h5 class="text-dark m-0 fw-semibold"><i class="far fa-edit me-2"></i>Ganti Avatar</h5>
+          <img src="{{ asset('images/admin/'.$data->avatar) }}" alt="avatar" id="imgavatar" width="40" class="rounded-3 border me-3 kotak"><h5 class="text-dark m-0 fw-semibold"><i class="bi bi-pencil-square me-2"></i>Ganti Avatar</h5>
           @endif
         </label>
         <input type="file" class="form-control" id="avatar" name="avatar" hidden>
@@ -133,7 +133,7 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
+      <button class="btn btn-primary" type="submit"><i class="bi bi-save me-1"></i>Simpan</button>
     </form>
   </div>
 </div>

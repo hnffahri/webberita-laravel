@@ -9,7 +9,7 @@
     <h1 class="h3 mb-0"><strong>User</strong> Admin</h1>
   </div>
   <div class="col-5 text-end">
-    <a href="{{ url('panel/admin/create') }}" class="btn btn-primary"><i class="fal fa-plus-circle me-2"></i>Tambah</a>
+    <a href="{{ url('panel/admin/create') }}" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i>Tambah</a>
   </div>
 </div>
 
@@ -44,10 +44,10 @@
             </td>
             <td class="">
               <div class="btn-group">
-                <a href="{{ url('panel/admin/'.$item->id) }}" class="btn btn-light"><i class="fal fa-eye"></i></a>
+                <a href="{{ url('panel/admin/'.$item->id) }}" class="btn btn-light"><i class="bi bi-eye"></i></a>
                 @if ($item->role == 2)
-                <a href="{{ url('panel/admin/'.$item->id.'/edit') }}" class="btn btn-light"><i class="fal fa-edit"></i></a>
-                <a href="#" onclick="deleteadmin(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="fal fa-trash-alt"></i></a>
+                <a href="{{ url('panel/admin/'.$item->id.'/edit') }}" class="btn btn-light"><i class="bi bi-pencil-square"></i></a>
+                <a href="#" onclick="deleteadmin(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="bi bi-trash"></i></a>
                 @endif
               </div>
             </td>

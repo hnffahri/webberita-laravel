@@ -9,7 +9,7 @@
     <h1 class="h3 mb-0"><strong>Tambah</strong> Admin</h1>
   </div>
   <div class="col-6 text-end">
-    <a href="{{ url('panel/admin') }}" class="btn btn-primary"><i class="fal fa-chevron-left me-2"></i>Kembali</a>
+    <a href="{{ url('panel/admin') }}" class="btn btn-primary"><i class="bi bi-chevron-left me-1"></i>Kembali</a>
   </div>
 </div>
 
@@ -43,7 +43,7 @@
           <div class="input-group">
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
             <span class="input-group-text" id="toggle-password">
-              <i class="fal fa-eye" id="toggle-icon" onclick="togglePasswordVisibility()"></i>
+              <i class="bi bi-eye" id="toggle-icon" onclick="togglePasswordVisibility()"></i>
             </span>
             @error('password')
             <div class="invalid-feedback">
@@ -57,7 +57,7 @@
           <div class="input-group">
             <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" autocomplete="new-password">
             <span class="input-group-text" id="toggle-password-confirm">
-              <i class="fal fa-eye" id="toggle-icon-confirm" onclick="togglePasswordConfirmVisibility()"></i>
+              <i class="bi bi-eye" id="toggle-icon-confirm" onclick="togglePasswordConfirmVisibility()"></i>
             </span>
             @error('password_confirmation')
             <div class="invalid-feedback">
@@ -67,7 +67,7 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-primary"><i class="fal fa-save me-2"></i>Simpan</button>
+      <button class="btn btn-primary"><i class="bi bi-save me-1"></i>Simpan</button>
     </form>
   </div>
 </div>

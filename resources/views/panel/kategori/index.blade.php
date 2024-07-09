@@ -9,7 +9,7 @@
     <h1 class="h3 mb-0"><strong>Kategori</strong> Artikel</h1>
   </div>
   <div class="col-6 text-end">
-    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary"><i class="fal fa-plus-circle me-2"></i>Tambah</a>
+    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i>Tambah</a>
   </div>
 </div>
 
@@ -35,8 +35,8 @@
           <td><span class="badge bg-success" style="background-color: {{ $item->warna }} !important">{{ $item->warna }}</span></td>
           <td>
             <div class="btn-group">
-              <a class="btn btn-light" href="{{ url('panel/kategori/'.$item->id.'/edit') }}">Edit</a>
-              <a class="btn btn-light" href="#" onclick="deleteKategori(this)" data-id="{{ $item->id }}">Hapus</a>
+              <a class="btn btn-light" href="{{ url('panel/kategori/'.$item->id.'/edit') }}"><i class="bi bi-pencil-square"></i></a>
+              <a class="btn btn-light" href="#" onclick="deleteKategori(this)" data-id="{{ $item->id }}"><i class="bi bi-trash"></i></a>
             </div>
           </td>
         </tr>

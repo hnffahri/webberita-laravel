@@ -45,22 +45,22 @@
             <td>
               @if ($item->notif == 2)
               <span class="badge fw-normal text-bg-success text-white">
-                <i class="fal fa-check-circle"></i> Aktif
+                <i class="bi bi-check-square"></i> Aktif
               </span>
               @else
               <span class="badge fw-normal text-bg-danger">
-                <i class="fal fa-times-circle"></i> Tidak Aktif
+                <i class="bi bi-x-square"></i> Tidak Aktif
               </span>
               @endif
             </td>
             <td>
               @if ($item->email_verified_at == null)
               <span class="badge fw-normal text-bg-danger">
-                <i class="fal fa-times-circle"></i> Belum
+                <i class="bi bi-x-square"></i> Belum
               </span>
               @else
               <span class="badge fw-normal text-bg-success text-white">
-                <i class="fal fa-check-circle"></i> Verifikasi
+                <i class="bi bi-check-square"></i> Verifikasi
               </span>
               @endif
             </td>
@@ -69,7 +69,7 @@
             </td> --}}
             <td class="">
               <div class="btn-group">
-                <a href="#" onclick="deletemember(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="fal fa-trash-alt"></i></a>
+                <a href="#" onclick="deletemember(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="bi bi-trash"></i></a>
               </div>
             </td>
           </tr>

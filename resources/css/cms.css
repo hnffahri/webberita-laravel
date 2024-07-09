@@ -1,3 +1,7 @@
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+/* @import "bootstrap/dist/css/bootstrap.min.css"; */
+@import './style/main-cms.css';
+
 a{
     text-decoration: none !important;
 }
@@ -208,4 +212,16 @@ label.label-avatar{
     align-items: center;
     justify-content: center;
     background-color: whitesmoke;
+}
+
+nav i,.sidebar-link i{
+    font-size: 18px;
+}
+
+.avatar{
+    border-radius: 90px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    padding: 2px;
+    border: 2px solid #3b7ddd !important;
 }

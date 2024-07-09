@@ -14,9 +14,9 @@
         <div class="fw-bold text-dark">Judul Pesan :</div>
         <h5 class="text-dark">{{ $item->judul_pesan }}</h5>
         <p><span class="fw-bold text-dark">Pesan</span> : {{ $item->pesan }}</p>
-        <div><i class="fal fa-user me-2"></i>{{ $item->nama }}</div>
-        <div><i class="fal fa-envelope me-2"></i>{{ $item->email }}</div>
-        <i class="fal fa-calendar-alt me-2"></i>{{ $item->created_at }}
+        <div><i class="bi bi-person me-2"></i>{{ $item->nama }}</div>
+        <div><i class="bi bi-envelope me-2"></i>{{ $item->email }}</div>
+        <i class="bi bi-calendar3 me-2"></i>{{ $item->created_at }}
       </div>
     </div>
   </div>

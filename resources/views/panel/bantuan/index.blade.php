@@ -9,7 +9,7 @@
     <h1 class="h3 mb-0"><strong>Bantuan</strong> (Faq)</h1>
   </div>
   <div class="col-5 text-end">
-    <a href="{{ url('panel/bantuan/create') }}" class="btn btn-primary"><i class="fal fa-plus-circle me-2"></i>Tambah</a>
+    <a href="{{ url('panel/bantuan/create') }}" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i>Tambah</a>
   </div>
 </div>
 
@@ -27,13 +27,13 @@
           {{ $item->ringkas }}
         </p>
         <p>
-          <small><i class="fal fa-calendar-alt me-2"></i>{{$item->created_at}}</small>
+          <small><i class="bi bi-calendar3 me-1"></i>{{$item->created_at}}</small>
         </p>
       </div>
       <div class="btn-group">
-        <a href="{{ url('panel/bantuan/'.$item->id) }}" class="btn btn-light"><i class="fal fa-eye"></i></a>
-        <a href="{{ url('panel/bantuan/'.$item->id.'/edit') }}" class="btn btn-light"><i class="fal fa-edit"></i></a>
-        <a href="#" onclick="deletebantuan(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="fal fa-trash-alt"></i></a>
+        <a href="{{ url('panel/bantuan/'.$item->id) }}" class="btn btn-light"><i class="bi bi-eye"></i></a>
+        <a href="{{ url('panel/bantuan/'.$item->id.'/edit') }}" class="btn btn-light"><i class="bi bi-pencil-square"></i></a>
+        <a href="#" onclick="deletebantuan(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="bi bi-trash"></i></a>
       </div>
     </div>
   </div>

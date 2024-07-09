@@ -16,7 +16,7 @@
 
   
   <!-- Bootstrap CSS -->
-  @vite(['resources/css/app.css'])
+  @vite(['resources/css/template.css'])
 	@stack('css')
 
 </head>
@@ -35,7 +35,7 @@
 
   @include('front/layout/footer')
   
-  @vite(['resources/js/app.js'])
+  @vite(['resources/js/template.js'])
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   {{-- <script src="{{ asset('assets-front/js/jquery-3.6.0.min.js') }}"></script> --}}
 

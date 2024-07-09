@@ -9,7 +9,7 @@
     <h1 class="h3 mb-0"><strong>User</strong> Admin</h1>
   </div>
   <div class="col-6 text-end">
-    <a href="{{ url('panel/admin') }}" class="btn btn-primary"><i class="fal fa-chevron-left me-2"></i>Kembali</a>
+    <a href="{{ url('panel/admin') }}" class="btn btn-primary"><i class="bi bi-chevron-left me-1"></i>Kembali</a>
   </div>
 </div>
 
@@ -25,15 +25,15 @@
           @endif
           <div class="ms-3">
             <h5 class="text-dark fw-bold mb-1">{{ $admin->name }}</h5>
-            <div><i class="fal fa-archive me-2"></i>{{ $admin->konten_count }} konten</div>
+            <div><i class="bi bi-archive me-1"></i>{{ $admin->konten_count }} konten</div>
           </div>
         </div>
         <hr>
         <h5 class="fw-bold text-dark">Sosial :</h5>
-        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->facebook }}"><i class="icon fab fa-facebook-f"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->facebook }}</span></a>
-        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->xtwitter }}"><i class="icon fab fa-twitter"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->xtwitter }}</span></a>
-        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->instagram }}"><i class="icon fab fa-instagram"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->instagram }}</span></a>
-        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->youtube }}"><i class="icon fab fa-youtube"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->youtube }}</span></a>
+        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->facebook }}"><i class="icon bi bi-facebook"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->facebook }}</span></a>
+        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->xtwitter }}"><i class="icon bi bi-twitter"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->xtwitter }}</span></a>
+        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->instagram }}"><i class="icon bi bi-instagram"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->instagram }}</span></a>
+        <a class="mt-2 me-2 me-lg-0 d-lg-block text-dark" href="{{ $admin->youtube }}"><i class="icon bi bi-youtube"></i><span class="d-none d-lg-inline-block ms-2">{{ $admin->youtube }}</span></a>
       </div>
     </div>
   </div>

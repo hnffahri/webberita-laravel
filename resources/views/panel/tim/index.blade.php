@@ -9,7 +9,7 @@
     <h1 class="h3 mb-0"><strong>List</strong> Tim</h1>
   </div>
   <div class="col-6 text-end">
-    <a href="{{ url('panel/tim/create') }}" class="btn btn-primary"><i class="fal fa-plus-circle me-2"></i>Tambah</a>
+    <a href="{{ url('panel/tim/create') }}" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i>Tambah</a>
   </div>
 </div>
 
@@ -26,17 +26,17 @@
           {{ $item->nama }}
         </h4>
         <p>
-          <i class="icon fal fa-credit-card me-2"></i>{{$item->posisi}}
+          <i class="icon bi bi-credit-card me-1"></i>{{$item->posisi}}
         </p>
         <h6>Sosmed :</h6>
-        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->facebook)}}"><i class="icon fab fa-facebook-f me-2"></i></a>
-        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->xtwitter)}}"><i class="icon fab fa-twitter me-2"></i></a>
-        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->instagram)}}"><i class="icon fab fa-instagram me-2"></i></a>
-        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->youtube)}}"><i class="icon fab fa-youtube me-2"></i></a>
+        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->facebook)}}"><i class="icon bi bi-facebook me-1"></i></a>
+        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->xtwitter)}}"><i class="icon bi bi-twitter me-1"></i></a>
+        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->instagram)}}"><i class="icon bi bi-instagram me-1"></i></a>
+        <a class="mt-2 text-muted" target="_blank" href="{{ url('/'.$item->youtube)}}"><i class="icon bi bi-youtube me-1"></i></a>
         <div class="card m-0 mt-3">
           <div class="btn-group">
-            <a href="{{ url('panel/tim/'.$item->id.'/edit') }}" class="btn btn-light"><i class="fal fa-edit"></i></a>
-            <a href="#" onclick="deletetim(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="fal fa-trash-alt"></i></a>
+            <a href="{{ url('panel/tim/'.$item->id.'/edit') }}" class="btn btn-light"><i class="bi bi-pencil-square"></i></a>
+            <a href="#" onclick="deletetim(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="bi bi-trash"></i></a>
           </div>
         </div>
       </div>

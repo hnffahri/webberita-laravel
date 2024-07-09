@@ -22,7 +22,7 @@
         <label for="facebook_pixel">Link</label>
         <textarea name="facebook_pixel" id="facebook_pixel" class="form-control">{{ $fbpixel->facebook_pixel }}</textarea>
       </div>
-      <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
+      <button class="btn btn-primary" type="submit"><i class="bi bi-save me-1"></i>Simpan</button>
     </form>
   </div>
 </div>

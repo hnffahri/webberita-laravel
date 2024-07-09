@@ -32,7 +32,7 @@
               <div class="input-group">
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
                 <span class="input-group-text">
-                  <i class="fal fa-eye"></i>
+                  <i class="bi bi-eye"></i>
                 </span>
               </div>
                 @error('password')
@@ -70,12 +70,12 @@
     eyeIcon.addEventListener('click', () => {
       if (inputField.type === 'password') {
         inputField.type = 'text';
-        iconElement.classList.remove('fa-eye');
-        iconElement.classList.add('fa-eye-slash');
+        iconElement.classList.remove('bi-eye');
+        iconElement.classList.add('bi-eye-slash');
       } else {
         inputField.type = 'password';
-        iconElement.classList.remove('fa-eye-slash');
-        iconElement.classList.add('fa-eye');
+        iconElement.classList.remove('bi-eye-slash');
+        iconElement.classList.add('bi-eye');
       }
     });
   };

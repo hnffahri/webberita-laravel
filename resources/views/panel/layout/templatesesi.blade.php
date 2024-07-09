@@ -11,18 +11,11 @@
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+	<title>@yield('title') · CMS</title>
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
-	<title>@yield('title') · Panel</title>
-
-	<link href="{{ asset('assets-panel/css/app-main.css') }}" rel="stylesheet">
-	<link href="{{ asset('fontawesome/css/font-awesome.min.css') }}" rel="stylesheet">
-	@stack('css')
-	<link href="{{ asset('assets-panel/css/main.css') }}" rel="stylesheet">
+  @vite(['resources/css/cms.css', 'resources/js/cms.js'])
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	@stack('css')
 </head>
 
 <body>
@@ -44,7 +37,6 @@
 	</div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="{{ asset('assets-panel/js/app.js') }}"></script>
   @stack('js')
 
 </body>

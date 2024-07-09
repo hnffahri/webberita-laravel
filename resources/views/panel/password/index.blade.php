@@ -24,7 +24,7 @@
           <div class="input-group">
             <input id="password_lama" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
             <span class="input-group-text">
-              <i class="fal fa-eye"></i>
+              <i class="bi bi-eye"></i>
             </span>
           </div>
           @error('password')
@@ -38,7 +38,7 @@
           <div class="input-group">
             <input id="password_baru" type="password" class="form-control @error('password_baru') is-invalid @enderror" name="password_baru" autocomplete="new-password">
             <span class="input-group-text">
-              <i class="fal fa-eye"></i>
+              <i class="bi bi-eye"></i>
             </span>
           </div>
           @error('password_baru')
@@ -52,7 +52,7 @@
           <div class="input-group">
             <input id="konfirmasi_password" type="password" class="form-control @error('password_konfirmasi') is-invalid @enderror" name="password_konfirmasi" autocomplete="new-password">
             <span class="input-group-text">
-              <i class="fal fa-eye"></i>
+              <i class="bi bi-eye"></i>
             </span>
           </div>
           @error('password_konfirmasi')
@@ -62,7 +62,7 @@
           @enderror
         </div>
       </div>
-      <button class="btn btn-primary" type="submit"><i class="fal fa-save me-2"></i>Simpan</button>
+      <button class="btn btn-primary" type="submit"><i class="bi bi-save me-2"></i>Simpan</button>
     </form>
   </div>
 </div>
@@ -95,12 +95,12 @@
     eyeIcon.addEventListener('click', () => {
       if (inputField.type === 'password') {
         inputField.type = 'text';
-        iconElement.classList.remove('fa-eye');
-        iconElement.classList.add('fa-eye-slash');
+        iconElement.classList.remove('bi-eye');
+        iconElement.classList.add('bi-eye-slash');
       } else {
         inputField.type = 'password';
-        iconElement.classList.remove('fa-eye-slash');
-        iconElement.classList.add('fa-eye');
+        iconElement.classList.remove('bi-eye-slash');
+        iconElement.classList.add('bi-eye');
       }
     });
   };

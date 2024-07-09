@@ -19,7 +19,7 @@
                       </div>
                       <div class="col-auto">
                         <div class="stat text-primary">
-                          <i class="fal fa-file-alt"></i>
+                          <i class="bi bi-archive"></i>
                         </div>
                       </div>
                   </div>
@@ -40,7 +40,7 @@
                       </div>
                       <div class="col-auto">
                         <div class="stat text-primary">
-                          <i class="fal fa-list"></i>
+                          <i class="bi bi-list-ol"></i>
                         </div>
                       </div>
                   </div>
@@ -61,7 +61,7 @@
                       </div>
                       <div class="col-auto">
                         <div class="stat text-primary">
-                          <i class="fal fa-comments"></i>
+                          <i class="bi bi-chat-dots"></i>
                         </div>
                       </div>
                   </div>
@@ -82,7 +82,7 @@
                       </div>
                       <div class="col-auto">
                         <div class="stat text-primary">
-                          <i class="fal fa-users"></i>
+                          <i class="bi bi-people"></i>
                         </div>
                       </div>
                   </div>
@@ -95,7 +95,7 @@
 
 <div class="card flex-fill w-100">
   <div class="card-header bg-primary">
-    <h5 class="card-title mb-0 text-white">User Registration</h5>
+    <h5 class="card-title mb-0 text-white">Member Baru</h5>
   </div>
   <div class="card-body py-3">
     <div class="chart chart-sm">
@@ -112,28 +112,39 @@
       <a href="{{ url('panel/konten/'.$item->id) }}" class="text-muted">
         <img src="{{ asset('images/konten/'.$item->img) }}" alt="{{ $item->judul }}" class="w-100 banner card-img-top">
         <div class="card-body">
-          <p class="mb-1"><i class="fal fa-bookmark me-2"></i>{{ $item->kategori->nama }}</p>
+          <div class="mb-3 clearfix">
+            <div class="float-start"><i class="bi bi-bookmark me-1"></i>{{ $item->kategori->nama }}</div>
+            <div class="float-end">
+              @if ($item->type == 1)
+              <span class="badge bg-info">Artikel</span>
+              @else
+              <span class="badge bg-info">Vidio</span>
+              @endif
+            </div>
+          </div>
           <h4 class="text-dark">
             {{ $item->judul }}
           </h4>
           <p>
-            @if ($item->type == 1)
-            <span class="badge bg-info">Artikel</span>
-            @else
-            <span class="badge bg-info">Vidio</span>
-            @endif
-  
             @if ($item->status == 1)
-            <span class="badge mx-2 bg-success">Aktif</span>
+            <span class="badge me-2 bg-success">Aktif</span>
             @else
-            <span class="badge mx-2 bg-warning">Tidak Aktif</span>
+            <span class="badge me-2 bg-warning">Tidak Aktif</span>
             @endif
             {{ $item->views }} Views
+            <span class="ms-2">{{ $item->likes->count() }} Like</span>
           </p>
-          <p class="m-0">
-            <small><i class="fal fa-calendar-alt me-2"></i>{{$item->created_at}}</small>
-            <small class="ms-3"><i class="fal fa-user me-2"></i>{{ $item->admin->name }}</small>
+          <p>
+            <small><i class="bi bi-calendar3 me-1"></i>{{$item->created_at}}</small>
+            <small class="ms-3"><i class="bi bi-person me-1"></i>{{ $item->admin->name }}</small>
           </p>
+          <div class="card m-0">
+            <div class="btn-group">
+              <a href="{{ url('panel/konten/'.$item->id) }}" class="btn btn-light"><i class="bi bi-eye"></i></a>
+              <a href="{{ url('panel/konten/'.$item->id.'/edit') }}" class="btn btn-light"><i class="bi bi-pencil-square"></i></a>
+              <a href="#" onclick="deleteKonten(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="bi bi-trash"></i></a>
+            </div>
+          </div>
         </div>
       </a>
     </div>
@@ -165,9 +176,9 @@
         <div class="fw-bold text-dark">Judul Pesan :</div>
         <h5 class="text-dark">{{ $item->judul_pesan }}</h5>
         <p><span class="fw-bold text-dark">Pesan</span> : {{ $item->pesan }}</p>
-        <div><i class="fal fa-user me-2"></i>{{ $item->nama }}</div>
-        <div><i class="fal fa-envelope me-2"></i>{{ $item->email }}</div>
-        <i class="fal fa-calendar-alt me-2"></i>{{ $item->created_at }}
+        <div><i class="bi bi-person me-1"></i>{{ $item->nama }}</div>
+        <div><i class="bi bi-envelope me-1"></i>{{ $item->email }}</div>
+        <i class="bi bi-calendar3 me-1"></i>{{ $item->created_at }}
       </div>
     </div>
   </div>
@@ -214,7 +225,7 @@
       data: {
         labels: months,
         datasets: [{
-          label: "User Registration",
+          label: "Member Baru",
           fill: true,
           backgroundColor: gradient,
           borderColor: window.theme.primary,
