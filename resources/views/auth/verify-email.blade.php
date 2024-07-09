@@ -18,15 +18,13 @@
             </div>
             @endif
 
-            <div class="mt-4 d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center justify-content-between">
               <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
           
-                <div>
-                  <button class="btn btn-primary">
-                    Resend Verification Email
-                  </button>
-                </div>
+                <button class="btn btn-primary">
+                  Resend Verification <span class="d-none d-sm-inline-block">Email</span>
+                </button>
               </form>
           
               <form method="POST" action="{{ route('logout') }}">

@@ -189,7 +189,7 @@
   const swal = $('.swal').data('swal');
   if(swal){
     Swal.fire({
-      title: "Berhasil...",
+      title: "Error",
       text: swal,
       icon: "error",
       showConfirmButton: false,
