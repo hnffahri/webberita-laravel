@@ -57,6 +57,7 @@ use App\Http\Controllers\panel\TimController;
 
 // Route::group(['prefix' => 'member',  'middleware' => ''], function(){
 
+
 Route::prefix('panel')->group(function () {
     Route::middleware(['log.admin'])->group(function () {
         Route::get('login', [AuthController::class, 'showLoginForm'])->name('admin.login');
@@ -80,8 +81,8 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::resource('/panel/syarat-ketentuan', SyaratKetentuanController::class)->names('syarat-ketentuan')->only(['index', 'update']);
     Route::resource('/panel/kebijakan-privasi', KebijakanPrivasiController::class)->names('kebijakan-privasi')->only(['index', 'update']);
     Route::resource('/panel/sosial-media', SosmedController::class)->names('sosial-media')->only(['index', 'update']);
-    Route::resource('/panel/profile', PanelProfileController::class)->names('profile')->only(['index', 'update']);
-    Route::resource('/panel/password', PasswordController::class)->names('password')->only(['index', 'update']);
+    Route::resource('/panel/profile', PanelProfileController::class)->names('profilepanel')->only(['index', 'update']);
+    Route::resource('/panel/password', PasswordController::class)->names('passwordpanel')->only(['index', 'update']);
     Route::resource('/panel/bantuan', BantuanController::class)->names('bantuan');
     Route::middleware('role:1')->group(function () {
         Route::resource('/panel/kategori', KategoriController::class)->names('kategori');
@@ -111,11 +112,8 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 
 require __DIR__.'/auth.php';
 
-// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-//     \UniSharp\LaravelFilemanager\Lfm::routes();
-// });
 Route::group(['prefix' => 'laravel-filemanager'], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
+    \UniSharp\LaravelFilemanager\Lfm::routes(['as' => 'custom_lfm.']);
 });
 
 Route::get('/tentang', [HalamanController::class, 'tentang'])->name('fronttentang');

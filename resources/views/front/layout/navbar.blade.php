@@ -25,7 +25,7 @@
         </div>
         <div class="col-lg-4 col-5 text-lg-center">
           <div class="">
-            <a href="{{ url('/') }}"><img src="{{ asset('images/'.$tentang->logo) }}" alt="#" height="30"></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('images/'.$tentang->logo) }}" alt="#" height="50"></a>
           </div>
         </div>
         <div class="col-lg-4 col-7 text-end">

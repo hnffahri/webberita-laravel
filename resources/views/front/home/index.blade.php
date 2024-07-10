@@ -7,7 +7,7 @@
 
 <main>
 
-  <div class="py-4 bg-light">
+  <div class="pb-4 bg-light">
     <div class="container headline">
       {{-- <div class="text-center">
         <h1 class="text-dark font">Latest Post</h1>

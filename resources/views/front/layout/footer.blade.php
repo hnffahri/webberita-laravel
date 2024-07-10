@@ -11,7 +11,7 @@
         <a class="d-block mt-2" href="{{ route('frontbantuan')}}">Bantuan (Faq)</a>
       </div>
       <div class="col-lg-5 text-center">
-        <a href="{{ url('/') }}"><img src="{{ asset('images/'.$tentang->logo) }}" alt="#" height="30"></a>
+        <a href="{{ url('/') }}"><img src="{{ asset('images/'.$tentang->logo) }}" alt="#" height="50"></a>
         <div class="mt-3">
           {{ $seo->deskripsi }}
         </div>
