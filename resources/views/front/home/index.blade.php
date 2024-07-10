@@ -97,14 +97,11 @@
                     <span class=""><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
                   </div>
                   <h4 class="m-0 text-dark">{{ $item->judul }}</h4>
-                  {{-- <div class="ringkas">{{ $item->ringkas }}</div> --}}
                 </div>
               </a>
             </div>
             @endforeach
           </div>
-          {{-- <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div> --}}
         </div>
       </div>
     </div>
@@ -160,14 +157,10 @@
             <a href="{{ url('/'.$kategori->slug) }}" class="btn btn-primary" style="background-color: {{ $kategori->warna }} !important; border-color: {{ $kategori->warna }} !important">Lainnya <i class="bi bi-chevron-right"></i></a>
           </div>
         </div>
-        @if($kategori->KontenM->isEmpty())
-        <div class="text-center">
-          <img src="{{ asset('images/empty.svg') }}" alt="#" width="100">
-          <div class="mt-4">Tidak ada konten</div>
-        </div>
-        @else
         <div class="swiper-wrapper">
-          @foreach ($kategori->KontenM as $konten)
+          @foreach($kategori->Konten()->with('kategori')->take(2)->latest()->get() as $konten)
+          {{-- @foreach ($kategori->Konten as $konten) --}}
+
           <div class="swiper-slide">
             <a href="{{ url('/'.$konten->kategori->slug.'/'.$konten->slug) }}">
               <div class="card">
@@ -199,7 +192,6 @@
             </div>
           </div>
         </div>
-        @endif
       </div>
     </div>
     @endforeach
