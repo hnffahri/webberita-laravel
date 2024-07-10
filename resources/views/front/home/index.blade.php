@@ -109,13 +109,7 @@
       </div>
     </div>
 
-    <div class="container-fluid mt-4">
-      <img src="{{ asset('images/iklan/4064236851259938825.gif') }}" alt="#" class="w-100">
-    </div>
-
     <div class="container mt-4">
-      <hr class="mb-0">
-      <hr class="mt-1">
       <div class="row mb-4 align-items-center">
         <div class="col-7">
           <h1 class="text-dark font m-0">Trending</h1>

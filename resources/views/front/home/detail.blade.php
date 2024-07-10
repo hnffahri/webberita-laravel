@@ -58,10 +58,9 @@
               <div class="col-12">
                 <div class="sosmed">
                   Share :
-                  <a href="#" class="ms-3 btn btn-dark"><i class="bi bi-facebook"></i></a>
-                  <a href="#" class="ms-3 btn btn-dark"><i class="bi bi-twitter"></i></a>
-                  <a href="#" class="ms-3 btn btn-dark"><i class="bi bi-instagram"></i></a>
-                  <a href="#" class="ms-3 btn btn-dark"><i class="bi bi-youtube"></i></a>
+                  <a href="https://api.whatsapp.com/send?text={{ url($konten->kategori->slug) }}/{{ $konten->slug }}" class="ms-3 btn btn-dark" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u={{ url($konten->kategori->slug) }}/{{ $konten->slug }}" class="ms-3 btn btn-dark" target="_blank"><i class="bi bi-facebook"></i></a>
+                  <a href="https://twitter.com/intent/tweet?url={{ url($konten->kategori->slug) }}/{{ $konten->slug }}&text=Check%20this%20out!" class="ms-3 btn btn-dark" target="_blank"><i class="bi bi-twitter"></i></a>
                 </div>
               </div>
             </div>
@@ -106,7 +105,7 @@
                 <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->twitter) }}"><i class="icon bi bi-twitter"></i></a>
                 <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->instagram) }}"><i class="icon bi bi-instagram"></i></a>
                 <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->youtube) }}"><i class="icon bi bi-youtube"></i></a>
-                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->tiktok) }}"><i class="icon bi bi-pinterest"></i></a>
+                <a class="mt-2 mx-1" target="_blank" href="{{ url('/'.$sosmed->tiktok) }}"><i class="icon bi bi-tiktok"></i></a>
               </div>
             </div>
           </div>

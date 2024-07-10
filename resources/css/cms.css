@@ -225,3 +225,7 @@ nav i,.sidebar-link i{
     padding: 2px;
     border: 2px solid #3b7ddd !important;
 }
+
+i.me-1{
+    margin-right: 8px !important;
+}

@@ -9,7 +9,7 @@
     <h1 class="h3 mb-0"><strong>Detail</strong> Konten</h1>
   </div>
   <div class="col-6 text-end">
-    <a href="{{ url('panel/konten') }}" class="btn btn-primary"><i class="fal fa-chevron-left me-2"></i>Kembali</a>
+    <a href="{{ url('panel/konten') }}" class="btn btn-primary"><i class="bi bi-chevron-left me-2"></i>Kembali</a>
   </div>
 </div>
 
@@ -17,7 +17,7 @@
   <div class="card-body">
     <h2 class="text-dark">{{ $konten->judul }}</h2>
     <div class="mb-3">
-      {{ $konten->created_at }} · {{ $konten->Kategori->nama }} · {{ $konten->views }} Views · {{ $konten->Admin->name }}
+      {{ $konten->created_at }} · {{ $konten->Kategori->nama }} · {{ $konten->views }} Views · {{ $konten->Admin->name }} · <span>{{ $konten->likes->count() }} Like</span>
     </div>
     <div class="mb-3">
       @if ($konten->type == 2)
