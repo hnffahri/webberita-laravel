@@ -113,7 +113,7 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 require __DIR__.'/auth.php';
 
 Route::group(['prefix' => 'laravel-filemanager'], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes(['as' => 'custom_lfm.']);
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
 Route::get('/tentang', [HalamanController::class, 'tentang'])->name('fronttentang');
