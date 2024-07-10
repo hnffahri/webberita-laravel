@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
   <div class="sidebar-content js-simplebar">
     <a class="sidebar-brand" href="{{ url('panel') }}">
-      <span class="align-middle">WebBerita</span>
+      <span class="align-middle">Media Indonesia</span>
     </a>
 
     <ul class="sidebar-nav">

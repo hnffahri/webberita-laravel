@@ -997,3 +997,33 @@ label.label-avatar h6 {
 .text-underline{
     text-decoration: underline !important;
 }
+
+.isi-konten a{
+    color: #052962 !important;
+    text-decoration: underline !important;
+}
+
+.isi-konten h1,
+.isi-konten h2,
+.isi-konten h3,
+.isi-konten h4,
+.isi-konten h5,
+.isi-konten h6,
+.isi-konten .h1,
+.isi-konten .h2,
+.isi-konten .h3,
+.isi-konten .h4,
+.isi-konten .h5,
+.isi-konten .h6 {
+    color: #3d3d3d;
+}
+
+.isi-konten blockquote{
+    background-color: white;
+    border-left: 3px solid #e0e0e0;
+    padding: 20px;
+}
+
+.isi-konten blockquote p{
+    margin: 0px;
+}
