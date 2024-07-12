@@ -84,7 +84,7 @@
                         {{ $item->judul }}
                       </h5>
                       <div class="post-meta">
-                        <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
+                        <span class="post-date"><small>{{ $item->created_at->diffForHumans() }}</small></span>
                       </div>
                     </div>
                   </div>

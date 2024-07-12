@@ -11,7 +11,7 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
-        $likedKonten = $user->likedKonten()->take(5)->get();
+        $likedKonten = $user->likedKonten()->orderBy('likes.created_at', 'desc')->with('kategori')->take(5)->get();
 
         return view('front/dashboard', compact('likedKonten'));
     }

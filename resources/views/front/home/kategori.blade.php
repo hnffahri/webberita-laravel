@@ -14,7 +14,7 @@
           <div class="row">
             @foreach ($konten as $item)
             <div class="col-md-6 mt-4">
-              <a href="{{ url('/'.$item->Kategori->slug.'/'.$item->slug) }}">
+              <a href="{{ url('/'.$kategori->slug.'/'.$item->slug) }}">
                 <div class="card">
                   <figure>
                     <img src="{{ asset('images/konten/'.$item->img) }}" alt="{{ $item->judul }}" class="banner w-100">
@@ -24,7 +24,7 @@
                       @if ($item->type == 2)
                       <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                       @endif
-                      <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
+                      <span class="post-date"><small>{{ $item->created_at->diffForHumans() }}</small></span>
                     </div>
                     <h5 class="text-dark mb-0">{{ $item->judul }}</h5>
                   </div>
@@ -45,7 +45,7 @@
             <div class="">
               @foreach ($trending as $item)
               <div class="card-body border-top trending">
-                <a href="{{ url('/'.$item->kategori->slug.'/'.$item->slug) }}">
+                <a href="{{ url('/'.$item->slug.'/'.$item->slug) }}">
                   <div class="d-flex">
                     <div class="number bg-light">{{ $loop->iteration }}</div>
                     <div class="text">
@@ -58,7 +58,7 @@
                         {{ $item->judul }}
                       </h5>
                       <div class="post-meta">
-                        <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
+                        <span class="post-date"><small>{{ $item->created_at->diffForHumans() }}</small></span>
                       </div>
                     </div>
                   </div>

@@ -14,7 +14,7 @@ class PenulisController extends Controller
         Carbon::setLocale('id');
         $oneMonthAgo = Carbon::now()->subMonth();
         $penulis = Admin::whereUsername($username)->withCount('konten')->firstOrFail();
-        $konten = Konten::where('admin_id', $penulis->id)->latest()->paginate(4);
+        $konten = Konten::with('kategori')->where('admin_id', $penulis->id)->latest()->paginate(4);
 
         return view('front/home/penulis', compact('penulis', 'konten'));
     }

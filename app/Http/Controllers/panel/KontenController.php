@@ -64,11 +64,11 @@ class KontenController extends Controller
      */
     public function index()
     {
-        return view("panel/konten/index", [
-            'konten' => Konten::with('Kategori')->latest()->paginate(6),
-            'kategori' => Kategori::latest()->get(),
-            'admin' => Admin::latest()->get()
-        ]);
+        $konten = Konten::with(['kategori','admin'])->latest()->paginate(6);
+        $kategori = Kategori::latest()->get();
+        $admin = Admin::latest()->get();
+
+        return view("panel.konten.index", compact('konten', 'kategori', 'admin'));
     }
 
     /**
@@ -258,7 +258,7 @@ class KontenController extends Controller
         }
 
         // Dapatkan hasil pencarian
-        $konten = $query->paginate(6)->appends($request->except('page'));
+        $konten = $query->with(['kategori','admin'])->paginate(6)->appends($request->except('page'));
 
         // Kembalikan view dengan hasil pencarian dan data tambahan untuk form
         return view('panel.konten.search', compact('konten', 'kategori', 'admin'));

@@ -158,11 +158,11 @@
           </div>
         </div>
         <div class="swiper-wrapper">
-          @foreach($kategori->Konten()->with('kategori')->take(2)->latest()->get() as $konten)
+          @foreach($kategori->Konten()->take(2)->latest()->get() as $konten)
           {{-- @foreach ($kategori->Konten as $konten) --}}
 
           <div class="swiper-slide">
-            <a href="{{ url('/'.$konten->kategori->slug.'/'.$konten->slug) }}">
+            <a href="{{ url('/'.$kategori->slug.'/'.$konten->slug) }}">
               <div class="card">
                 <figure>
                   <img src="{{ asset('images/konten/'.$konten->img) }}" alt="{{ $konten->judul }}" class="banner w-100">

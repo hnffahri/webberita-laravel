@@ -11,7 +11,7 @@ class LikedKontenController extends Controller
     public function likedKonten()
     {
         $user = Auth::user();
-        $likedKonten = $user->likedKonten()->latest()->paginate(1);
+        $likedKonten = $user->likedKonten()->orderBy('likes.created_at', 'desc')->with('kategori')->paginate(1);
 
         return view('front.likedkonten', compact('likedKonten'));
     }

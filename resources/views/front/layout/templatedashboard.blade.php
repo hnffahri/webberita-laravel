@@ -25,8 +25,8 @@
 	<div class="wrapper">
     <main>
       @include('front/layout/navbar')
-      @include('front/komponen/_modalcari')
-      @include('front/komponen/_offcanvascari')
+      {{-- @include('front/komponen/_modalcari')
+      @include('front/komponen/_offcanvascari') --}}
 
       <section class="py-5 bg-light">
         <div class="container">

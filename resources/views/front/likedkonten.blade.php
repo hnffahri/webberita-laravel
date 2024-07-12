@@ -20,7 +20,7 @@
     @else
     @foreach($likedKonten as $konten)
     <div class="card-body border-top">
-      <a href="{{ url('/'.$konten->Kategori->slug.'/'.$konten->slug) }}">
+      <a href="{{ url('/'.$konten->kategori->slug.'/'.$konten->slug) }}">
         <div class="d-flex align-items-center">
           <div class="me-3 w-100">
             <h5 class="text-dark">{{ $konten->judul }}</h5>

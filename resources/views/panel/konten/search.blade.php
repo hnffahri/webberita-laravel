@@ -9,8 +9,8 @@
     <h1 class="h3 mb-0"><strong>List</strong> Konten</h1>
   </div>
   <div class="col-6 text-end">
-    <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-link text-dark"><i class="fal fa-filter me-2"></i>Filter</a>
-    <a href="{{ url('panel/konten/create') }}" class="btn btn-primary"><i class="fal fa-plus-circle me-2"></i>Tambah</a>
+    <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-link text-dark"><i class="bi bi-filter me-2"></i>Filter</a>
+    <a href="{{ url('panel/konten/create') }}" class="btn btn-primary"><i class="bi bi-plus-circle me-2"></i>Tambah</a>
   </div>
 </div>
 
@@ -82,7 +82,7 @@
       <img src="{{ asset('images/konten/'.$item->img) }}" alt="{{ $item->judul }}" class="w-100 banner card-img-top">
       <div class="card-body">
         <div class="mb-3 clearfix">
-          <div class="float-start"><i class="fal fa-bookmark me-2"></i>{{ $item->kategori->nama }}</div>
+          <div class="float-start"><i class="bi bi-bookmark me-2"></i>{{ $item->kategori->nama }}</div>
           <div class="float-end">
             @if ($item->type == 1)
             <span class="badge bg-info">Artikel</span>
@@ -104,14 +104,14 @@
           <span class="ms-2">{{ $item->likes->count() }} Like</span>
         </p>
         <p>
-          <small><i class="fal fa-calendar-alt me-2"></i>{{$item->created_at}}</small>
-          <small class="ms-3"><i class="fal fa-user me-2"></i>{{ $item->admin->name }}</small>
+          <small><i class="bi bi-calendar3 me-2"></i>{{$item->created_at}}</small>
+          <small class="ms-3"><i class="bi bi-person me-2"></i>{{ $item->admin->name }}</small>
         </p>
         <div class="card m-0">
           <div class="btn-group">
-            <a href="{{ url('panel/konten/'.$item->id) }}" class="btn btn-light"><i class="fal fa-eye"></i></a>
-            <a href="{{ url('panel/konten/'.$item->id.'/edit') }}" class="btn btn-light"><i class="fal fa-edit"></i></a>
-            <a href="#" onclick="deleteKonten(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="fal fa-trash-alt"></i></a>
+            <a href="{{ url('panel/konten/'.$item->id) }}" class="btn btn-light"><i class="bi bi-eye"></i></a>
+            <a href="{{ url('panel/konten/'.$item->id.'/edit') }}" class="btn btn-light"><i class="bi bi-pencil-square"></i></a>
+            <a href="#" onclick="deleteKonten(this)" data-id="{{ $item->id }}" class="btn btn-light"><i class="bi bi-trash"></i></a>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ class KategoriController extends Controller
         $kategori = Kategori::whereSlug($slugKategori)->firstOrFail();
         $konten = Konten::where('kategori_id', $kategori->id)->latest()->paginate(4);
         
-        $trending = Konten::with('Kategori')
+        $trending = Konten::with('kategori')
         ->where('kategori_id', $kategori->id)
         ->where('status', 1)
         ->where('created_at', '>=', $oneMonthAgo)
@@ -30,44 +30,42 @@ class KategoriController extends Controller
 
         return view('front/home/kategori', compact('konten', 'kategori', 'trending'));
     }
-
-    public function detail($slugKategori, $slugKonten){
-        
-        Date::setLocale('id');
+    public function detail($slugKategori, $slugKonten)
+    {
         Carbon::setLocale('id');
         
         $oneMonthAgo = Carbon::now()->subMonth();
-
-        $konten = Konten::with('kategori')->where('slug', $slugKonten)->firstOrFail();
-        
+    
+        $konten = Konten::with('kategori', 'Admin', 'likes')->where('slug', $slugKonten)->firstOrFail();
+    
         // Buat kunci sesi unik untuk setiap konten berdasarkan ID konten
         $sessionKey = 'viewed_konten_' . $konten->id;
-
+    
         // Periksa apakah kunci sesi ini sudah ada
         if (!session()->has($sessionKey)) {
             // Jika belum ada, tambahkan jumlah views dan simpan kunci sesi
             $konten->views += 1;
             $konten->save();
-
+    
             // Simpan informasi bahwa konten ini sudah dilihat dalam sesi
             session()->put($sessionKey, true);
         }
-
-        $konten->formatted_date = Carbon::parse($konten->created_at)->translatedFormat('l, d F Y H:i');
-
+    
+        $konten->formatted_date = $konten->created_at->translatedFormat('l, d F Y H:i');
+    
         $kategori = $konten->kategori;
         
-        $trending = Konten::with('Kategori')
-        ->where('kategori_id', $kategori->id)
-        ->where('status', 1)
-        ->where('id', '!=', $konten->id)
-        ->where('created_at', '>=', $oneMonthAgo)
-        ->orderBy('views', 'desc')
-        ->take(6)
-        ->latest()
-        ->get();
-
+        $trending = Konten::where('kategori_id', $kategori->id)
+            ->where('status', 1)
+            ->where('id', '!=', $konten->id)
+            ->where('created_at', '>=', $oneMonthAgo)
+            ->orderBy('views', 'desc')
+            ->take(6)
+            ->latest()
+            ->get();
+    
         return view('front/home/detail', compact('konten', 'kategori', 'trending'));
     }
+    
 
 }
