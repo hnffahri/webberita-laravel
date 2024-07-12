@@ -32,7 +32,7 @@
                 </h2>
                 <div class="text-light ringkas">{{ $terbaru->ringkas }}</div>
                 <div class="post-meta m-0">
-                  <span class="post-date"><small>{{ \Carbon\Carbon::parse($terbaru->created_at)->locale('id')->diffForHumans() }}</small></span>
+                  <span class="post-date"><small>{{ $terbaru->created_at->diffForHumans() }}</small></span>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@
                   {{ $item->judul }}
                 </h4>
                 <div class="post-meta m-0">
-                  <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
+                  <span class="post-date"><small>{{ $item->created_at->diffForHumans() }}</small></span>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@
                     <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                     @endif
                     <span class="post-category me-2" style="background-color: {{ $item->kategori->warna }} !important"><i class="bi bi-bookmark me-1"></i>{{ $item->kategori->nama }}</span>
-                    <span class=""><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
+                    <span class=""><small>{{ $item->created_at->diffForHumans() }}</small></span>
                   </div>
                   <h4 class="m-0 text-dark">{{ $item->judul }}</h4>
                 </div>
@@ -133,7 +133,7 @@
                     {{ $item->judul }}
                   </h5>
                   <div class="post-meta">
-                    <span class="post-date"><small>{{ \Carbon\Carbon::parse($item->created_at)->locale('id')->diffForHumans() }}</small></span>
+                    <span class="post-date"><small>{{ $item->created_at->diffForHumans() }}</small></span>
                   </div>
                 </div>
               </div>
@@ -158,7 +158,7 @@
           </div>
         </div>
         <div class="swiper-wrapper">
-          @foreach($kategori->Konten()->take(2)->latest()->get() as $konten)
+          @foreach($kategori->konten()->take(2)->latest()->get() as $konten)
           {{-- @foreach ($kategori->Konten as $konten) --}}
 
           <div class="swiper-slide">
@@ -172,7 +172,7 @@
                     @if ($konten->type == 2)
                     <span class="post-vidio me-2"><i class="bi bi-play me-1"></i> Vidio</span>
                     @endif
-                    <span class="post-date"><small>{{ \Carbon\Carbon::parse($konten->created_at)->locale('id')->diffForHumans() }}</small></span>
+                    <span class="post-date"><small>{{ $konten->created_at->diffForHumans() }}</small></span>
                   </div>
                   <h5 class="text-dark mb-0">{{ $konten->judul }}</h5>
                 </div>

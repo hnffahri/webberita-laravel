@@ -31,7 +31,7 @@
         @forelse ($kategori as $item)
         <tr>
           <th scope="row">{{ $loop->iteration }}</th>
-          {{-- <td>{{ $item->nama }}</td> --}}
+          <td>{{ $item->nama }}</td>
           <td><span class="badge bg-success" style="background-color: {{ $item->warna }} !important">{{ $item->warna }}</span></td>
           <td>
             <div class="btn-group">
