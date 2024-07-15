@@ -158,7 +158,7 @@
           </div>
         </div>
         <div class="swiper-wrapper">
-          @foreach($kategori->konten()->take(2)->latest()->get() as $konten)
+          @foreach($kategori->konten()->take(5)->latest()->get() as $konten)
           {{-- @foreach ($kategori->Konten as $konten) --}}
 
           <div class="swiper-slide">

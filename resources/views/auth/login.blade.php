@@ -55,7 +55,7 @@
                 @if (Route::has('password.request'))
                 <div class="mt-2">
                   <a class="text-link" href="{{ route('password.request') }}">
-                    Lupa password? <span class="text-primary text-underline">Klis disini...</span>
+                    Lupa password? <span class="text-primary text-underline">Klik disini...</span>
                   </a>
                 </div>
                 @endif
